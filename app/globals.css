@@ -1,26 +1,152 @@
 @import "tailwindcss";
 
+/* ─── Design Tokens ──────────────────────────────────────────────── */
 :root {
+  /* Brand Colors */
+  --color-blue-primary: #1a4fba;
+  --color-blue-deep: #1240a0;
+  --color-blue-light: #2d63d4;
+  --color-blue-pale: #dbeafe;
+  --color-navy: #0f1e3d;
+  --color-navy-dark: #080f1e;
+
+  /* Neutrals */
+  --color-charcoal: #1c1c2e;
+  --color-gray-dark: #374151;
+  --color-gray-mid: #6b7280;
+  --color-gray-light: #9ca3af;
+  --color-gray-border: #e5e7eb;
+  --color-gray-subtle: #f3f4f6;
+  --color-white: #ffffff;
+
+  /* Semantic */
   --background: #ffffff;
-  --foreground: #171717;
+  --foreground: #1c1c2e;
+  --surface: #f9fafb;
+  --border: #e5e7eb;
+  --ring: #1a4fba;
+
+  /* Typography */
+  --font-sans: "Inter", ui-sans-serif, system-ui, -apple-system, sans-serif;
+
+  /* Spacing / Radius */
+  --radius-sm: 6px;
+  --radius-md: 10px;
+  --radius-lg: 16px;
+  --radius-xl: 24px;
+
+  /* Shadows */
+  --shadow-sm: 0 1px 3px 0 rgb(0 0 0 / 0.06), 0 1px 2px -1px rgb(0 0 0 / 0.04);
+  --shadow-md: 0 4px 12px -2px rgb(0 0 0 / 0.08), 0 2px 6px -2px rgb(0 0 0 / 0.05);
+  --shadow-lg: 0 10px 30px -5px rgb(0 0 0 / 0.10), 0 4px 12px -4px rgb(0 0 0 / 0.06);
+  --shadow-blue: 0 4px 20px -4px rgb(26 79 186 / 0.25);
 }
 
+/* ─── Tailwind Theme ─────────────────────────────────────────────── */
 @theme inline {
   --color-background: var(--background);
   --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
+  --color-surface: var(--surface);
+  --color-border: var(--border);
+
+  --color-brand-blue: var(--color-blue-primary);
+  --color-brand-blue-deep: var(--color-blue-deep);
+  --color-brand-blue-light: var(--color-blue-light);
+  --color-brand-blue-pale: var(--color-blue-pale);
+  --color-brand-navy: var(--color-navy);
+  --color-brand-navy-dark: var(--color-navy-dark);
+  --color-brand-charcoal: var(--color-charcoal);
+
+  --font-sans: var(--font-sans);
+
+  --radius-sm: var(--radius-sm);
+  --radius-md: var(--radius-md);
+  --radius-lg: var(--radius-lg);
+  --radius-xl: var(--radius-xl);
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
+/* ─── Base ───────────────────────────────────────────────────────── */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
 }
 
 body {
   background: var(--background);
   color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  font-family: var(--font-sans);
+  line-height: 1.6;
+  min-height: 100dvh;
+}
+
+/* ─── Focus Styles ───────────────────────────────────────────────── */
+:focus-visible {
+  outline: 2px solid var(--color-blue-primary);
+  outline-offset: 2px;
+  border-radius: 4px;
+}
+
+/* ─── Selection ──────────────────────────────────────────────────── */
+::selection {
+  background: var(--color-blue-pale);
+  color: var(--color-navy);
+}
+
+/* ─── Scrollbar (subtle) ─────────────────────────────────────────── */
+::-webkit-scrollbar {
+  width: 6px;
+}
+::-webkit-scrollbar-track {
+  background: var(--color-gray-subtle);
+}
+::-webkit-scrollbar-thumb {
+  background: var(--color-gray-light);
+  border-radius: 99px;
+}
+
+/* ─── Reduced Motion ─────────────────────────────────────────────── */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
+
+/* ─── Utilities ──────────────────────────────────────────────────── */
+.section-padding {
+  padding-top: 5rem;
+  padding-bottom: 5rem;
+}
+
+@media (min-width: 768px) {
+  .section-padding {
+    padding-top: 7rem;
+    padding-bottom: 7rem;
+  }
+}
+
+.container-tight {
+  max-width: 72rem;
+  margin-left: auto;
+  margin-right: auto;
+  padding-left: 1.5rem;
+  padding-right: 1.5rem;
+}
+
+@media (min-width: 640px) {
+  .container-tight {
+    padding-left: 2rem;
+    padding-right: 2rem;
+  }
 }

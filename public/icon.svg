@@ -1,0 +1,27 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100" fill="none">
+  <defs>
+    <linearGradient id="g" x1="5" y1="5" x2="95" y2="95" gradientUnits="userSpaceOnUse">
+      <stop offset="0%"   stop-color="#60b0ff"/>
+      <stop offset="35%"  stop-color="#1a6aff"/>
+      <stop offset="100%" stop-color="#061450"/>
+    </linearGradient>
+  </defs>
+  <!-- Outer ring: r=44.5, sw=7, gap 90° at bottom-right -->
+  <circle cx="50" cy="50" r="44.5" stroke="url(#g)" stroke-width="7"
+    stroke-dasharray="209.70 69.90" stroke-dashoffset="248.53"
+    stroke-linecap="round" transform="rotate(-90 50 50)" fill="none"/>
+  <!-- Mid ring: r=30, sw=8, gap 105° -->
+  <circle cx="50" cy="50" r="30" stroke="url(#g)" stroke-width="8"
+    stroke-dasharray="133.52 54.98" stroke-dashoffset="172.79"
+    stroke-linecap="round" transform="rotate(-90 50 50)" fill="none"/>
+  <!-- Inner ring: r=16.5, sw=7, gap 120° -->
+  <circle cx="50" cy="50" r="16.5" stroke="url(#g)" stroke-width="7"
+    stroke-dasharray="69.12 34.56" stroke-dashoffset="97.91"
+    stroke-linecap="round" transform="rotate(-90 50 50)" fill="none"/>
+  <!-- Centre dot -->
+  <circle cx="50" cy="50" r="5.5" fill="url(#g)"/>
+  <!-- Tail -->
+  <path d="M 46 52 L 56 52 L 92 88 L 82 92 Z" fill="url(#g)"/>
+  <!-- Dot on top -->
+  <circle cx="50" cy="50" r="5.5" fill="url(#g)"/>
+</svg>
