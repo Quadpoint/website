@@ -78,7 +78,7 @@ export function Navbar() {
             {/* Logo */}
             <Logo
               variant={isScrolled ? "default" : "white"}
-              className="flex-shrink-0"
+              className="ml-1 flex-shrink-0"
             />
 
             {/* Desktop Nav */}

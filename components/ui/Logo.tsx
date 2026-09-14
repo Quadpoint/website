@@ -28,7 +28,7 @@ export function Logo({
   return (
     <Link
       href="/"
-      className={cn("flex items-center gap-3 group", className)}
+      className={cn("flex items-center gap-1.5", className)}
       aria-label="QuadPoint Technology — Home"
     >
       <Image
@@ -38,7 +38,7 @@ export function Logo({
         width={size}
         height={size}
         priority
-        className="flex-shrink-0 transition-transform duration-200 group-hover:scale-105"
+        className="flex-shrink-0"
       />
 
       {showText && (
