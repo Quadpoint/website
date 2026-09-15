@@ -12,7 +12,7 @@ interface CTASectionProps {
 }
 
 export function CTASection({
-  heading = "Have a Business Problem? Let's Build the Solution.",
+  heading = "Want to ease your operations? Let's Build the Solution",
   subheading = "Tell us what you're trying to improve, automate, or build.",
   buttonLabel = "Talk to QuadPoint",
   buttonHref = "/contact",
@@ -38,31 +38,11 @@ export function CTASection({
             filter: "blur(50px)",
           }}
         />
-        {/* Q geometry hint — brand logo */}
-        <svg
-          className="absolute left-8 top-1/2 -translate-y-1/2 w-48 h-48 opacity-[0.07]"
-          viewBox="0 0 100 100"
-          fill="none"
-          aria-hidden="true"
-        >
-          <circle cx="50" cy="50" r="44.5" stroke="white" strokeWidth="7"
-            strokeDasharray="209.70 69.90" strokeDashoffset="248.53"
-            strokeLinecap="round" transform="rotate(-90 50 50)" fill="none"/>
-          <circle cx="50" cy="50" r="30" stroke="white" strokeWidth="8"
-            strokeDasharray="133.52 54.98" strokeDashoffset="172.79"
-            strokeLinecap="round" transform="rotate(-90 50 50)" fill="none"/>
-          <circle cx="50" cy="50" r="16.5" stroke="white" strokeWidth="7"
-            strokeDasharray="69.12 34.56" strokeDashoffset="97.91"
-            strokeLinecap="round" transform="rotate(-90 50 50)" fill="none"/>
-          <circle cx="50" cy="50" r="5.5" fill="white"/>
-          <path d="M 46 52 L 56 52 L 92 88 L 82 92 Z" fill="white"/>
-          <circle cx="50" cy="50" r="5.5" fill="white"/>
-        </svg>
       </div>
 
-      <div className="relative z-10 max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-        <FadeIn>
-          <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold text-white tracking-tight mb-5">
+      <div className="cta-panel relative z-10 max-w-7xl mx-auto px-6 py-14 sm:px-10 lg:px-16 lg:py-16 text-center">
+        <FadeIn className="relative z-10">
+          <h2 className="text-3xl sm:text-4xl font-bold text-white tracking-tight mb-5">
             {heading}
           </h2>
           <p className="text-lg text-white/60 mb-10">{subheading}</p>

@@ -1,8 +1,6 @@
 import type { Metadata } from "next";
 import { HeroSection } from "@/components/sections/HeroSection";
-import { TrustSection } from "@/components/sections/TrustSection";
 import { SolutionsSection } from "@/components/sections/SolutionsSection";
-import { FeaturedProductSection } from "@/components/sections/FeaturedProductSection";
 import { AISection } from "@/components/sections/AISection";
 import { HowWeWorkSection } from "@/components/sections/HowWeWorkSection";
 import { PortfolioSection } from "@/components/sections/PortfolioSection";
@@ -18,16 +16,14 @@ export const metadata: Metadata = {
 
 export default function HomePage() {
   return (
-    <>
+    <div className="home-reference">
       <HeroSection />
-      <TrustSection />
       <SolutionsSection />
-      <FeaturedProductSection />
+      <PortfolioSection />
       <AISection />
       <HowWeWorkSection />
-      <PortfolioSection />
       <WhyQuadPointSection />
       <CTASection />
-    </>
+    </div>
   );
 }

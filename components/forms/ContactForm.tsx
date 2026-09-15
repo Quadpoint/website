@@ -1,15 +1,16 @@
 "use client";
 
-import { useState } from "react";
 import { useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
-import { Send, CheckCircle2, AlertCircle } from "lucide-react";
+import { Send, AlertCircle } from "lucide-react";
+import Link from "next/link";
 import {
   contactFormSchema,
   type ContactFormValues,
   serviceOptions,
 } from "@/lib/validations";
 import { cn } from "@/lib/utils";
+import { buildContactMailto } from "@/lib/contact-mailto";
 
 function FieldError({ message }: { message?: string }) {
   if (!message) return null;
@@ -28,62 +29,17 @@ const inputNormal = "border-[#e5e7eb] hover:border-[#9ca3af]";
 const inputError = "border-red-400 focus:border-red-400 focus:ring-red-200";
 
 export function ContactForm() {
-  const [submitState, setSubmitState] = useState<"idle" | "success" | "error">("idle");
-
   const {
     register,
     handleSubmit,
-    formState: { errors, isSubmitting },
-    reset,
+    formState: { errors },
   } = useForm<ContactFormValues>({
     resolver: zodResolver(contactFormSchema),
     mode: "onBlur",
   });
 
-  /**
-   * Form submission handler.
-   * Currently logs to console — ready for Resend/email integration.
-   * To add Resend: replace the console.log with a fetch to /api/contact,
-   * which can use the Resend SDK to send the data via email.
-   */
-  async function onSubmit(data: ContactFormValues) {
-    try {
-      // TODO: Replace with actual email delivery
-      // e.g. await fetch('/api/contact', { method: 'POST', body: JSON.stringify(data) })
-      console.log("Contact form submission:", data);
-
-      // Simulate network delay for now
-      await new Promise((resolve) => setTimeout(resolve, 800));
-
-      setSubmitState("success");
-      reset();
-    } catch {
-      setSubmitState("error");
-    }
-  }
-
-  if (submitState === "success") {
-    return (
-      <div className="flex flex-col items-center justify-center py-16 text-center">
-        <div className="w-14 h-14 rounded-full bg-green-100 flex items-center justify-center mb-5">
-          <CheckCircle2 size={26} className="text-green-600" />
-        </div>
-        <h3 className="text-xl font-bold text-[#1c1c2e] mb-2">
-          Message Sent
-        </h3>
-        <p className="text-[#6b7280] text-sm mb-6 max-w-xs">
-          Thank you for reaching out. We&apos;ll review your message and get back
-          to you shortly.
-        </p>
-        <button
-          type="button"
-          onClick={() => setSubmitState("idle")}
-          className="text-sm font-semibold text-[#1a4fba] hover:underline"
-        >
-          Send another message
-        </button>
-      </div>
-    );
+  function onSubmit(data: ContactFormValues) {
+    window.location.assign(buildContactMailto(data));
   }
 
   return (
@@ -233,43 +189,41 @@ export function ContactForm() {
           />
           <FieldError message={errors.message?.message} />
         </div>
-      </div>
 
-      {/* Error state */}
-      {submitState === "error" && (
-        <div
-          className="mt-4 flex items-center gap-3 p-4 bg-red-50 border border-red-200 rounded-lg text-sm text-red-700"
-          role="alert"
-        >
-          <AlertCircle size={16} className="flex-shrink-0" />
-          Something went wrong. Please try again or email us directly.
+        <div className="sm:col-span-2">
+          <label className="flex items-start gap-3 text-sm text-[#374151] leading-relaxed">
+            <input
+              type="checkbox"
+              className="mt-1 h-4 w-4 flex-shrink-0 accent-[#1a4fba]"
+              aria-invalid={!!errors.privacyConsent}
+              {...register("privacyConsent")}
+            />
+            <span>
+              I consent to QuadPoint Technology collecting and using my
+              submitted information to respond to this inquiry, as described in
+              the{" "}
+              <Link href="/privacy" className="font-medium text-[#1a4fba] hover:underline">
+                Privacy Policy
+              </Link>
+              .
+            </span>
+          </label>
+          <FieldError message={errors.privacyConsent?.message} />
         </div>
-      )}
+      </div>
 
       {/* Submit */}
       <div className="mt-6">
         <button
           type="submit"
-          disabled={isSubmitting}
-          className="inline-flex items-center justify-center gap-2 w-full sm:w-auto px-8 py-3.5 bg-[#1a4fba] text-white text-sm font-semibold rounded-lg hover:bg-[#1240a0] transition-colors shadow-sm hover:shadow-[0_4px_16px_-4px_rgba(26,79,186,0.5)] disabled:opacity-60 disabled:cursor-not-allowed"
+          className="inline-flex min-h-11 items-center justify-center gap-2 w-full sm:w-auto px-8 py-3.5 bg-[#1a4fba] text-white text-sm font-semibold rounded-lg hover:bg-[#1240a0] transition-colors shadow-sm hover:shadow-[0_4px_16px_-4px_rgba(26,79,186,0.5)]"
         >
-          {isSubmitting ? (
-            <>
-              <span
-                className="w-4 h-4 border-2 border-white/40 border-t-white rounded-full animate-spin"
-                aria-hidden="true"
-              />
-              Sending…
-            </>
-          ) : (
-            <>
-              Send Inquiry
-              <Send size={14} />
-            </>
-          )}
+          Open Email Draft
+          <Send size={14} />
         </button>
         <p className="mt-3 text-xs text-[#9ca3af]">
-          We typically respond within one business day.
+          Your email app will open with the inquiry prepared. Review it and
+          press Send to deliver it.
         </p>
       </div>
     </form>

@@ -144,6 +144,85 @@ body {
   padding-right: 1.5rem;
 }
 
+/* The shared navy surface connects the homepage narrative; blue carries structure,
+   while orange appears only as feedback on the solution a visitor is exploring. */
+.home-reference {
+  background: #0b2443;
+}
+
+.home-reference > section {
+  background: #0b2443 !important;
+}
+
+.home-reference > section:not(:first-child) [class*="bg-white"],
+.home-reference > section:not(:first-child) [class*="bg-[#f9fafb]"],
+.home-reference > section:not(:first-child) [class*="bg-[#f3f4f6]"] {
+  background-color: #08366a !important;
+}
+
+.home-reference > section:not(:first-child) [class*="border-[#e5e7eb]"],
+.home-reference > section:not(:first-child) [class*="border-dashed"] {
+  border-color: rgb(109 183 255 / 0.24) !important;
+}
+
+.home-reference > section:not(:first-child) [class*="text-[#1c1c2e]"],
+.home-reference > section:not(:first-child) [class*="text-[#374151]"] {
+  color: #f7fbff !important;
+}
+
+.home-reference > section:not(:first-child) [class*="text-[#6b7280]"],
+.home-reference > section:not(:first-child) [class*="text-[#9ca3af]"] {
+  color: #b8cce3 !important;
+}
+
+.home-reference > section:not(:first-child) [class*="text-[#1a4fba]"] {
+  color: #73b6ff !important;
+}
+
+.home-reference .section-label {
+  background: #2469be !important;
+  color: #ffffff !important;
+  border: 1px solid rgb(158 207 255 / 0.32);
+}
+
+.home-reference .gloss-card {
+  background: linear-gradient(145deg, rgb(20 77 141 / 0.96), rgb(7 48 98 / 0.98)) !important;
+  box-shadow: inset 0 1px 0 rgb(255 255 255 / 0.14), 0 10px 24px -20px rgb(0 0 0 / 0.86);
+}
+
+.home-reference .interactive-card:hover,
+.home-reference .solution-card.is-highlighted {
+  border-color: #f59d13 !important;
+  transform: translateY(-3px);
+  box-shadow: 0 0 0 2px #f59d13, inset 0 1px 0 rgb(255 255 255 / 0.2), 0 18px 30px -20px rgb(0 0 0 / 0.95);
+}
+
+.home-reference .interactive-card:focus-within {
+  border-color: #f59d13 !important;
+  box-shadow: 0 0 0 2px #f59d13, inset 0 1px 0 rgb(255 255 255 / 0.2), 0 18px 30px -20px rgb(0 0 0 / 0.95);
+}
+
+.home-reference .interactive-card:hover .interactive-card-icon,
+.home-reference .solution-card.is-highlighted .interactive-card-icon,
+.home-reference .interactive-card:focus-within .interactive-card-icon {
+  background-color: #f59d13;
+}
+
+.home-reference .interactive-card:hover .interactive-card-link,
+.home-reference .solution-card.is-highlighted .interactive-card-link,
+.home-reference .interactive-card:focus-within .interactive-card-link {
+  color: #f59d13;
+}
+
+.home-reference .cta-panel {
+  isolation: isolate;
+  overflow: hidden;
+  border-radius: var(--radius-xl);
+  background-image: url("/brand/cta-background.png") !important;
+  background-position: center;
+  background-size: calc(100% + 8px) auto;
+}
+
 @media (min-width: 640px) {
   .container-tight {
     padding-left: 2rem;

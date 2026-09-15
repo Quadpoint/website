@@ -17,7 +17,7 @@ function POSCardVisual() {
         <span className="w-2 h-2 rounded-full bg-white/15" />
         <span className="w-2 h-2 rounded-full bg-white/15" />
         <span className="flex-1 text-center text-[9px] text-white/30 font-medium">
-          QuadPoint POS
+          Illustrative product preview
         </span>
       </div>
 
@@ -25,8 +25,8 @@ function POSCardVisual() {
         {/* Stat row */}
         <div className="grid grid-cols-2 gap-2">
           {[
-            { label: "Revenue", val: "$4,820" },
-            { label: "Transactions", val: "148" },
+            { label: "Revenue", val: "Sample" },
+            { label: "Transactions", val: "Sample" },
           ].map((s) => (
             <div key={s.label} className="bg-white/6 rounded-lg p-2 border border-white/8">
               <p className="text-[8px] text-white/40 mb-0.5">{s.label}</p>
@@ -110,7 +110,7 @@ export function PortfolioSection() {
             </h2>
             <Link
               href="/products"
-              className="inline-flex items-center gap-1.5 text-sm font-semibold text-[#1a4fba] hover:gap-2.5 transition-all"
+              className="inline-flex items-center gap-1.5 text-sm font-semibold text-[#f59e0b] hover:gap-2.5 transition-all"
             >
               View all products
               <ArrowRight size={14} />
@@ -123,7 +123,7 @@ export function PortfolioSection() {
             <StaggerItem key={project.id}>
               {project.status === "live" ? (
                 /* Live product card */
-                <div className="group bg-[#f9fafb] rounded-2xl border border-[#e5e7eb] overflow-hidden hover:border-[#1a4fba]/30 hover:shadow-[0_8px_30px_-8px_rgba(26,79,186,0.12)] transition-all duration-300 h-full flex flex-col">
+                <div className="interactive-card gloss-card group rounded-2xl border border-[#e5e7eb] overflow-hidden transition-all duration-300 h-full flex flex-col">
                   {/* Visual thumbnail */}
                   <div className="p-5 pb-0">
                     {project.visual}
@@ -151,7 +151,7 @@ export function PortfolioSection() {
                     {project.href && project.cta && (
                       <Link
                         href={project.href}
-                        className="inline-flex items-center gap-2 text-sm font-semibold text-[#1a4fba] group-hover:gap-3 transition-all"
+                        className="interactive-card-link inline-flex min-h-11 items-center gap-2 text-sm font-semibold text-[#8ed0ff] transition-colors duration-300"
                       >
                         <ShoppingCart size={13} />
                         {project.cta}
@@ -162,7 +162,7 @@ export function PortfolioSection() {
                 </div>
               ) : (
                 /* Coming soon card */
-                <div className="bg-[#f9fafb] rounded-2xl border border-[#e5e7eb] border-dashed p-6 h-full flex flex-col opacity-70">
+                <div className="gloss-card rounded-2xl border border-[#e5e7eb] border-dashed p-6 h-full flex flex-col opacity-70">
                   <div className="flex items-center gap-2 mb-4">
                     <span className="flex items-center gap-1.5 px-2.5 py-1 rounded-full bg-[#f3f4f6] border border-[#e5e7eb] text-[10px] font-semibold text-[#9ca3af] uppercase tracking-wide">
                       <Clock size={9} />

@@ -112,7 +112,7 @@ export function Navbar() {
                 href="/contact"
                 className={cn(
                   "px-5 py-2 text-sm font-semibold rounded-lg transition-all duration-150",
-                  "bg-[#1a4fba] text-white hover:bg-[#1240a0] shadow-sm hover:shadow-[0_4px_12px_-2px_rgba(26,79,186,0.4)]"
+                  "bg-[#f59e0b] text-[#0f1e3d] hover:bg-[#fbb52b] shadow-sm hover:shadow-[0_4px_12px_-2px_rgba(245,158,11,0.45)]"
                 )}
               >
                 Get Started
@@ -122,7 +122,7 @@ export function Navbar() {
             {/* Mobile menu button */}
             <button
               className={cn(
-                "lg:hidden p-2 rounded-md transition-colors duration-150",
+                "lg:hidden min-w-11 min-h-11 p-2 rounded-md transition-colors duration-150",
                 isScrolled
                   ? "text-[#374151] hover:bg-[#f3f4f6]"
                   : "text-white hover:bg-white/10"
@@ -208,7 +208,7 @@ export function Navbar() {
               <div className="p-5 border-t border-[#e5e7eb]">
                 <Link
                   href="/contact"
-                  className="flex items-center justify-center w-full px-5 py-2.5 text-sm font-semibold rounded-lg bg-[#1a4fba] text-white hover:bg-[#1240a0] transition-colors shadow-sm"
+                  className="flex items-center justify-center w-full px-5 py-2.5 text-sm font-semibold rounded-lg bg-[#f59e0b] text-[#0f1e3d] hover:bg-[#fbb52b] transition-colors shadow-sm"
                 >
                   Get Started
                 </Link>

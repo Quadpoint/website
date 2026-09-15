@@ -57,9 +57,9 @@ export function WhyQuadPointSection() {
             const Icon = value.icon;
             return (
               <StaggerItem key={value.title}>
-                <div className="bg-white rounded-2xl border border-[#e5e7eb] p-6 h-full hover:border-[#1a4fba]/30 hover:shadow-[0_4px_20px_-6px_rgba(26,79,186,0.08)] transition-all duration-300">
-                  <div className="w-11 h-11 rounded-xl bg-[#dbeafe]/50 flex items-center justify-center mb-4">
-                    <Icon size={20} className="text-[#1a4fba]" />
+                <div className="gloss-card rounded-2xl border border-[#e5e7eb] p-6 h-full">
+                  <div className="w-11 h-11 rounded-xl bg-[#f59e0b] flex items-center justify-center mb-4">
+                    <Icon size={20} className="text-white" />
                   </div>
                   <h3 className="text-base font-bold text-[#1c1c2e] mb-2">
                     {value.title}

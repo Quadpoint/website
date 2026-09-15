@@ -137,14 +137,25 @@ export function AISection() {
         <div className="grid lg:grid-cols-2 gap-14 lg:gap-20 items-start">
           {/* Workflow diagram */}
           <FadeIn direction="left">
-            <div className="bg-white/5 border border-white/10 rounded-2xl p-8">
-              <p className="text-xs font-semibold text-white/40 uppercase tracking-widest mb-6 text-center">
-                Example Multi-Agent Workflow
-              </p>
-              <WorkflowDiagram />
-              <p className="text-xs text-white/35 text-center mt-6 leading-relaxed">
-                Specialized agents handle each stage, then hand off to the human team.
-              </p>
+            <div className="relative overflow-hidden bg-white/5 border border-white/10 rounded-2xl p-8">
+              <div
+                className="absolute inset-0 opacity-[0.055] pointer-events-none"
+                style={{
+                  backgroundImage:
+                    "linear-gradient(rgba(255,255,255,0.8) 1px, transparent 1px), linear-gradient(90deg, rgba(255,255,255,0.8) 1px, transparent 1px)",
+                  backgroundSize: "28px 28px",
+                }}
+                aria-hidden="true"
+              />
+              <div className="relative z-10">
+                <p className="text-xs font-semibold text-white/40 uppercase tracking-widest mb-6 text-center">
+                  Example Multi-Agent Workflow
+                </p>
+                <WorkflowDiagram />
+                <p className="text-xs text-white/35 text-center mt-6 leading-relaxed">
+                  Specialized agents handle each stage, then hand off to the human team.
+                </p>
+              </div>
             </div>
           </FadeIn>
 
@@ -163,9 +174,9 @@ export function AISection() {
                 const Icon = agent.icon;
                 return (
                   <StaggerItem key={agent.name}>
-                    <div className="flex items-start gap-4 bg-white/6 border border-white/10 rounded-xl p-4 hover:bg-white/10 hover:border-white/20 transition-colors">
-                      <div className="w-9 h-9 rounded-lg bg-[#1a4fba]/40 flex items-center justify-center flex-shrink-0 mt-0.5">
-                        <Icon size={15} className="text-[#2d63d4]" />
+                    <div className="gloss-card flex items-start gap-4 rounded-xl p-4 transition-all duration-300">
+                      <div className="w-9 h-9 rounded-lg bg-[#f59e0b] flex items-center justify-center flex-shrink-0 mt-0.5">
+                        <Icon size={15} className="text-white" />
                       </div>
                       <div>
                         <p className="text-sm font-semibold text-white mb-0.5">
@@ -184,7 +195,7 @@ export function AISection() {
             <FadeIn delay={0.4} className="mt-8">
               <Link
                 href="/contact"
-                className="inline-flex items-center gap-2 px-6 py-3 bg-[#1a4fba] text-white text-sm font-semibold rounded-lg hover:bg-[#2d63d4] transition-colors"
+                className="inline-flex items-center gap-2 px-6 py-3 bg-[#f59e0b] text-[#0f1e3d] text-sm font-semibold rounded-lg hover:bg-[#fbb52b] transition-colors"
               >
                 Build an AI Solution
                 <ArrowRight size={14} />

@@ -1,6 +1,5 @@
 import Link from "next/link";
 import { Logo } from "@/components/ui/Logo";
-import { ArrowRight } from "lucide-react";
 
 function FacebookIcon({ size = 16 }: { size?: number }) {
   return (
@@ -86,14 +85,6 @@ export function Footer() {
               </a>
             </div>
 
-            {/* CTA */}
-            <Link
-              href="/contact"
-              className="inline-flex items-center gap-2 px-4 py-2.5 text-sm font-semibold rounded-lg bg-[#1a4fba] text-white hover:bg-[#2d63d4] transition-colors group"
-            >
-              Get in Touch
-              <ArrowRight size={13} className="group-hover:translate-x-0.5 transition-transform" />
-            </Link>
           </div>
 
           {/* Nav columns — span 3 */}

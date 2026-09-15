@@ -2,28 +2,33 @@
 
 import { FadeIn, StaggerContainer, StaggerItem } from "@/components/animations/FadeIn";
 import { SectionLabel } from "@/components/ui/SectionLabel";
+import { Search, PenTool, Wrench, TrendingUp } from "lucide-react";
 
 const steps = [
   {
     number: "01",
+    icon: Search,
     title: "Discover",
     description:
       "Understand the business, its challenges, and opportunities. We ask the right questions before writing a single line of code.",
   },
   {
     number: "02",
+    icon: PenTool,
     title: "Design",
     description:
       "Design a technology solution around the actual workflow. Architecture, UX, and system design come before development.",
   },
   {
     number: "03",
+    icon: Wrench,
     title: "Build",
     description:
       "Develop, integrate, test, and deploy the solution. Clean, maintainable code built to production standards.",
   },
   {
     number: "04",
+    icon: TrendingUp,
     title: "Grow",
     description:
       "Improve and expand the system as the business evolves. Technology should scale with your ambitions.",
@@ -54,9 +59,11 @@ export function HowWeWorkSection() {
 
         {/* Steps */}
         <StaggerContainer className="grid sm:grid-cols-2 lg:grid-cols-4 gap-6 lg:gap-8">
-          {steps.map((step, i) => (
+          {steps.map((step, i) => {
+            const Icon = step.icon;
+            return (
             <StaggerItem key={step.number}>
-              <div className="relative group h-full">
+              <div className="relative h-full">
                 {/* Connector line (desktop) */}
                 {i < steps.length - 1 && (
                   <div
@@ -67,10 +74,13 @@ export function HowWeWorkSection() {
                 )}
 
                 {/* Card */}
-                <div className="relative z-10 bg-[#f9fafb] rounded-2xl border border-[#e5e7eb] p-6 h-full hover:border-[#1a4fba]/30 hover:bg-white hover:shadow-[0_4px_20px_-6px_rgba(26,79,186,0.1)] transition-all duration-300">
-                  <span className="text-4xl font-bold text-[#1a4fba]/15 block mb-4 leading-none">
-                    {step.number}
-                  </span>
+                <div className="gloss-card relative z-10 rounded-2xl border border-[#e5e7eb] p-6 h-full">
+                  <div className="flex items-center justify-between mb-4">
+                    <span className="text-4xl font-bold text-[#f59e0b] leading-none">{step.number}</span>
+                    <div className="w-9 h-9 rounded-lg bg-[#f59e0b] flex items-center justify-center">
+                      <Icon size={17} className="text-white" />
+                    </div>
+                  </div>
                   <h3 className="text-lg font-bold text-[#1c1c2e] mb-2">
                     {step.title}
                   </h3>
@@ -80,7 +90,8 @@ export function HowWeWorkSection() {
                 </div>
               </div>
             </StaggerItem>
-          ))}
+            );
+          })}
         </StaggerContainer>
       </div>
     </section>

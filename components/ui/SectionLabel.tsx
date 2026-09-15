@@ -14,8 +14,8 @@ export function SectionLabel({
   return (
     <span
       className={cn(
-        "inline-flex items-center px-3 py-1 rounded-full text-xs font-semibold tracking-widest uppercase",
-        variant === "blue" && "bg-[#dbeafe] text-[#1a4fba]",
+        "section-label inline-flex items-center px-3 py-1 rounded-full text-xs font-semibold tracking-widest uppercase",
+        variant === "blue" && "bg-[#2469be] text-white",
         variant === "white" && "bg-white/15 text-white",
         variant === "gray" && "bg-[#f3f4f6] text-[#6b7280]",
         className

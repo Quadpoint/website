@@ -31,7 +31,7 @@ export default function ContactPage() {
           <FadeIn>
             <SectionLabel variant="white" className="mb-5">Contact</SectionLabel>
             <h1 className="text-4xl sm:text-5xl font-bold text-white tracking-tight mb-5">
-              Let&apos;s Build Something.
+              Let&apos;s Build the Solution.
             </h1>
             <p className="text-lg text-white/60 leading-relaxed max-w-2xl mx-auto">
               Tell us about your business, your challenge, or the technology you
@@ -62,10 +62,10 @@ export default function ContactPage() {
                           Email
                         </p>
                         <a
-                          href="mailto:hello@quadpointtechnology.com"
+                          href="mailto:quadpointtechnology@gmail.com"
                           className="text-sm text-[#374151] hover:text-[#1a4fba] transition-colors"
                         >
-                          hello@quadpointtechnology.com
+                          quadpointtechnology@gmail.com
                         </a>
                       </div>
                     </div>

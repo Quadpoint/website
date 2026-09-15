@@ -36,6 +36,9 @@ export const contactFormSchema = z.object({
     .string()
     .min(20, "Please provide a bit more detail (at least 20 characters)")
     .max(2000, "Message is too long"),
+  privacyConsent: z.literal(true, {
+    errorMap: () => ({ message: "Please consent to the Privacy Policy" }),
+  }),
 });
 
 export type ContactFormValues = z.infer<typeof contactFormSchema>;

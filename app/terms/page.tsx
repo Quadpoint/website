@@ -21,10 +21,10 @@ export default function TermsPage() {
               These Terms of Service will be updated with full details. For
               questions, please contact us at{" "}
               <a
-                href="mailto:hello@quadpointtechnology.com"
+                href="mailto:quadpointtechnology@gmail.com"
                 className="text-[#1a4fba] hover:underline"
               >
-                hello@quadpointtechnology.com
+                quadpointtechnology@gmail.com
               </a>
               .
             </p>
