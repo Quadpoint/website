@@ -144,14 +144,14 @@ body {
   padding-right: 1.5rem;
 }
 
-/* The shared navy surface connects the homepage narrative; blue carries structure,
-   while orange appears only as feedback on the solution a visitor is exploring. */
+/* Matching navy endpoints let each section carry its own depth without visible
+   joins between the hero and the sections that follow. */
 .home-reference {
   background: #0b2443;
 }
 
 .home-reference > section {
-  background: #0b2443 !important;
+  background: linear-gradient(180deg, #0b2443 0%, #103863 42%, #103863 58%, #0b2443 100%) !important;
 }
 
 .home-reference > section:not(:first-child) [class*="bg-white"],

@@ -223,13 +223,6 @@ export function HeroSection() {
         </div>
       </div>
 
-      {/* Carry the hero into the navy home-page surface. */}
-      <div
-        className="absolute bottom-0 left-0 right-0 h-32 pointer-events-none"
-        style={{ background: "linear-gradient(to bottom, transparent 0%, #031b36 100%)" }}
-        aria-hidden="true"
-      />
-
       {/* Scroll indicator */}
       <motion.div
         initial={{ opacity: 0 }}
