@@ -201,7 +201,7 @@ export function HeroSection() {
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
               transition={{ duration: 0.6, delay: 0.7 }}
-              className="flex items-center gap-6 mt-12 pt-8 border-t border-white/10"
+              className="flex items-center gap-6 mt-8"
             >
               {[
                 "Business Software",
@@ -223,19 +223,6 @@ export function HeroSection() {
         </div>
       </div>
 
-      {/* Scroll indicator */}
-      <motion.div
-        initial={{ opacity: 0 }}
-        animate={{ opacity: 1 }}
-        transition={{ delay: 1.4, duration: 0.6 }}
-        className="absolute bottom-8 left-1/2 -translate-x-1/2 flex flex-col items-center gap-1.5 z-10"
-        aria-hidden="true"
-      >
-        <span className="text-[10px] text-white/30 font-medium tracking-widest uppercase">
-          Scroll
-        </span>
-        <div className="w-px h-6 bg-gradient-to-b from-white/30 to-transparent" />
-      </motion.div>
     </section>
   );
 }

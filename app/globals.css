@@ -154,6 +154,13 @@ body {
   background: linear-gradient(180deg, #0b2443 0%, #103863 42%, #103863 58%, #0b2443 100%) !important;
 }
 
+.home-reference > section:not(:first-child):not(:last-child) {
+  min-height: 100dvh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
 .home-reference > section:not(:first-child) [class*="bg-white"],
 .home-reference > section:not(:first-child) [class*="bg-[#f9fafb]"],
 .home-reference > section:not(:first-child) [class*="bg-[#f3f4f6]"] {
@@ -190,8 +197,7 @@ body {
   box-shadow: inset 0 1px 0 rgb(255 255 255 / 0.14), 0 10px 24px -20px rgb(0 0 0 / 0.86);
 }
 
-.home-reference .interactive-card:hover,
-.home-reference .solution-card.is-highlighted {
+.home-reference .interactive-card:hover {
   border-color: #f59d13 !important;
   transform: translateY(-3px);
   box-shadow: 0 0 0 2px #f59d13, inset 0 1px 0 rgb(255 255 255 / 0.2), 0 18px 30px -20px rgb(0 0 0 / 0.95);
@@ -203,13 +209,11 @@ body {
 }
 
 .home-reference .interactive-card:hover .interactive-card-icon,
-.home-reference .solution-card.is-highlighted .interactive-card-icon,
 .home-reference .interactive-card:focus-within .interactive-card-icon {
   background-color: #f59d13;
 }
 
 .home-reference .interactive-card:hover .interactive-card-link,
-.home-reference .solution-card.is-highlighted .interactive-card-link,
 .home-reference .interactive-card:focus-within .interactive-card-link {
   color: #f59d13;
 }

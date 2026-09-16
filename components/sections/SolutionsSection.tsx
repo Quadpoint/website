@@ -1,11 +1,9 @@
 "use client";
 
 import Link from "next/link";
-import { useState } from "react";
 import { Monitor, Bot, Code2, ArrowRight } from "lucide-react";
 import { FadeIn, StaggerContainer, StaggerItem } from "@/components/animations/FadeIn";
 import { SectionLabel } from "@/components/ui/SectionLabel";
-import { addHighlightedSolution } from "@/lib/solution-highlight";
 
 const solutions = [
   {
@@ -71,14 +69,6 @@ const capabilities = [
 ];
 
 export function SolutionsSection() {
-  const [highlighted, setHighlighted] = useState<ReadonlySet<string>>(
-    () => new Set()
-  );
-
-  function highlightSolution(title: string) {
-    setHighlighted((current) => addHighlightedSolution(current, title));
-  }
-
   return (
     <section
       id="solutions"
@@ -118,12 +108,10 @@ export function SolutionsSection() {
             return (
               <StaggerItem key={solution.title}>
                 <div
-                  className={`solution-card interactive-card gloss-card group rounded-2xl border border-[#e5e7eb] p-7 h-full flex flex-col transition-all duration-300 ${highlighted.has(solution.title) ? "is-highlighted" : ""}`}
-                  onMouseEnter={() => highlightSolution(solution.title)}
-                  onFocus={() => highlightSolution(solution.title)}
+                  className="solution-card interactive-card gloss-card group rounded-2xl border border-[#e5e7eb] p-7 h-full flex flex-col transition-all duration-300"
                 >
                   {/* Icon */}
-                  <div className="interactive-card-icon w-14 h-14 rounded-xl flex items-center justify-center mb-5 bg-[#2469be] transition-colors duration-300">
+                  <div className="interactive-card-icon w-14 h-14 rounded-xl flex items-center justify-center mb-5 bg-[#f59d13] transition-colors duration-300">
                     <Icon size={25} className="text-white" />
                   </div>
 
