@@ -7,6 +7,11 @@ import { Menu, X } from "lucide-react";
 import { motion, AnimatePresence } from "framer-motion";
 import { Logo } from "@/components/ui/Logo";
 import { cn } from "@/lib/utils";
+import {
+  getNavbarShadowClassName,
+  getNavbarScrollReference,
+  getNavbarScrollState,
+} from "@/lib/navbar-scroll";
 
 const navLinks = [
   { href: "/", label: "Home" },
@@ -19,16 +24,39 @@ const navLinks = [
 
 export function Navbar() {
   const [isScrolled, setIsScrolled] = useState(false);
+  const [isVisible, setIsVisible] = useState(true);
   const [mobileOpen, setMobileOpen] = useState(false);
   const pathname = usePathname();
   const mobileMenuRef = useRef<HTMLDivElement>(null);
+  const lastScrollYRef = useRef(0);
+  const isVisibleRef = useRef(true);
 
-  // Track scroll for sticky styling
+  // Track scroll direction and switch between the existing navbar styles.
   useEffect(() => {
-    const handleScroll = () => setIsScrolled(window.scrollY > 16);
+    const handleScroll = () => {
+      const currentY = window.scrollY;
+      const nextState = getNavbarScrollState({
+        currentY,
+        previousY: lastScrollYRef.current,
+        wasVisible: isVisibleRef.current,
+        mobileOpen,
+      });
+
+      setIsScrolled(nextState.isScrolled);
+      if (nextState.isVisible !== isVisibleRef.current) {
+        isVisibleRef.current = nextState.isVisible;
+        setIsVisible(nextState.isVisible);
+      }
+      lastScrollYRef.current = getNavbarScrollReference(
+        currentY,
+        lastScrollYRef.current
+      );
+    };
+
+    handleScroll();
     window.addEventListener("scroll", handleScroll, { passive: true });
     return () => window.removeEventListener("scroll", handleScroll);
-  }, []);
+  }, [mobileOpen]);
 
   // Close mobile menu on route change — wrapped in startTransition to avoid cascading renders
   useEffect(() => {
@@ -66,10 +94,12 @@ export function Navbar() {
     <>
       <header
         className={cn(
-          "fixed top-0 left-0 right-0 z-50 transition-all duration-300",
+          "fixed top-0 left-0 right-0 z-50 transition-[transform,background-color,box-shadow] duration-200 ease-[cubic-bezier(0.23,1,0.32,1)] motion-reduce:transition-none",
+          isVisible ? "translate-y-0" : "-translate-y-full",
           isScrolled
-            ? "bg-white/95 backdrop-blur-md shadow-[0_1px_0_0_#e5e7eb]"
-            : "bg-transparent"
+            ? "bg-white/95 backdrop-blur-md"
+            : "bg-transparent",
+          getNavbarShadowClassName(isScrolled, isVisible)
         )}
         role="banner"
       >
