@@ -1,5 +1,6 @@
 "use client";
 
+import Image from "next/image";
 import { motion } from "framer-motion";
 import { ArrowRight, ChevronRight } from "lucide-react";
 import { Button } from "@/components/ui/Button";
@@ -133,6 +134,25 @@ export function HeroSection() {
     >
       {/* Background geometric pattern */}
       <div className="absolute inset-0 pointer-events-none overflow-hidden" aria-hidden="true">
+        <div
+          data-hero-grid
+          className="absolute inset-0 opacity-[0.04]"
+          style={{
+            backgroundImage:
+              "linear-gradient(rgba(255,255,255,0.8) 1px, transparent 1px), linear-gradient(90deg, rgba(255,255,255,0.8) 1px, transparent 1px)",
+            backgroundSize: "60px 60px",
+          }}
+        />
+
+        <Image
+          src="/brand/quadpoint-white.png"
+          alt=""
+          width={610}
+          height={610}
+          sizes="610px"
+          className="absolute right-[-32px] top-[53%] h-auto w-[610px] max-w-none -translate-y-1/2 rotate-[-18deg] opacity-[0.06]"
+        />
+
         {/* Blue glow */}
         <div
           className="absolute top-1/4 left-1/4 w-[600px] h-[600px] rounded-full opacity-20"
