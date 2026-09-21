@@ -19,7 +19,7 @@ export function CTASection({
 }: CTASectionProps) {
   return (
     <section
-      className="py-20 xl:py-24 bg-[#0f1e3d] relative overflow-hidden"
+      className="cta-panel relative flex min-h-[34rem] items-center overflow-hidden px-6 py-24 md:min-h-[42rem] md:px-10 md:py-28 xl:min-h-[min(46rem,72dvh)] xl:px-12 xl:py-32"
       aria-label="Call to action"
     >
       {/* Background geometry */}
@@ -40,17 +40,26 @@ export function CTASection({
         />
       </div>
 
-      <div className="cta-panel relative z-10 max-w-7xl mx-auto px-6 py-14 sm:px-10 lg:px-16 lg:py-16 xl:px-24 xl:py-20 text-center">
-        <FadeIn className="relative z-10">
-          <h2 className="text-3xl sm:text-4xl font-bold text-white tracking-tight mb-5">
-            {heading}
-          </h2>
-          <p className="text-lg text-white/60 mb-10">{subheading}</p>
-          <Button href={buttonHref} variant="primary" size="lg">
-            {buttonLabel}
-            <ArrowRight size={16} className="ml-2" />
-          </Button>
-        </FadeIn>
+      <div className="relative z-10 mx-auto w-full max-w-[90rem]">
+        <div className="mx-auto w-full max-w-4xl text-center">
+          <FadeIn className="relative z-10">
+            <h2 className="text-3xl font-bold text-white tracking-tight mb-5 sm:text-4xl md:text-5xl md:leading-tight">
+              {heading}
+            </h2>
+            <p className="mx-auto mb-10 max-w-2xl text-lg text-white/70 md:text-xl lg:mx-auto">
+              {subheading}
+            </p>
+            <Button
+              href={buttonHref}
+              variant="primary"
+              size="lg"
+              className="min-h-12 px-8"
+            >
+              {buttonLabel}
+              <ArrowRight size={16} className="ml-2" />
+            </Button>
+          </FadeIn>
+        </div>
       </div>
     </section>
   );

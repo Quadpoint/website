@@ -273,13 +273,25 @@ body {
   color: #f59d13;
 }
 
-.home-reference .cta-panel {
+.home-reference > section.cta-panel,
+.cta-panel {
+  --cta-background-image: url("/brand/cta-background-mobile.png");
   isolation: isolate;
   overflow: hidden;
-  border-radius: var(--radius-xl);
-  background-image: url("/brand/cta-background.png") !important;
-  background-position: center;
-  background-size: calc(100% + 8px) auto;
+  background-color: #075bc7 !important;
+  background-image:
+    linear-gradient(90deg, rgb(8 15 30 / 0.08) 20%, rgb(8 15 30 / 0.48) 100%),
+    var(--cta-background-image) !important;
+  background-position: center !important;
+  background-size: cover !important;
+  background-repeat: no-repeat !important;
+}
+
+@media (min-width: 48rem) {
+  .home-reference > section.cta-panel,
+  .cta-panel {
+    --cta-background-image: url("/brand/cta-background-tablet.png");
+  }
 }
 
 @media (min-width: 640px) {
@@ -290,6 +302,11 @@ body {
 }
 
 @media (min-width: 80rem) {
+  .home-reference > section.cta-panel,
+  .cta-panel {
+    --cta-background-image: url("/brand/cta-background-desktop.png");
+  }
+
   .home-reference .max-w-7xl,
   .home-navbar-canvas {
     max-width: 90rem;

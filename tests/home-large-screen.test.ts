@@ -35,7 +35,6 @@ test("uses compact content-driven spacing for non-hero homepage sections", () =>
     "components/sections/AISection.tsx",
     "components/sections/HowWeWorkSection.tsx",
     "components/sections/WhyQuadPointSection.tsx",
-    "components/sections/CTASection.tsx",
   ];
 
   for (const sectionFile of sectionFiles) {
@@ -52,6 +51,31 @@ test("uses compact content-driven spacing for non-hero homepage sections", () =>
       `${sectionFile} should not restore oversized desktop section padding`
     );
   }
+});
+
+test("makes the CTA full-bleed, substantial at 768px, and flush with the footer", () => {
+  const cta = read("components/sections/CTASection.tsx");
+  const styles = read("app/globals.css");
+
+  assert.match(cta, /cta-panel[\s\S]*min-h-\[34rem\][\s\S]*md:min-h-\[42rem\]/);
+  assert.match(cta, /cta-panel[\s\S]*flex[\s\S]*items-center/);
+  assert.doesNotMatch(cta, /max-w-7xl mx-auto/);
+  assert.match(styles, /\.home-reference > section\.cta-panel,\s*\.cta-panel/);
+  assert.doesNotMatch(styles, /\.cta-panel[\s\S]*border-radius/);
+  assert.match(styles, /\.cta-panel[\s\S]*background-color: #075bc7/);
+  assert.match(styles, /url\("\/brand\/cta-background-mobile\.png"\)/);
+  assert.match(styles, /@media \(min-width: 48rem\)[\s\S]*url\("\/brand\/cta-background-tablet\.png"\)/);
+  assert.match(styles, /@media \(min-width: 80rem\)[\s\S]*url\("\/brand\/cta-background-desktop\.png"\)/);
+  assert.match(styles, /\.cta-panel[\s\S]*background-size: cover !important/);
+  assert.match(styles, /\.cta-panel[\s\S]*background-position: center !important/);
+  assert.match(styles, /\.cta-panel[\s\S]*background-repeat: no-repeat !important/);
+  assert.doesNotMatch(styles, /cta-background1\.png|calc\(100% \+ 8rem\)/);
+  assert.doesNotMatch(styles, /linear-gradient\(180deg[\s\S]*#080f1e 100%/);
+  assert.match(cta, /mx-auto w-full max-w-\[90rem\]/);
+  assert.match(cta, /xl:min-h-\[min\(46rem,72dvh\)\]/);
+  assert.doesNotMatch(cta, /lg:text-left|lg:ml-auto|lg:mr-0/);
+  assert.match(cta, /max-w-4xl text-center/);
+  assert.match(cta, /max-w-2xl[\s\S]*lg:mx-auto/);
 });
 
 test("moves balanced homepage component scaling from 2xl to xl", () => {
