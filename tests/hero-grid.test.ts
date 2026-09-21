@@ -6,6 +6,10 @@ const heroSource = readFileSync(
   new URL("../components/sections/HeroSection.tsx", import.meta.url),
   "utf8"
 );
+const globalStyles = readFileSync(
+  new URL("../app/globals.css", import.meta.url),
+  "utf8"
+);
 
 test("renders the reference-style decorative grid behind the hero content", () => {
   assert.match(heroSource, /data-hero-grid/);
@@ -17,7 +21,36 @@ test("renders the reference-style decorative grid behind the hero content", () =
 test("renders the white QuadPoint mark as a low-opacity hero watermark", () => {
   assert.match(heroSource, /import Image from "next\/image"/);
   assert.match(heroSource, /src="\/brand\/quadpoint-white\.png"/);
-  assert.match(heroSource, /width=\{580\}/);
-  assert.match(heroSource, /height=\{580\}/);
+  assert.match(heroSource, /width=\{650\}/);
+  assert.match(heroSource, /height=\{650\}/);
   assert.match(heroSource, /opacity-\[0\.06\]/);
+});
+
+test("renders critical hero content without waiting for client hydration", () => {
+  assert.doesNotMatch(heroSource, /"use client"/);
+  assert.doesNotMatch(heroSource, /from "framer-motion"/);
+  assert.doesNotMatch(heroSource, /initial=\{\{ opacity: 0/);
+  assert.doesNotMatch(heroSource, /<motion\./);
+});
+
+test("loads the above-fold hero watermark eagerly at its rendered size", () => {
+  assert.match(heroSource, /loading="eager"/);
+  assert.match(heroSource, /fetchPriority="high"/);
+  assert.match(
+    heroSource,
+    /sizes="\(min-width: 1280px\) 720px, 650px"/
+  );
+});
+
+test("uses a short CSS-only hero entrance with reduced-motion support", () => {
+  assert.match(heroSource, /hero-enter/);
+  assert.match(heroSource, /hero-enter-delay-1/);
+  assert.match(heroSource, /hero-enter-delay-2/);
+  assert.match(globalStyles, /@keyframes hero-enter/);
+  assert.match(globalStyles, /animation-duration: 420ms/);
+  assert.match(
+    globalStyles,
+    /@media \(prefers-reduced-motion: reduce\)[\s\S]*?\.hero-enter/
+  );
+  assert.doesNotMatch(heroSource, /from "framer-motion"/);
 });

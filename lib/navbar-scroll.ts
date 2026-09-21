@@ -13,13 +13,28 @@ interface NavbarScrollState {
   isVisible: boolean;
 }
 
-export function getNavbarShadowClassName(
-  isScrolled: boolean,
-  isVisible: boolean
-): string {
-  return isScrolled && isVisible
-    ? "shadow-[0_1px_0_0_#e5e7eb]"
-    : "shadow-none";
+export function getNavbarShadowClassName(): string {
+  return "shadow-none";
+}
+
+export function getNavbarSurfaceClassName(isScrolled: boolean): string {
+  return isScrolled
+    ? "bg-[#0f1e3d]/64 backdrop-blur-xl backdrop-saturate-150"
+    : "bg-transparent";
+}
+
+export function getNavbarVisibilityClassName(isVisible: boolean): string {
+  return isVisible ? "translate-y-0" : "-translate-y-full";
+}
+
+export function getNavbarTransitionClassName(): string {
+  return "transition-[translate,background-color,box-shadow,backdrop-filter]";
+}
+
+export function getNavbarDesktopLinkClassName(isActive: boolean): string {
+  return isActive
+    ? "text-[#fbb52b]"
+    : "text-white/80 hover:text-white";
 }
 
 export function getNavbarScrollReference(

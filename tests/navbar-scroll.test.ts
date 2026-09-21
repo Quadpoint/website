@@ -2,7 +2,11 @@ import assert from "node:assert/strict";
 import test from "node:test";
 
 import {
+  getNavbarDesktopLinkClassName,
   getNavbarShadowClassName,
+  getNavbarSurfaceClassName,
+  getNavbarTransitionClassName,
+  getNavbarVisibilityClassName,
   getNavbarScrollReference,
   getNavbarScrollState,
 } from "../lib/navbar-scroll.ts";
@@ -31,7 +35,7 @@ test("hides the navbar when scrolling down beyond the top threshold", () => {
   );
 });
 
-test("shows the white navbar when scrolling up", () => {
+test("shows the scrolled navbar when scrolling up", () => {
   assert.deepEqual(
     getNavbarScrollState({
       currentY: 100,
@@ -77,9 +81,39 @@ test("accumulates small scroll changes until they pass the direction threshold",
 });
 
 test("removes the scrolled navbar shadow while the header is hidden", () => {
-  assert.equal(getNavbarShadowClassName(true, false), "shadow-none");
+  assert.equal(getNavbarShadowClassName(), "shadow-none");
+});
+
+test("uses a translucent navy material only after leaving the hero top", () => {
+  assert.equal(getNavbarSurfaceClassName(false), "bg-transparent");
   assert.equal(
-    getNavbarShadowClassName(true, true),
-    "shadow-[0_1px_0_0_#e5e7eb]"
+    getNavbarSurfaceClassName(true),
+    "bg-[#0f1e3d]/64 backdrop-blur-xl backdrop-saturate-150"
+  );
+});
+
+test("slides the full-height navbar through the top edge when hidden", () => {
+  assert.equal(
+    getNavbarVisibilityClassName(true),
+    "translate-y-0"
+  );
+  assert.equal(
+    getNavbarVisibilityClassName(false),
+    "-translate-y-full"
+  );
+});
+
+test("animates Tailwind's translate property for the navbar slide", () => {
+  assert.equal(
+    getNavbarTransitionClassName(),
+    "transition-[translate,background-color,box-shadow,backdrop-filter]"
+  );
+});
+
+test("marks the active desktop route with brand gold text only", () => {
+  assert.equal(getNavbarDesktopLinkClassName(true), "text-[#fbb52b]");
+  assert.equal(
+    getNavbarDesktopLinkClassName(false),
+    "text-white/80 hover:text-white"
   );
 });

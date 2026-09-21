@@ -19,7 +19,7 @@ export function CTASection({
 }: CTASectionProps) {
   return (
     <section
-      className="py-20 lg:py-28 bg-[#0f1e3d] relative overflow-hidden"
+      className="py-20 xl:py-24 bg-[#0f1e3d] relative overflow-hidden"
       aria-label="Call to action"
     >
       {/* Background geometry */}
@@ -40,7 +40,7 @@ export function CTASection({
         />
       </div>
 
-      <div className="cta-panel relative z-10 max-w-7xl mx-auto px-6 py-14 sm:px-10 lg:px-16 lg:py-16 text-center">
+      <div className="cta-panel relative z-10 max-w-7xl mx-auto px-6 py-14 sm:px-10 lg:px-16 lg:py-16 xl:px-24 xl:py-20 text-center">
         <FadeIn className="relative z-10">
           <h2 className="text-3xl sm:text-4xl font-bold text-white tracking-tight mb-5">
             {heading}

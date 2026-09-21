@@ -94,7 +94,7 @@ export function AISection() {
   return (
     <section
       id="ai"
-      className="py-20 lg:py-28 bg-[#0f1e3d] relative overflow-hidden"
+      className="py-20 xl:py-24 bg-[#0f1e3d] relative overflow-hidden"
       aria-labelledby="ai-heading"
     >
       {/* Background pattern */}
@@ -116,7 +116,7 @@ export function AISection() {
         />
       </div>
 
-      <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 xl:px-12">
         {/* Header */}
         <FadeIn className="text-center mb-16">
           <SectionLabel variant="white" className="mb-4">
@@ -134,10 +134,10 @@ export function AISection() {
           </p>
         </FadeIn>
 
-        <div className="grid lg:grid-cols-2 gap-14 lg:gap-20 items-start">
+        <div className="grid lg:grid-cols-2 gap-14 lg:gap-20 xl:gap-28 items-start">
           {/* Workflow diagram */}
           <FadeIn direction="left">
-            <div className="relative overflow-hidden bg-white/5 border border-white/10 rounded-2xl p-8">
+            <div className="relative overflow-hidden bg-white/5 border border-white/10 rounded-2xl p-8 xl:p-10">
               <div
                 className="absolute inset-0 opacity-[0.055] pointer-events-none"
                 style={{
@@ -174,7 +174,7 @@ export function AISection() {
                 const Icon = agent.icon;
                 return (
                   <StaggerItem key={agent.name}>
-                    <div className="gloss-card flex items-start gap-4 rounded-xl p-4 transition-all duration-300">
+                    <div className="gloss-card flex items-start gap-4 xl:gap-5 rounded-xl p-4 xl:p-5 transition-all duration-300">
                       <div className="w-9 h-9 rounded-lg bg-[#f59e0b] flex items-center justify-center flex-shrink-0 mt-0.5">
                         <Icon size={15} className="text-white" />
                       </div>

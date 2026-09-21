@@ -1,7 +1,4 @@
-"use client";
-
 import Image from "next/image";
-import { motion } from "framer-motion";
 import { ArrowRight, ChevronRight } from "lucide-react";
 import { Button } from "@/components/ui/Button";
 
@@ -11,14 +8,9 @@ import { Button } from "@/components/ui/Button";
  */
 function HeroVisual() {
   return (
-    <div className="relative w-full max-w-[580px] mx-auto lg:mx-0">
+    <div className="hero-enter hero-enter-delay-2 relative w-full max-w-[580px] xl:max-w-[720px] mx-auto lg:mx-0">
       {/* Main card */}
-      <motion.div
-        initial={{ opacity: 0, y: 30, scale: 0.96 }}
-        animate={{ opacity: 1, y: 0, scale: 1 }}
-        transition={{ duration: 0.7, delay: 0.3, ease: [0.21, 0.47, 0.32, 0.98] }}
-        className="relative bg-white/10 backdrop-blur-md border border-white/20 rounded-2xl overflow-hidden shadow-[0_24px_60px_-12px_rgba(0,0,0,0.4)]"
-      >
+      <div className="relative bg-white/10 backdrop-blur-md border border-white/20 rounded-2xl overflow-hidden shadow-[0_24px_60px_-12px_rgba(0,0,0,0.4)]">
         {/* Mock dashboard header */}
         <div className="relative flex items-center gap-2 px-5 py-3.5 border-b border-white/10 bg-white/5">
           <div className="flex gap-1.5">
@@ -71,11 +63,8 @@ function HeroVisual() {
             {/* Minimal bar chart */}
             <div className="flex items-end gap-1.5 h-14">
               {[45, 62, 38, 80, 55, 91, 72].map((pct, i) => (
-                <motion.div
+                <div
                   key={i}
-                  initial={{ scaleY: 0 }}
-                  animate={{ scaleY: 1 }}
-                  transition={{ duration: 0.5, delay: 0.6 + i * 0.06 }}
                   className="flex-1 rounded-sm"
                   style={{
                     height: `${pct}%`,
@@ -108,7 +97,7 @@ function HeroVisual() {
             </div>
           </div>
         </div>
-      </motion.div>
+      </div>
 
       {/* Subtle glow */}
       <div
@@ -147,10 +136,12 @@ export function HeroSection() {
         <Image
           src="/brand/quadpoint-white.png"
           alt=""
-          width={610}
-          height={610}
-          sizes="610px"
-          className="absolute right-[-32px] top-[53%] h-auto w-[610px] max-w-none -translate-y-1/2 rotate-[-18deg] opacity-[0.06]"
+          width={650}
+          height={650}
+          loading="eager"
+          fetchPriority="high"
+          sizes="(min-width: 1280px) 720px, 650px"
+          className="absolute right-[-32px] top-[53%] h-auto w-[650px] xl:w-[720px] max-w-none -translate-y-1/2 rotate-[-20deg] opacity-[0.06]"
         />
 
         {/* Blue glow */}
@@ -164,48 +155,29 @@ export function HeroSection() {
       </div>
 
       {/* Content */}
-      <div className="relative z-10 w-full max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-24 pb-16 lg:pt-32 lg:pb-24">
-        <div className="grid lg:grid-cols-2 gap-12 lg:gap-16 items-center">
+      <div className="relative z-10 w-full max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 xl:px-12 pt-24 pb-16 lg:pt-32 lg:pb-24 xl:pt-36 xl:pb-28">
+        <div className="grid lg:grid-cols-2 gap-12 lg:gap-16 xl:gap-24 items-center">
           {/* Left — text */}
           <div>
-            <motion.div
-              initial={{ opacity: 0, y: 16 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.5, delay: 0.1 }}
-            >
+            <div className="hero-enter">
               <span className="inline-flex px-3 py-1 rounded-full text-xs font-semibold bg-white/10 text-white/80 border border-white/15 mb-6">
                 Build. Automate. Grow.
               </span>
-            </motion.div>
+            </div>
 
-            <motion.h1
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.6, delay: 0.2 }}
-              className="text-4xl sm:text-5xl lg:text-[3.5rem] font-bold text-white leading-[1.1] tracking-tight mb-6"
-            >
+            <h1 className="hero-enter hero-enter-delay-1 text-4xl sm:text-5xl lg:text-[3.5rem] xl:text-[3.75rem] font-bold text-white leading-[1.1] tracking-tight mb-6">
               Technology That{" "}
               <span className="text-[#2d63d4]">Moves Your Business</span>{" "}
               Forward.
-            </motion.h1>
+            </h1>
 
-            <motion.p
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.6, delay: 0.3 }}
-              className="text-lg text-white/65 leading-relaxed mb-10 max-w-[520px]"
-            >
+            <p className="hero-enter hero-enter-delay-2 text-lg text-white/65 leading-relaxed mb-10 max-w-[520px] xl:max-w-[640px]">
               QuadPoint delivers intelligent software, AI agents, and
               automation solutions built to help businesses operate smarter and
               grow faster.
-            </motion.p>
+            </p>
 
-            <motion.div
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.6, delay: 0.4 }}
-              className="flex flex-col sm:flex-row gap-4"
-            >
+            <div className="hero-enter hero-enter-delay-3 flex flex-col sm:flex-row gap-4">
               <Button href="/solutions" variant="primary" size="lg">
                 Explore Our Solutions
                 <ArrowRight size={16} className="ml-2" />
@@ -214,15 +186,10 @@ export function HeroSection() {
                 Talk to Us
                 <ChevronRight size={16} className="ml-1" />
               </Button>
-            </motion.div>
+            </div>
 
             {/* Trust bar */}
-            <motion.div
-              initial={{ opacity: 0 }}
-              animate={{ opacity: 1 }}
-              transition={{ duration: 0.6, delay: 0.7 }}
-              className="flex items-center gap-6 mt-8"
-            >
+            <div className="hero-enter hero-enter-delay-4 flex items-center gap-6 mt-8">
               {[
                 "Business Software",
                 "AI Agents",
@@ -233,7 +200,7 @@ export function HeroSection() {
                   <span className="text-xs text-white/50 font-medium">{item}</span>
                 </div>
               ))}
-            </motion.div>
+            </div>
           </div>
 
           {/* Right — visual */}

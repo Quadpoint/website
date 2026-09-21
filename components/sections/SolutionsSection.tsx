@@ -72,10 +72,10 @@ export function SolutionsSection() {
   return (
     <section
       id="solutions"
-      className="py-20 lg:py-28 bg-[#f9fafb]"
+      className="py-20 xl:py-24 bg-[#f9fafb]"
       aria-labelledby="solutions-heading"
     >
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 xl:px-12">
         {/* Header */}
         <FadeIn className="text-center mb-12">
           <SectionLabel className="mb-4">Solutions</SectionLabel>
@@ -102,13 +102,13 @@ export function SolutionsSection() {
         </FadeIn>
 
         {/* Cards */}
-        <StaggerContainer className="grid md:grid-cols-3 gap-6 lg:gap-8">
+        <StaggerContainer className="grid md:grid-cols-3 gap-6 lg:gap-8 xl:gap-10">
           {solutions.map((solution) => {
             const Icon = solution.icon;
             return (
               <StaggerItem key={solution.title}>
                 <div
-                  className="solution-card interactive-card gloss-card group rounded-2xl border border-[#e5e7eb] p-7 h-full flex flex-col transition-all duration-300"
+                  className="solution-card interactive-card gloss-card group rounded-2xl border border-[#e5e7eb] p-7 xl:p-9 h-full flex flex-col transition-all duration-300"
                 >
                   {/* Icon */}
                   <div className="interactive-card-icon w-14 h-14 rounded-xl flex items-center justify-center mb-5 bg-[#f59d13] transition-colors duration-300">
@@ -138,7 +138,7 @@ export function SolutionsSection() {
                   {/* CTA */}
                   <Link
                     href={solution.href}
-                    className="interactive-card-link inline-flex min-h-11 items-center gap-2 text-sm font-semibold text-[#8ed0ff] transition-colors duration-300"
+                    className="interactive-card-link inline-flex min-h-11 items-center gap-2 text-sm font-semibold text-[#f59d13] transition-colors duration-300"
                   >
                     {solution.cta}
                     <ArrowRight size={14} />

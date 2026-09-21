@@ -95,10 +95,10 @@ const projects = [
 export function PortfolioSection() {
   return (
     <section
-      className="py-20 lg:py-28 bg-white"
+      className="py-20 xl:py-24 bg-white"
       aria-labelledby="portfolio-heading"
     >
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 xl:px-12">
         <FadeIn className="mb-12">
           <SectionLabel className="mb-4">What We&apos;re Building</SectionLabel>
           <div className="flex flex-col sm:flex-row sm:items-end sm:justify-between gap-4">
@@ -118,18 +118,18 @@ export function PortfolioSection() {
           </div>
         </FadeIn>
 
-        <StaggerContainer className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
+        <StaggerContainer className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6 xl:gap-8">
           {projects.map((project) => (
             <StaggerItem key={project.id}>
               {project.status === "live" ? (
                 /* Live product card */
                 <div className="interactive-card gloss-card group rounded-2xl border border-[#e5e7eb] overflow-hidden transition-all duration-300 h-full flex flex-col">
                   {/* Visual thumbnail */}
-                  <div className="p-5 pb-0">
+                  <div className="p-5 pb-0 xl:p-7 xl:pb-0">
                     {project.visual}
                   </div>
 
-                  <div className="p-5 flex flex-col flex-1">
+                  <div className="p-5 xl:p-7 flex flex-col flex-1">
                     {/* Status + category */}
                     <div className="flex items-center gap-2 mb-3">
                       <span className="flex items-center gap-1.5 px-2.5 py-1 rounded-full bg-emerald-50 border border-emerald-200 text-[10px] font-semibold text-emerald-700">
@@ -162,7 +162,7 @@ export function PortfolioSection() {
                 </div>
               ) : (
                 /* Coming soon card */
-                <div className="gloss-card rounded-2xl border border-[#e5e7eb] border-dashed p-6 h-full flex flex-col opacity-70">
+                <div className="gloss-card rounded-2xl border border-[#e5e7eb] border-dashed p-6 xl:p-8 h-full flex flex-col opacity-70">
                   <div className="flex items-center gap-2 mb-4">
                     <span className="flex items-center gap-1.5 px-2.5 py-1 rounded-full bg-[#f3f4f6] border border-[#e5e7eb] text-[10px] font-semibold text-[#9ca3af] uppercase tracking-wide">
                       <Clock size={9} />

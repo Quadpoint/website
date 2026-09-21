@@ -1,7 +1,16 @@
 "use client";
 
-import { motion, useReducedMotion, type Variants } from "framer-motion";
+import {
+  motion,
+  useReducedMotion,
+  type Variants,
+} from "framer-motion";
 import { cn } from "@/lib/utils";
+import {
+  getInitialRevealState,
+  getPreparedRevealState,
+} from "@/lib/reveal-state";
+import { useEffect, useRef, useState } from "react";
 
 interface FadeInProps {
   children: React.ReactNode;
@@ -25,6 +34,44 @@ const reducedVariants: Variants = {
   visible: { opacity: 1 },
 };
 
+type RevealState = "hidden" | "visible";
+
+function useHydrationSafeReveal(
+  once: boolean,
+  prefersReduced: boolean | null
+) {
+  const ref = useRef<HTMLDivElement>(null);
+  const [state, setState] = useState<RevealState>(getInitialRevealState);
+
+  useEffect(() => {
+    const element = ref.current;
+    if (!element || prefersReduced) {
+      setState("visible");
+      return;
+    }
+
+    const bounds = element.getBoundingClientRect();
+    const isInitiallyVisible =
+      bounds.bottom > 60 && bounds.top < window.innerHeight - 60;
+    setState(getPreparedRevealState(isInitiallyVisible));
+
+    if (isInitiallyVisible && once) return;
+
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        setState(getPreparedRevealState(entry.isIntersecting));
+        if (entry.isIntersecting && once) observer.disconnect();
+      },
+      { rootMargin: "-60px 0px" }
+    );
+    observer.observe(element);
+
+    return () => observer.disconnect();
+  }, [once, prefersReduced]);
+
+  return [ref, state] as const;
+}
+
 export function FadeIn({
   children,
   direction = "up",
@@ -35,13 +82,17 @@ export function FadeIn({
 }: FadeInProps) {
   const prefersReduced = useReducedMotion();
   const variants = prefersReduced ? reducedVariants : directionVariants[direction];
+  const [revealRef, revealState] = useHydrationSafeReveal(
+    once,
+    prefersReduced
+  );
 
   return (
     <motion.div
+      ref={revealRef}
       variants={variants}
-      initial="hidden"
-      whileInView="visible"
-      viewport={{ once, margin: "-60px" }}
+      initial={false}
+      animate={revealState}
       transition={{
         duration: prefersReduced ? 0.15 : duration,
         delay: prefersReduced ? 0 : delay,
@@ -65,12 +116,16 @@ export function StaggerContainer({
   className?: string;
 }) {
   const prefersReduced = useReducedMotion();
+  const [revealRef, revealState] = useHydrationSafeReveal(
+    true,
+    prefersReduced
+  );
 
   return (
     <motion.div
-      initial="hidden"
-      whileInView="visible"
-      viewport={{ once: true, margin: "-60px" }}
+      ref={revealRef}
+      initial={false}
+      animate={revealState}
       variants={{
         hidden: {},
         visible: {

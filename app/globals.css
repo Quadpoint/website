@@ -111,6 +111,29 @@ body {
   border-radius: 99px;
 }
 
+@keyframes hero-enter {
+  from {
+    opacity: 0;
+    transform: translateY(14px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.hero-enter {
+  animation-name: hero-enter;
+  animation-duration: 420ms;
+  animation-timing-function: cubic-bezier(0.23, 1, 0.32, 1);
+  animation-fill-mode: both;
+}
+
+.hero-enter-delay-1 { animation-delay: 60ms; }
+.hero-enter-delay-2 { animation-delay: 120ms; }
+.hero-enter-delay-3 { animation-delay: 180ms; }
+.hero-enter-delay-4 { animation-delay: 240ms; }
+
 /* ─── Reduced Motion ─────────────────────────────────────────────── */
 @media (prefers-reduced-motion: reduce) {
   *,
@@ -120,6 +143,12 @@ body {
     animation-iteration-count: 1 !important;
     transition-duration: 0.01ms !important;
     scroll-behavior: auto !important;
+  }
+
+  .hero-enter {
+    animation: none !important;
+    opacity: 1;
+    transform: none;
   }
 }
 
@@ -152,13 +181,6 @@ body {
 
 .home-reference > section {
   background: linear-gradient(180deg, #0b2443 0%, #103863 42%, #103863 58%, #0b2443 100%) !important;
-}
-
-.home-reference > section:not(:first-child):not(:last-child) {
-  min-height: 100dvh;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
 }
 
 .home-reference > section:not(:first-child) [class*="bg-white"],
@@ -197,6 +219,39 @@ body {
   box-shadow: inset 0 1px 0 rgb(255 255 255 / 0.14), 0 10px 24px -20px rgb(0 0 0 / 0.86);
 }
 
+.process-stair {
+  isolation: isolate;
+}
+
+.process-stair-art {
+  filter:
+    drop-shadow(0 14px 18px rgba(0, 0, 0, 0.32))
+    drop-shadow(0 4px 8px rgba(0, 90, 180, 0.18));
+}
+
+.process-timeline-dot[data-complete="true"] {
+  border-color: #ffffff;
+  background-color: #a8e4ff;
+  box-shadow:
+    0 0 7px #ffffff,
+    0 0 20px rgba(103, 200, 255, 0.95);
+  transform: scale(1.1);
+}
+
+.process-timeline-dot {
+  transition:
+    transform 140ms cubic-bezier(0.23, 1, 0.32, 1),
+    border-color 140ms cubic-bezier(0.23, 1, 0.32, 1),
+    background-color 140ms cubic-bezier(0.23, 1, 0.32, 1),
+    box-shadow 140ms cubic-bezier(0.23, 1, 0.32, 1);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .process-timeline-dot {
+    transition-duration: 0ms;
+  }
+}
+
 .home-reference .interactive-card:hover {
   border-color: #f59d13 !important;
   transform: translateY(-3px);
@@ -231,5 +286,18 @@ body {
   .container-tight {
     padding-left: 2rem;
     padding-right: 2rem;
+  }
+}
+
+@media (min-width: 80rem) {
+  .home-reference .max-w-7xl,
+  .home-navbar-canvas {
+    max-width: 90rem;
+  }
+}
+
+@media (min-height: 75rem) and (max-aspect-ratio: 4 / 5) {
+  .home-reference > section:first-child {
+    min-height: min(100dvh, 50rem);
   }
 }

@@ -34,10 +34,10 @@ const values = [
 export function WhyQuadPointSection() {
   return (
     <section
-      className="py-20 lg:py-28 bg-[#f9fafb]"
+      className="py-20 xl:py-24 bg-[#f9fafb]"
       aria-labelledby="why-heading"
     >
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 xl:px-12">
         {/* Header */}
         <FadeIn className="text-center mb-14">
           <SectionLabel className="mb-4">Why QuadPoint</SectionLabel>
@@ -52,12 +52,12 @@ export function WhyQuadPointSection() {
           </p>
         </FadeIn>
 
-        <StaggerContainer className="grid sm:grid-cols-2 lg:grid-cols-4 gap-6">
+        <StaggerContainer className="grid sm:grid-cols-2 lg:grid-cols-4 gap-6 xl:gap-8">
           {values.map((value) => {
             const Icon = value.icon;
             return (
               <StaggerItem key={value.title}>
-                <div className="gloss-card rounded-2xl border border-[#e5e7eb] p-6 h-full">
+                <div className="gloss-card rounded-2xl border border-[#e5e7eb] p-6 xl:p-8 h-full">
                   <div className="w-11 h-11 rounded-xl bg-[#f59e0b] flex items-center justify-center mb-4">
                     <Icon size={20} className="text-white" />
                   </div>

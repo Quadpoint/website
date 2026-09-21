@@ -8,7 +8,11 @@ import { motion, AnimatePresence } from "framer-motion";
 import { Logo } from "@/components/ui/Logo";
 import { cn } from "@/lib/utils";
 import {
+  getNavbarDesktopLinkClassName,
   getNavbarShadowClassName,
+  getNavbarSurfaceClassName,
+  getNavbarTransitionClassName,
+  getNavbarVisibilityClassName,
   getNavbarScrollReference,
   getNavbarScrollState,
 } from "@/lib/navbar-scroll";
@@ -94,20 +98,24 @@ export function Navbar() {
     <>
       <header
         className={cn(
-          "fixed top-0 left-0 right-0 z-50 transition-[transform,background-color,box-shadow] duration-200 ease-[cubic-bezier(0.23,1,0.32,1)] motion-reduce:transition-none",
-          isVisible ? "translate-y-0" : "-translate-y-full",
-          isScrolled
-            ? "bg-white/95 backdrop-blur-md"
-            : "bg-transparent",
-          getNavbarShadowClassName(isScrolled, isVisible)
+          "fixed top-0 left-0 right-0 z-50 duration-[380ms] ease-[cubic-bezier(0.77,0,0.175,1)] motion-reduce:transition-[background-color,box-shadow,backdrop-filter] motion-reduce:duration-150",
+          getNavbarTransitionClassName(),
+          getNavbarVisibilityClassName(isVisible),
+          getNavbarSurfaceClassName(isScrolled),
+          getNavbarShadowClassName()
         )}
         role="banner"
       >
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="flex items-center justify-between h-16 lg:h-[72px]">
+        <div
+          className={cn(
+            "max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 xl:px-12",
+            pathname === "/" && "home-navbar-canvas"
+          )}
+        >
+          <div className="flex items-center justify-between h-18 lg:h-20">
             {/* Logo */}
             <Logo
-              variant={isScrolled ? "default" : "white"}
+              variant="white"
               className="ml-1 flex-shrink-0"
             />
 
@@ -121,14 +129,8 @@ export function Navbar() {
                   key={link.href}
                   href={link.href}
                   className={cn(
-                    "px-3.5 py-2 text-sm font-medium rounded-md transition-colors duration-150",
-                    isActive(link.href)
-                      ? isScrolled
-                        ? "text-[#1a4fba] bg-[#dbeafe]/60"
-                        : "text-white bg-white/15"
-                      : isScrolled
-                        ? "text-[#374151] hover:text-[#1a4fba] hover:bg-[#f3f4f6]"
-                        : "text-white/85 hover:text-white hover:bg-white/10"
+                    "px-3.5 py-2 text-sm font-medium transition-colors duration-150",
+                    getNavbarDesktopLinkClassName(isActive(link.href))
                   )}
                 >
                   {link.label}
@@ -141,7 +143,7 @@ export function Navbar() {
               <Link
                 href="/contact"
                 className={cn(
-                  "px-5 py-2 text-sm font-semibold rounded-lg transition-all duration-150",
+                  "px-5 py-2 text-sm font-semibold rounded-lg transition-[background-color,box-shadow] duration-150",
                   "bg-[#f59e0b] text-[#0f1e3d] hover:bg-[#fbb52b] shadow-sm hover:shadow-[0_4px_12px_-2px_rgba(245,158,11,0.45)]"
                 )}
               >
@@ -153,9 +155,7 @@ export function Navbar() {
             <button
               className={cn(
                 "lg:hidden min-w-11 min-h-11 p-2 rounded-md transition-colors duration-150",
-                isScrolled
-                  ? "text-[#374151] hover:bg-[#f3f4f6]"
-                  : "text-white hover:bg-white/10"
+                "text-white hover:bg-white/10"
               )}
               onClick={() => setMobileOpen((o) => !o)}
               aria-label={mobileOpen ? "Close menu" : "Open menu"}
@@ -196,7 +196,7 @@ export function Navbar() {
               aria-label="Navigation menu"
             >
               {/* Drawer header */}
-              <div className="flex items-center justify-between px-5 h-16 border-b border-[#e5e7eb]">
+              <div className="flex items-center justify-between px-5 h-18 border-b border-[#e5e7eb]">
                 <Logo variant="default" />
                 <button
                   onClick={() => setMobileOpen(false)}
