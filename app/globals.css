@@ -179,8 +179,19 @@ body {
   background: #0b2443;
 }
 
-.home-reference > section {
+.home-reference > section:first-child {
   background: linear-gradient(180deg, #0b2443 0%, #103863 42%, #103863 58%, #0b2443 100%) !important;
+}
+
+.home-reference > section:not(:first-child) {
+  background-color: #0b2443 !important;
+  background-image:
+    linear-gradient(rgb(255 255 255 / 0.032) 1px, transparent 1px),
+    linear-gradient(90deg, rgb(255 255 255 / 0.032) 1px, transparent 1px),
+    linear-gradient(180deg, #0b2443 0%, #103863 42%, #103863 58%, #0b2443 100%) !important;
+  background-position: center !important;
+  background-size: 60px 60px, 60px 60px, cover !important;
+  background-repeat: repeat, repeat, no-repeat !important;
 }
 
 .home-reference > section:not(:first-child) [class*="bg-white"],
@@ -280,11 +291,13 @@ body {
   overflow: hidden;
   background-color: #075bc7 !important;
   background-image:
+    linear-gradient(rgb(255 255 255 / 0.032) 1px, transparent 1px),
+    linear-gradient(90deg, rgb(255 255 255 / 0.032) 1px, transparent 1px),
     linear-gradient(90deg, rgb(8 15 30 / 0.08) 20%, rgb(8 15 30 / 0.48) 100%),
     var(--cta-background-image) !important;
   background-position: center !important;
-  background-size: cover !important;
-  background-repeat: no-repeat !important;
+  background-size: 60px 60px, 60px 60px, cover, cover !important;
+  background-repeat: repeat, repeat, no-repeat, no-repeat !important;
 }
 
 @media (min-width: 48rem) {

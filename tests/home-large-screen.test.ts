@@ -66,9 +66,9 @@ test("makes the CTA full-bleed, substantial at 768px, and flush with the footer"
   assert.match(styles, /url\("\/brand\/cta-background-mobile\.png"\)/);
   assert.match(styles, /@media \(min-width: 48rem\)[\s\S]*url\("\/brand\/cta-background-tablet\.png"\)/);
   assert.match(styles, /@media \(min-width: 80rem\)[\s\S]*url\("\/brand\/cta-background-desktop\.png"\)/);
-  assert.match(styles, /\.cta-panel[\s\S]*background-size: cover !important/);
+  assert.match(styles, /\.cta-panel[\s\S]*background-size: 60px 60px, 60px 60px, cover, cover !important/);
   assert.match(styles, /\.cta-panel[\s\S]*background-position: center !important/);
-  assert.match(styles, /\.cta-panel[\s\S]*background-repeat: no-repeat !important/);
+  assert.match(styles, /\.cta-panel[\s\S]*background-repeat: repeat, repeat, no-repeat, no-repeat !important/);
   assert.doesNotMatch(styles, /cta-background1\.png|calc\(100% \+ 8rem\)/);
   assert.doesNotMatch(styles, /linear-gradient\(180deg[\s\S]*#080f1e 100%/);
   assert.match(cta, /mx-auto w-full max-w-\[90rem\]/);

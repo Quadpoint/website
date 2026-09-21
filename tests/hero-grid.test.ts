@@ -18,6 +18,17 @@ test("renders the reference-style decorative grid behind the hero content", () =
   assert.match(heroSource, /opacity-\[0\.04\]/);
 });
 
+test("continues the hero grid treatment through every homepage section", () => {
+  assert.match(
+    globalStyles,
+    /\.home-reference > section:not\(:first-child\)[\s\S]*linear-gradient\(rgb\(255 255 255 \/ 0\.032\) 1px, transparent 1px\)[\s\S]*linear-gradient\(90deg, rgb\(255 255 255 \/ 0\.032\) 1px, transparent 1px\)[\s\S]*60px 60px/
+  );
+  assert.match(
+    globalStyles,
+    /\.cta-panel[\s\S]*linear-gradient\(rgb\(255 255 255 \/ 0\.032\) 1px, transparent 1px\)[\s\S]*linear-gradient\(90deg, rgb\(255 255 255 \/ 0\.032\) 1px, transparent 1px\)[\s\S]*background-size:\s*60px 60px,\s*60px 60px,\s*cover,\s*cover/
+  );
+});
+
 test("renders the white QuadPoint mark as a low-opacity hero watermark", () => {
   assert.match(heroSource, /import Image from "next\/image"/);
   assert.match(heroSource, /src="\/brand\/quadpoint-white\.png"/);
