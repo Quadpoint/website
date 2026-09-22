@@ -117,14 +117,6 @@ export default function ProductsPage() {
         className="pt-32 pb-16 bg-[#0f1e3d] relative overflow-hidden"
         aria-label="Products hero"
       >
-        <div
-          className="absolute inset-0 opacity-[0.03] pointer-events-none"
-          style={{
-            backgroundImage: `linear-gradient(rgba(255,255,255,0.5) 1px, transparent 1px), linear-gradient(90deg, rgba(255,255,255,0.5) 1px, transparent 1px)`,
-            backgroundSize: "60px 60px",
-          }}
-          aria-hidden="true"
-        />
         <div className="relative z-10 max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
           <FadeIn>
             <SectionLabel variant="white" className="mb-5">Products</SectionLabel>

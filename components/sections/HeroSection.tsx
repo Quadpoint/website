@@ -121,18 +121,8 @@ export function HeroSection() {
       className="home-hero relative min-h-dvh flex items-center overflow-hidden bg-[#0f1e3d]"
       aria-label="Hero"
     >
-      {/* Background geometric pattern */}
+      {/* Background artwork */}
       <div className="absolute inset-0 pointer-events-none overflow-hidden" aria-hidden="true">
-        <div
-          data-hero-grid
-          className="absolute inset-0 opacity-[0.04]"
-          style={{
-            backgroundImage:
-              "linear-gradient(rgba(255,255,255,0.8) 1px, transparent 1px), linear-gradient(90deg, rgba(255,255,255,0.8) 1px, transparent 1px)",
-            backgroundSize: "60px 60px",
-          }}
-        />
-
         <Image
           src="/brand/quadpoint-white.png"
           alt=""
@@ -144,14 +134,6 @@ export function HeroSection() {
           className="absolute right-[-32px] top-[53%] h-auto w-[650px] xl:w-[780px] max-w-none -translate-y-1/2 rotate-[-20deg] opacity-[0.06]"
         />
 
-        {/* Blue glow */}
-        <div
-          className="absolute top-1/4 left-1/4 w-[600px] h-[600px] rounded-full opacity-20"
-          style={{
-            background: "radial-gradient(circle, #1a4fba 0%, transparent 70%)",
-            filter: "blur(80px)",
-          }}
-        />
       </div>
 
       {/* Content */}

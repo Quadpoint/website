@@ -34,7 +34,7 @@ const values = [
 export function WhyQuadPointSection() {
   return (
     <section
-      className="py-20 xl:py-24 bg-[#f9fafb]"
+      className="section-light-why py-20 xl:py-24 bg-[#f9fafb]"
       aria-labelledby="why-heading"
     >
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 xl:px-12">

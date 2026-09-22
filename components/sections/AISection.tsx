@@ -94,28 +94,9 @@ export function AISection() {
   return (
     <section
       id="ai"
-      className="py-20 xl:py-24 bg-[#0f1e3d] relative overflow-hidden"
+      className="section-light-ai py-20 xl:py-24 bg-[#0f1e3d] relative overflow-hidden"
       aria-labelledby="ai-heading"
     >
-      {/* Background pattern */}
-      <div className="absolute inset-0 pointer-events-none" aria-hidden="true">
-        <div
-          className="absolute inset-0 opacity-[0.03]"
-          style={{
-            backgroundImage: `linear-gradient(rgba(255,255,255,0.5) 1px, transparent 1px),
-              linear-gradient(90deg, rgba(255,255,255,0.5) 1px, transparent 1px)`,
-            backgroundSize: "40px 40px",
-          }}
-        />
-        <div
-          className="absolute top-0 right-0 w-[500px] h-[500px] rounded-full opacity-10"
-          style={{
-            background: "radial-gradient(circle, #1a4fba, transparent 70%)",
-            filter: "blur(60px)",
-          }}
-        />
-      </div>
-
       <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 xl:px-12">
         {/* Header */}
         <FadeIn className="text-center mb-16">

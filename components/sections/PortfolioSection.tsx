@@ -95,7 +95,7 @@ const projects = [
 export function PortfolioSection() {
   return (
     <section
-      className="py-20 xl:py-24 bg-white"
+      className="section-light-products py-20 xl:py-24 bg-white"
       aria-labelledby="portfolio-heading"
     >
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 xl:px-12">

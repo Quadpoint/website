@@ -481,19 +481,9 @@ export function HowWeWorkSection() {
   return (
     <section
       ref={sectionRef}
-      className="relative overflow-hidden bg-[#07172f] py-20 xl:py-24"
+      className="section-light-process relative overflow-hidden bg-[#07172f] py-20 xl:py-24"
       aria-labelledby="process-heading"
     >
-      <div
-        className="pointer-events-none absolute inset-0 opacity-[0.05]"
-        style={{
-          backgroundImage:
-            "radial-gradient(circle, rgba(103,200,255,0.9) 1px, transparent 1px)",
-          backgroundSize: "34px 34px",
-        }}
-        aria-hidden="true"
-      />
-
       <div className="relative mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 xl:px-12">
         <FadeIn className="mb-12 text-center lg:mb-16">
           <SectionLabel variant="white" className="mb-4">

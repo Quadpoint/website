@@ -136,22 +136,6 @@ export default function AIAutomationPage() {
         className="pt-32 pb-16 bg-[#0f1e3d] relative overflow-hidden"
         aria-label="AI & Automation hero"
       >
-        <div
-          className="absolute inset-0 opacity-[0.03] pointer-events-none"
-          style={{
-            backgroundImage: `linear-gradient(rgba(255,255,255,0.5) 1px, transparent 1px), linear-gradient(90deg, rgba(255,255,255,0.5) 1px, transparent 1px)`,
-            backgroundSize: "60px 60px",
-          }}
-          aria-hidden="true"
-        />
-        <div
-          className="absolute top-0 right-0 w-[500px] h-[500px] rounded-full opacity-10 pointer-events-none"
-          style={{
-            background: "radial-gradient(circle, #1a4fba, transparent 70%)",
-            filter: "blur(60px)",
-          }}
-          aria-hidden="true"
-        />
         <div className="relative z-10 max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
           <FadeIn>
             <SectionLabel variant="white" className="mb-5">
@@ -288,14 +272,6 @@ export default function AIAutomationPage() {
         className="py-20 lg:py-28 bg-[#0f1e3d] relative overflow-hidden"
         aria-labelledby="workflow-heading"
       >
-        <div
-          className="absolute inset-0 opacity-[0.03] pointer-events-none"
-          style={{
-            backgroundImage: `linear-gradient(rgba(255,255,255,0.5) 1px, transparent 1px), linear-gradient(90deg, rgba(255,255,255,0.5) 1px, transparent 1px)`,
-            backgroundSize: "40px 40px",
-          }}
-          aria-hidden="true"
-        />
         <div className="relative z-10 max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
           <FadeIn className="text-center mb-14">
             <SectionLabel variant="white" className="mb-4">Example Workflow</SectionLabel>

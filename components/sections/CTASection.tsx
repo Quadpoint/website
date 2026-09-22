@@ -23,23 +23,6 @@ export function CTASection({
       aria-label="Call to action"
     >
       {/* Background geometry */}
-      <div className="absolute inset-0 pointer-events-none" aria-hidden="true">
-        <div
-          className="absolute right-0 top-0 w-[400px] h-[400px] opacity-10 rounded-full"
-          style={{
-            background: "radial-gradient(circle, #1a4fba, transparent 70%)",
-            filter: "blur(50px)",
-          }}
-        />
-        <div
-          className="absolute left-0 bottom-0 w-[300px] h-[300px] opacity-8 rounded-full"
-          style={{
-            background: "radial-gradient(circle, #2d63d4, transparent 70%)",
-            filter: "blur(50px)",
-          }}
-        />
-      </div>
-
       <div className="relative z-10 mx-auto w-full max-w-[90rem]">
         <div className="mx-auto w-full max-w-4xl text-center">
           <FadeIn className="relative z-10">

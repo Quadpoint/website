@@ -18,7 +18,7 @@ const quickLinks = [
 
 export default function NotFound() {
   return (
-    <div className="min-h-dvh flex flex-col items-center justify-center bg-[#f9fafb] px-4 py-24">
+    <div className="site-radial-surface min-h-dvh flex flex-col items-center justify-center px-4 py-24">
       {/* Q mark */}
       <div className="mb-10 relative inline-flex items-center justify-center" aria-hidden="true">
         <svg width="80" height="80" viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg">

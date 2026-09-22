@@ -10,23 +10,47 @@ const globalStyles = readFileSync(
   new URL("../app/globals.css", import.meta.url),
   "utf8"
 );
+const sectionSources = [
+  "about/page.tsx",
+  "contact/page.tsx",
+  "solutions/page.tsx",
+  "products/page.tsx",
+  "ai-automation/page.tsx",
+].map((path) =>
+  readFileSync(new URL(`../app/${path}`, import.meta.url), "utf8")
+).join("\n");
+const aiSectionSource = readFileSync(
+  new URL("../components/sections/AISection.tsx", import.meta.url),
+  "utf8"
+);
+const processSectionSource = readFileSync(
+  new URL("../components/sections/HowWeWorkSection.tsx", import.meta.url),
+  "utf8"
+);
+const ctaSectionSource = readFileSync(
+  new URL("../components/sections/CTASection.tsx", import.meta.url),
+  "utf8"
+);
 
-test("renders the reference-style decorative grid behind the hero content", () => {
-  assert.match(heroSource, /data-hero-grid/);
-  assert.match(heroSource, /linear-gradient\(rgba\(255,255,255,0\.8\) 1px, transparent 1px\)/);
-  assert.match(heroSource, /backgroundSize: "60px 60px"/);
-  assert.match(heroSource, /opacity-\[0\.04\]/);
+test("uses the shared low-opacity grid behind the hero content", () => {
+  assert.doesNotMatch(heroSource, /data-hero-grid/);
+  assert.doesNotMatch(heroSource, /linear-gradient\(rgba\(255,255,255,0\.8\) 1px, transparent 1px\)/);
+  assert.match(globalStyles, /--site-grid-line: rgb\(255 255 255 \/ 0\.022\)/);
+  assert.doesNotMatch(sectionSources, /backgroundSize: "(?:40|60)px (?:40|60)px"/);
+  assert.doesNotMatch(aiSectionSource, /backgroundSize: "40px 40px"/);
+  assert.doesNotMatch(processSectionSource, /backgroundSize: "34px 34px"/);
+  assert.doesNotMatch(heroSource, /w-\[600px\] h-\[600px\][\s\S]*radial-gradient\(circle, #1a4fba/);
 });
 
-test("continues the hero grid treatment through every homepage section", () => {
+test("renders one continuous grid on the site canvas", () => {
   assert.match(
     globalStyles,
-    /\.home-reference > section:not\(:first-child\)[\s\S]*linear-gradient\(rgb\(255 255 255 \/ 0\.032\) 1px, transparent 1px\)[\s\S]*linear-gradient\(90deg, rgb\(255 255 255 \/ 0\.032\) 1px, transparent 1px\)[\s\S]*60px 60px/
+    /\.site-theme\s*\{[\s\S]*linear-gradient\(var\(--site-grid-line\) 1px, transparent 1px\)[\s\S]*linear-gradient\(90deg, var\(--site-grid-line\) 1px, transparent 1px\)[\s\S]*background-size: 60px 60px, 60px 60px/
   );
-  assert.match(
-    globalStyles,
-    /\.cta-panel[\s\S]*linear-gradient\(rgb\(255 255 255 \/ 0\.032\) 1px, transparent 1px\)[\s\S]*linear-gradient\(90deg, rgb\(255 255 255 \/ 0\.032\) 1px, transparent 1px\)[\s\S]*background-size:\s*60px 60px,\s*60px 60px,\s*cover,\s*cover/
-  );
+  assert.match(globalStyles, /\.home-reference\s*\{\s*background: transparent;/);
+  assert.doesNotMatch(globalStyles, /\.home-reference\s*\{\s*background: var\(--site-canvas\)/);
+  assert.doesNotMatch(globalStyles, /\.cta-panel[\s\S]*background-size:\s*60px 60px/);
+  assert.doesNotMatch(ctaSectionSource, /radial-gradient/);
 });
 
 test("renders the white QuadPoint mark as a low-opacity hero watermark", () => {

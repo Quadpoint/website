@@ -176,19 +176,118 @@ body {
 /* Site-wide QuadPoint palette. Exact class-token selectors preserve intentional
    translucent treatments such as bg-white/10 in hero and dark panels. */
 .site-theme {
-  background: #0b2443;
+  --site-canvas: #081c35;
+  --site-radial-core: rgb(41 143 226 / 0.35);
+  --site-radial-halo: rgb(30 108 178 / 0.16);
+  --site-grid-line: rgb(255 255 255 / 0.022);
+  background-color: var(--site-canvas);
+  background-image:
+    linear-gradient(var(--site-grid-line) 1px, transparent 1px),
+    linear-gradient(90deg, var(--site-grid-line) 1px, transparent 1px);
+  background-position: center;
+  background-size: 60px 60px, 60px 60px;
+  background-repeat: repeat;
   color: #f7fbff;
 }
 
-.site-theme section:not(.cta-panel) {
-  background-color: #0b2443 !important;
-  background-image:
-    linear-gradient(rgb(255 255 255 / 0.032) 1px, transparent 1px),
-    linear-gradient(90deg, rgb(255 255 255 / 0.032) 1px, transparent 1px),
-    linear-gradient(180deg, #0b2443 0%, #103863 42%, #103863 58%, #0b2443 100%) !important;
+.site-theme :is(section, .site-radial-surface):not(.cta-panel) {
+  --section-light-x: 28%;
+  --section-light-y: 50%;
+  --section-light-size-x: 34%;
+  --section-light-size-y: 58%;
+  --section-light-core: var(--site-radial-core);
+  --section-light-halo: var(--site-radial-halo);
+  --section-light-fade: 72%;
+  background-color: transparent !important;
+  background-image: radial-gradient(ellipse var(--section-light-size-x) var(--section-light-size-y) at var(--section-light-x) var(--section-light-y), var(--section-light-core) 0%, var(--section-light-halo) 38%, transparent var(--section-light-fade)) !important;
   background-position: center !important;
-  background-size: 60px 60px, 60px 60px, cover !important;
-  background-repeat: repeat, repeat, no-repeat !important;
+  background-size: 100% 100% !important;
+  background-repeat: no-repeat !important;
+}
+
+.site-theme > section:nth-of-type(even),
+.site-theme > div > section:nth-of-type(even) {
+  --section-light-x: 72%;
+}
+
+.site-theme > section:first-of-type,
+.site-theme > div > section:first-of-type {
+  --section-light-x: 50%;
+  --section-light-y: 40%;
+  --section-light-size-x: 42%;
+  --section-light-size-y: 56%;
+}
+
+.home-reference > section:first-of-type {
+  --section-light-x: 16%;
+  --section-light-y: 45%;
+  --section-light-size-x: 42%;
+  --section-light-size-y: 56%;
+}
+
+.site-theme section.section-light-solutions:not(.cta-panel) {
+  --section-light-x: 50%;
+  --section-light-y: 18%;
+  --section-light-size-x: 50%;
+  --section-light-size-y: 32%;
+  --section-light-core: rgb(41 143 226 / 0.27);
+  --section-light-halo: rgb(30 108 178 / 0.11);
+  --section-light-fade: 50%;
+}
+
+.site-theme section.section-light-products:not(.cta-panel) {
+  --section-light-x: 82%;
+  --section-light-y: 28%;
+  --section-light-size-x: 24%;
+  --section-light-size-y: 24%;
+  --section-light-core: rgb(41 143 226 / 0.22);
+  --section-light-halo: rgb(30 108 178 / 0.09);
+}
+
+.site-theme section.section-light-ai:not(.cta-panel) {
+  --section-light-x: 75%;
+  --section-light-y: 40%;
+  --section-light-size-x: 40%;
+  --section-light-size-y: 44%;
+  --section-light-core: rgb(41 143 226 / 0.26);
+  --section-light-halo: rgb(30 108 178 / 0.11);
+  --section-light-fade: 60%;
+}
+
+.site-theme section.section-light-process:not(.cta-panel) {
+  --section-light-x: 75%;
+  --section-light-y: 62%;
+  --section-light-size-x: 40%;
+  --section-light-size-y: 68%;
+  --section-light-core: rgb(41 143 226 / 0.24);
+  --section-light-halo: rgb(30 108 178 / 0.1);
+  --section-light-fade: 60%;
+}
+
+.site-theme section.section-light-why:not(.cta-panel) {
+  --section-light-x: 50%;
+  --section-light-y: 34%;
+  --section-light-size-x: 46%;
+  --section-light-size-y: 30%;
+  --section-light-core: rgb(41 143 226 / 0.25);
+  --section-light-halo: rgb(30 108 178 / 0.1);
+}
+
+.site-theme > .site-radial-surface {
+  --section-light-x: 50%;
+  --section-light-y: 42%;
+  --section-light-size-x: 54%;
+  --section-light-size-y: 56%;
+}
+
+@media (max-width: 639px) {
+  .site-theme > section:first-of-type,
+  .site-theme > div > section:first-of-type {
+    --section-light-x: 50%;
+    --section-light-y: 38%;
+    --section-light-size-x: 62%;
+    --section-light-size-y: 56%;
+  }
 }
 
 .site-theme [class~="bg-white"],
@@ -523,31 +622,16 @@ body {
   }
 }
 
-/* Matching navy endpoints let each section carry its own depth without visible
-   joins between the hero and the sections that follow. */
+/* The shared canvas keeps section joins quiet while each section receives one
+   restrained upper-center light source. */
 .home-reference {
-  background: #0b2443;
-}
-
-.home-reference > section:first-child {
-  background: linear-gradient(180deg, #0b2443 0%, #103863 42%, #103863 58%, #0b2443 100%) !important;
+  background: transparent;
 }
 
 @media (min-width: 80rem) and (min-aspect-ratio: 4 / 3) {
   .home-reference > section.home-hero {
     min-height: min(100dvh, 52rem);
   }
-}
-
-.home-reference > section:not(:first-child) {
-  background-color: #0b2443 !important;
-  background-image:
-    linear-gradient(rgb(255 255 255 / 0.032) 1px, transparent 1px),
-    linear-gradient(90deg, rgb(255 255 255 / 0.032) 1px, transparent 1px),
-    linear-gradient(180deg, #0b2443 0%, #103863 42%, #103863 58%, #0b2443 100%) !important;
-  background-position: center !important;
-  background-size: 60px 60px, 60px 60px, cover !important;
-  background-repeat: repeat, repeat, no-repeat !important;
 }
 
 .home-reference > section:not(:first-child) [class*="bg-white"],
@@ -647,13 +731,11 @@ body {
   overflow: hidden;
   background-color: #075bc7 !important;
   background-image:
-    linear-gradient(rgb(255 255 255 / 0.032) 1px, transparent 1px),
-    linear-gradient(90deg, rgb(255 255 255 / 0.032) 1px, transparent 1px),
     linear-gradient(90deg, rgb(8 15 30 / 0.08) 20%, rgb(8 15 30 / 0.48) 100%),
     var(--cta-background-image) !important;
   background-position: center !important;
-  background-size: 60px 60px, 60px 60px, cover, cover !important;
-  background-repeat: repeat, repeat, no-repeat, no-repeat !important;
+  background-size: cover, cover !important;
+  background-repeat: no-repeat, no-repeat !important;
 }
 
 @media (min-width: 48rem) {
