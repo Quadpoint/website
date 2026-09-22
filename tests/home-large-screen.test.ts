@@ -17,15 +17,27 @@ test("uses a capped 1440px canvas for the homepage and its navbar from xl", () =
   assert.match(navbar, /pathname === "\/" && "home-navbar-canvas"/);
 });
 
-test("scales the hero composition at the xl breakpoint", () => {
+test("scales the hero composition modestly at the xl breakpoint", () => {
   const hero = read("components/sections/HeroSection.tsx");
 
-  assert.match(hero, /xl:max-w-\[720px\]/);
-  assert.match(hero, /xl:w-\[720px\]/);
-  assert.match(hero, /xl:text-\[3\.75rem\]/);
+  assert.match(hero, /xl:max-w-\[760px\]/);
+  assert.match(hero, /xl:w-\[780px\]/);
+  assert.match(hero, /xl:text-\[4rem\]/);
   assert.doesNotMatch(hero, /xl:text-xl/);
   assert.match(hero, /xl:gap-24/);
   assert.doesNotMatch(hero, /2xl:/);
+});
+
+test("caps the homepage hero on wide landscape screens", () => {
+  const hero = read("components/sections/HeroSection.tsx");
+  const styles = read("app/globals.css");
+
+  assert.match(hero, /home-hero[\s\S]*min-h-dvh/);
+  assert.match(hero, /xl:pt-32 xl:pb-20/);
+  assert.match(
+    styles,
+    /@media \(min-width: 80rem\) and \(min-aspect-ratio: 4 \/ 3\)[\s\S]*?\.home-reference > section\.home-hero[\s\S]*?min-height: min\(100dvh, 52rem\)/
+  );
 });
 
 test("uses compact content-driven spacing for non-hero homepage sections", () => {

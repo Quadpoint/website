@@ -37,3 +37,12 @@ test("gives navigation chips accessible target sizing and clear states", () => {
   assert.match(styles, /\.solutions-page \.solution-nav-chip:focus-visible/);
   assert.match(styles, /outline: 3px solid var\(--solutions-orange\)/);
 });
+
+test("uses compact section rhythm while scaling components at 2xl", () => {
+  assert.match(page, /py-12 sm:py-14 lg:py-16/);
+  assert.match(page, /2xl:max-w-\[90rem\]/);
+  assert.match(page, /2xl:text-\[2\.75rem\]/);
+  assert.match(page, /2xl:text-lg/);
+  assert.match(page, /2xl:p-9/);
+  assert.match(page, /2xl:min-h-14/);
+});

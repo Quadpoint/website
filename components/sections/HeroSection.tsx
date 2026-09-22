@@ -8,7 +8,7 @@ import { Button } from "@/components/ui/Button";
  */
 function HeroVisual() {
   return (
-    <div className="hero-enter hero-enter-delay-2 relative w-full max-w-[580px] xl:max-w-[720px] mx-auto lg:mx-0">
+    <div className="hero-enter hero-enter-delay-2 relative w-full max-w-[580px] xl:max-w-[760px] mx-auto lg:mx-0">
       {/* Main card */}
       <div className="relative bg-white/10 backdrop-blur-md border border-white/20 rounded-2xl overflow-hidden shadow-[0_24px_60px_-12px_rgba(0,0,0,0.4)]">
         {/* Mock dashboard header */}
@@ -118,7 +118,7 @@ function HeroVisual() {
 export function HeroSection() {
   return (
     <section
-      className="relative min-h-dvh flex items-center overflow-hidden bg-[#0f1e3d]"
+      className="home-hero relative min-h-dvh flex items-center overflow-hidden bg-[#0f1e3d]"
       aria-label="Hero"
     >
       {/* Background geometric pattern */}
@@ -140,8 +140,8 @@ export function HeroSection() {
           height={650}
           loading="eager"
           fetchPriority="high"
-          sizes="(min-width: 1280px) 720px, 650px"
-          className="absolute right-[-32px] top-[53%] h-auto w-[650px] xl:w-[720px] max-w-none -translate-y-1/2 rotate-[-20deg] opacity-[0.06]"
+          sizes="(min-width: 1280px) 780px, 650px"
+          className="absolute right-[-32px] top-[53%] h-auto w-[650px] xl:w-[780px] max-w-none -translate-y-1/2 rotate-[-20deg] opacity-[0.06]"
         />
 
         {/* Blue glow */}
@@ -155,7 +155,7 @@ export function HeroSection() {
       </div>
 
       {/* Content */}
-      <div className="relative z-10 w-full max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 xl:px-12 pt-24 pb-16 lg:pt-32 lg:pb-24 xl:pt-36 xl:pb-28">
+      <div className="relative z-10 w-full max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 xl:px-12 pt-24 pb-16 lg:pt-32 lg:pb-24 xl:pt-32 xl:pb-20">
         <div className="grid lg:grid-cols-2 gap-12 lg:gap-16 xl:gap-24 items-center">
           {/* Left — text */}
           <div>
@@ -165,7 +165,7 @@ export function HeroSection() {
               </span>
             </div>
 
-            <h1 className="hero-enter hero-enter-delay-1 text-4xl sm:text-5xl lg:text-[3.5rem] xl:text-[3.75rem] font-bold text-white leading-[1.1] tracking-tight mb-6">
+            <h1 className="hero-enter hero-enter-delay-1 text-4xl sm:text-5xl lg:text-[3.5rem] xl:text-[4rem] font-bold text-white leading-[1.1] tracking-tight mb-6">
               Technology That{" "}
               <span className="text-[#2d63d4]">Moves Your Business</span>{" "}
               Forward.

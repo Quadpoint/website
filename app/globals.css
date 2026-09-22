@@ -533,6 +533,12 @@ body {
   background: linear-gradient(180deg, #0b2443 0%, #103863 42%, #103863 58%, #0b2443 100%) !important;
 }
 
+@media (min-width: 80rem) and (min-aspect-ratio: 4 / 3) {
+  .home-reference > section.home-hero {
+    min-height: min(100dvh, 52rem);
+  }
+}
+
 .home-reference > section:not(:first-child) {
   background-color: #0b2443 !important;
   background-image:

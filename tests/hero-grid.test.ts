@@ -49,7 +49,7 @@ test("loads the above-fold hero watermark eagerly at its rendered size", () => {
   assert.match(heroSource, /fetchPriority="high"/);
   assert.match(
     heroSource,
-    /sizes="\(min-width: 1280px\) 720px, 650px"/
+    /sizes="\(min-width: 1280px\) 780px, 650px"/
   );
 });
 

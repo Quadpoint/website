@@ -110,7 +110,7 @@ export default function SolutionsPage() {
     <div className="solutions-page">
       {/* Hero */}
       <section
-        className="pt-32 pb-16 bg-[#0f1e3d] relative overflow-hidden"
+        className="pt-28 pb-12 sm:pt-32 bg-[#0f1e3d] relative overflow-hidden"
         aria-label="Solutions hero"
       >
         <div
@@ -135,7 +135,7 @@ export default function SolutionsPage() {
           </FadeIn>
 
           {/* In-page anchors */}
-          <FadeIn delay={0.15} className="flex flex-wrap justify-center gap-3 mt-10">
+          <FadeIn delay={0.15} className="flex flex-wrap justify-center gap-3 mt-8">
             {allSolutions.map((s) => (
               <a
                 key={s.id}
@@ -159,12 +159,12 @@ export default function SolutionsPage() {
           <section
             key={solution.id}
             id={solution.id}
-            className={`py-20 lg:py-28 ${bg}`}
+            className={`py-12 sm:py-14 lg:py-16 ${bg}`}
             aria-labelledby={`${solution.id}-heading`}
           >
-            <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div className="max-w-7xl 2xl:max-w-[90rem] mx-auto px-4 sm:px-6 lg:px-8">
               <div
-                className={`flex flex-col lg:flex-row gap-14 lg:gap-20 items-start ${
+                className={`flex flex-col lg:flex-row gap-10 lg:gap-14 2xl:gap-20 items-start ${
                   reversed ? "lg:flex-row-reverse" : ""
                 }`}
               >
@@ -174,29 +174,29 @@ export default function SolutionsPage() {
                     <SectionLabel className="mb-4">{solution.label}</SectionLabel>
                     <h2
                       id={`${solution.id}-heading`}
-                      className="text-3xl sm:text-4xl font-bold text-[#1c1c2e] tracking-tight mb-6"
+                      className="text-3xl sm:text-4xl 2xl:text-[2.75rem] font-bold text-[#1c1c2e] tracking-tight mb-5"
                     >
                       {solution.headline}
                     </h2>
                   </FadeIn>
 
-                  <FadeIn delay={0.1} className="solution-narrative mb-8">
-                    <div className="solution-narrative-section pb-6">
+                  <FadeIn delay={0.1} className="solution-narrative mb-6">
+                    <div className="solution-narrative-section pb-5">
                       <h3 className="solution-copy-label text-xs font-semibold uppercase tracking-widest mb-2">
                         The Challenge
                       </h3>
-                      <p className="solution-copy leading-7">{solution.problem}</p>
+                      <p className="solution-copy leading-7 2xl:text-lg 2xl:leading-8">{solution.problem}</p>
                     </div>
                     <div className="solution-narrative-divider" aria-hidden="true" />
-                    <div className="solution-narrative-section pt-6">
+                    <div className="solution-narrative-section pt-5">
                       <h3 className="solution-copy-label text-xs font-semibold uppercase tracking-widest mb-2">
                         Our Approach
                       </h3>
-                      <p className="solution-copy leading-7">{solution.solution}</p>
+                      <p className="solution-copy leading-7 2xl:text-lg 2xl:leading-8">{solution.solution}</p>
                     </div>
                   </FadeIn>
 
-                  <FadeIn delay={0.15} className="mb-8">
+                  <FadeIn delay={0.15} className="mb-6">
                     <h3 className="solution-copy-label text-xs font-semibold uppercase tracking-widest mb-3">
                       Example Use Cases
                     </h3>
@@ -207,7 +207,7 @@ export default function SolutionsPage() {
                             size={15}
                             className="solution-use-case-icon mt-0.5 flex-shrink-0"
                           />
-                          <span className="solution-use-case-copy text-sm leading-relaxed">{uc}</span>
+                          <span className="solution-use-case-copy text-sm leading-relaxed 2xl:text-base">{uc}</span>
                         </li>
                       ))}
                     </ul>
@@ -227,8 +227,8 @@ export default function SolutionsPage() {
                 {/* Capabilities card */}
                 <div className="w-full lg:w-1/2">
                   <FadeIn direction={reversed ? "right" : "left"}>
-                    <div className="solution-capabilities-panel rounded-2xl border p-6 sm:p-8 lg:sticky lg:top-28">
-                      <div className="solution-icon-tile flex h-11 w-11 items-center justify-center rounded-lg mb-5">
+                    <div className="solution-capabilities-panel rounded-2xl border p-6 sm:p-8 2xl:p-9 lg:sticky lg:top-28">
+                      <div className="solution-icon-tile flex h-11 w-11 2xl:h-12 2xl:w-12 items-center justify-center rounded-lg mb-5">
                         <Icon size={20} />
                       </div>
                       <h3 className="solution-capabilities-heading text-lg font-bold mb-5">
@@ -239,11 +239,11 @@ export default function SolutionsPage() {
                           const CapIcon = cap.icon;
                           return (
                             <StaggerItem key={cap.label}>
-                              <div className="solution-capability-row flex min-h-12 items-center gap-3 px-1 py-3">
+                              <div className="solution-capability-row flex min-h-12 2xl:min-h-14 items-center gap-3 2xl:gap-4 px-1 py-3">
                                 <div className="solution-icon-tile flex h-8 w-8 flex-shrink-0 items-center justify-center rounded-md">
                                   <CapIcon size={14} />
                                 </div>
-                                <span className="solution-capability-label text-sm font-semibold">
+                                <span className="solution-capability-label text-sm 2xl:text-base font-semibold">
                                   {cap.label}
                                 </span>
                               </div>
