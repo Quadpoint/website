@@ -107,7 +107,7 @@ const allSolutions = [
 
 export default function SolutionsPage() {
   return (
-    <>
+    <div className="solutions-page">
       {/* Hero */}
       <section
         className="pt-32 pb-16 bg-[#0f1e3d] relative overflow-hidden"
@@ -140,7 +140,7 @@ export default function SolutionsPage() {
               <a
                 key={s.id}
                 href={`#${s.id}`}
-                className="px-4 py-2 rounded-full text-sm font-medium bg-white/8 text-white/70 border border-white/15 hover:bg-white/15 hover:text-white transition-colors"
+                className="solution-nav-chip inline-flex items-center justify-center rounded-full border px-4 text-sm font-semibold transition-colors"
               >
                 {s.label}
               </a>
@@ -180,23 +180,24 @@ export default function SolutionsPage() {
                     </h2>
                   </FadeIn>
 
-                  <FadeIn delay={0.1}>
-                    <div className="mb-5">
-                      <h3 className="text-xs font-semibold text-[#6b7280] uppercase tracking-widest mb-2">
+                  <FadeIn delay={0.1} className="solution-narrative mb-8">
+                    <div className="solution-narrative-section pb-6">
+                      <h3 className="solution-copy-label text-xs font-semibold uppercase tracking-widest mb-2">
                         The Challenge
                       </h3>
-                      <p className="text-[#374151] leading-relaxed">{solution.problem}</p>
+                      <p className="solution-copy leading-7">{solution.problem}</p>
                     </div>
-                    <div className="mb-8">
-                      <h3 className="text-xs font-semibold text-[#6b7280] uppercase tracking-widest mb-2">
+                    <div className="solution-narrative-divider" aria-hidden="true" />
+                    <div className="solution-narrative-section pt-6">
+                      <h3 className="solution-copy-label text-xs font-semibold uppercase tracking-widest mb-2">
                         Our Approach
                       </h3>
-                      <p className="text-[#374151] leading-relaxed">{solution.solution}</p>
+                      <p className="solution-copy leading-7">{solution.solution}</p>
                     </div>
                   </FadeIn>
 
                   <FadeIn delay={0.15} className="mb-8">
-                    <h3 className="text-xs font-semibold text-[#6b7280] uppercase tracking-widest mb-3">
+                    <h3 className="solution-copy-label text-xs font-semibold uppercase tracking-widest mb-3">
                       Example Use Cases
                     </h3>
                     <ul className="space-y-2.5">
@@ -204,9 +205,9 @@ export default function SolutionsPage() {
                         <li key={uc} className="flex items-start gap-3">
                           <CheckCircle2
                             size={15}
-                            className="text-[#1a4fba] mt-0.5 flex-shrink-0"
+                            className="solution-use-case-icon mt-0.5 flex-shrink-0"
                           />
-                          <span className="text-sm text-[#374151] leading-relaxed">{uc}</span>
+                          <span className="solution-use-case-copy text-sm leading-relaxed">{uc}</span>
                         </li>
                       ))}
                     </ul>
@@ -226,23 +227,23 @@ export default function SolutionsPage() {
                 {/* Capabilities card */}
                 <div className="w-full lg:w-1/2">
                   <FadeIn direction={reversed ? "right" : "left"}>
-                    <div className="bg-[#f9fafb] rounded-2xl border border-[#e5e7eb] p-8 lg:sticky lg:top-28">
-                      <div className="w-12 h-12 rounded-xl bg-[#dbeafe]/60 flex items-center justify-center mb-5">
-                        <Icon size={22} className="text-[#1a4fba]" />
+                    <div className="solution-capabilities-panel rounded-2xl border p-6 sm:p-8 lg:sticky lg:top-28">
+                      <div className="solution-icon-tile flex h-11 w-11 items-center justify-center rounded-lg mb-5">
+                        <Icon size={20} />
                       </div>
-                      <h3 className="text-lg font-bold text-[#1c1c2e] mb-5">
+                      <h3 className="solution-capabilities-heading text-lg font-bold mb-5">
                         Capabilities
                       </h3>
-                      <StaggerContainer className="space-y-3">
+                      <StaggerContainer className="solution-capability-list">
                         {solution.capabilities.map((cap) => {
                           const CapIcon = cap.icon;
                           return (
                             <StaggerItem key={cap.label}>
-                              <div className="flex items-center gap-3 p-3 bg-white rounded-xl border border-[#e5e7eb]">
-                                <div className="w-8 h-8 rounded-lg bg-[#dbeafe]/50 flex items-center justify-center flex-shrink-0">
-                                  <CapIcon size={14} className="text-[#1a4fba]" />
+                              <div className="solution-capability-row flex min-h-12 items-center gap-3 px-1 py-3">
+                                <div className="solution-icon-tile flex h-8 w-8 flex-shrink-0 items-center justify-center rounded-md">
+                                  <CapIcon size={14} />
                                 </div>
-                                <span className="text-sm font-medium text-[#374151]">
+                                <span className="solution-capability-label text-sm font-semibold">
                                   {cap.label}
                                 </span>
                               </div>
@@ -264,6 +265,6 @@ export default function SolutionsPage() {
         subheading="Tell us about your business and we'll help figure out the right approach."
         buttonLabel="Talk to QuadPoint"
       />
-    </>
+    </div>
   );
 }

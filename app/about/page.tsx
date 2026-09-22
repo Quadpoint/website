@@ -12,6 +12,7 @@ import {
 import { SectionLabel } from "@/components/ui/SectionLabel";
 import { CTASection } from "@/components/sections/CTASection";
 import { FadeIn, StaggerContainer, StaggerItem } from "@/components/animations/FadeIn";
+import { LogoColorwaySwitcher } from "@/components/about/LogoColorwaySwitcher";
 
 export const metadata: Metadata = {
   title: "About",
@@ -112,31 +113,9 @@ export default function AboutPage() {
               </p>
             </FadeIn>
 
-            {/* Visual — Q geometry */}
+            {/* Interactive logo colorways */}
             <FadeIn direction="right">
-              <div className="bg-[#f9fafb] rounded-2xl border border-[#e5e7eb] p-10 flex items-center justify-center aspect-square max-w-sm mx-auto">
-                <svg viewBox="0 0 100 100" fill="none" className="w-48 h-48" aria-hidden="true">
-                  <defs>
-                    <linearGradient id="qp-about" x1="5" y1="5" x2="95" y2="95" gradientUnits="userSpaceOnUse">
-                      <stop offset="0%"   stopColor="#60b0ff" />
-                      <stop offset="35%"  stopColor="#1a6aff" />
-                      <stop offset="100%" stopColor="#061450" />
-                    </linearGradient>
-                  </defs>
-                  <circle cx="50" cy="50" r="44.5" stroke="url(#qp-about)" strokeWidth="7"
-                    strokeDasharray="209.70 69.90" strokeDashoffset="248.53"
-                    strokeLinecap="round" transform="rotate(-90 50 50)" fill="none"/>
-                  <circle cx="50" cy="50" r="30" stroke="url(#qp-about)" strokeWidth="8"
-                    strokeDasharray="133.52 54.98" strokeDashoffset="172.79"
-                    strokeLinecap="round" transform="rotate(-90 50 50)" fill="none"/>
-                  <circle cx="50" cy="50" r="16.5" stroke="url(#qp-about)" strokeWidth="7"
-                    strokeDasharray="69.12 34.56" strokeDashoffset="97.91"
-                    strokeLinecap="round" transform="rotate(-90 50 50)" fill="none"/>
-                  <circle cx="50" cy="50" r="5.5" fill="url(#qp-about)"/>
-                  <path d="M 46 52 L 56 52 L 92 88 L 82 92 Z" fill="url(#qp-about)"/>
-                  <circle cx="50" cy="50" r="5.5" fill="url(#qp-about)"/>
-                </svg>
-              </div>
+              <LogoColorwaySwitcher />
             </FadeIn>
           </div>
         </div>

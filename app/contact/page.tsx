@@ -13,7 +13,7 @@ export const metadata: Metadata = {
 
 export default function ContactPage() {
   return (
-    <>
+    <div className="contact-page">
       {/* Page header */}
       <section
         className="pt-32 pb-16 bg-[#0f1e3d] relative overflow-hidden"
@@ -42,28 +42,28 @@ export default function ContactPage() {
       </section>
 
       {/* Contact section */}
-      <section className="py-16 lg:py-24 bg-[#f9fafb]" aria-label="Contact form">
+      <section className="contact-content py-16 lg:py-24" aria-label="Contact form">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid lg:grid-cols-3 gap-10 lg:gap-14">
             {/* Sidebar */}
             <aside className="lg:col-span-1 space-y-6">
               <FadeIn direction="left">
-                <div className="bg-white rounded-2xl border border-[#e5e7eb] p-6">
-                  <h2 className="text-lg font-bold text-[#1c1c2e] mb-5">
+                <div className="contact-card rounded-2xl border p-6">
+                  <h2 className="contact-card-heading text-lg font-bold mb-5">
                     Get in Touch
                   </h2>
                   <div className="space-y-4">
                     <div className="flex items-start gap-3">
-                      <div className="w-9 h-9 rounded-lg bg-[#dbeafe]/50 flex items-center justify-center flex-shrink-0 mt-0.5">
+                      <div className="contact-icon flex h-9 w-9 flex-shrink-0 items-center justify-center rounded-lg mt-0.5">
                         <Mail size={15} className="text-[#1a4fba]" />
                       </div>
                       <div>
-                        <p className="text-xs font-semibold text-[#6b7280] uppercase tracking-wide mb-0.5">
+                        <p className="contact-meta text-xs font-semibold uppercase tracking-wide mb-0.5">
                           Email
                         </p>
                         <a
                           href="mailto:quadpointtechnology@gmail.com"
-                          className="text-sm text-[#374151] hover:text-[#1a4fba] transition-colors"
+                          className="contact-card-link text-sm transition-colors"
                         >
                           quadpointtechnology@gmail.com
                         </a>
@@ -71,28 +71,28 @@ export default function ContactPage() {
                     </div>
 
                     <div className="flex items-start gap-3">
-                      <div className="w-9 h-9 rounded-lg bg-[#dbeafe]/50 flex items-center justify-center flex-shrink-0 mt-0.5">
+                      <div className="contact-icon flex h-9 w-9 flex-shrink-0 items-center justify-center rounded-lg mt-0.5">
                         <Clock size={15} className="text-[#1a4fba]" />
                       </div>
                       <div>
-                        <p className="text-xs font-semibold text-[#6b7280] uppercase tracking-wide mb-0.5">
+                        <p className="contact-meta text-xs font-semibold uppercase tracking-wide mb-0.5">
                           Response Time
                         </p>
-                        <p className="text-sm text-[#374151]">
+                        <p className="contact-card-copy text-sm">
                           Within one business day
                         </p>
                       </div>
                     </div>
 
                     <div className="flex items-start gap-3">
-                      <div className="w-9 h-9 rounded-lg bg-[#dbeafe]/50 flex items-center justify-center flex-shrink-0 mt-0.5">
+                      <div className="contact-icon flex h-9 w-9 flex-shrink-0 items-center justify-center rounded-lg mt-0.5">
                         <MapPin size={15} className="text-[#1a4fba]" />
                       </div>
                       <div>
-                        <p className="text-xs font-semibold text-[#6b7280] uppercase tracking-wide mb-0.5">
+                        <p className="contact-meta text-xs font-semibold uppercase tracking-wide mb-0.5">
                           Location
                         </p>
-                        <p className="text-sm text-[#374151]">
+                        <p className="contact-card-copy text-sm">
                           Available remotely
                         </p>
                       </div>
@@ -127,11 +127,11 @@ export default function ContactPage() {
 
             {/* Form */}
             <FadeIn className="lg:col-span-2">
-              <div className="bg-white rounded-2xl border border-[#e5e7eb] p-7 sm:p-9">
-                <h2 className="text-xl font-bold text-[#1c1c2e] mb-1.5">
+              <div className="contact-form-panel rounded-2xl border p-6 sm:p-9 lg:p-10">
+                <h2 className="contact-form-heading text-2xl font-bold mb-2">
                   Send an Inquiry
                 </h2>
-                <p className="text-sm text-[#6b7280] mb-7">
+                <p className="contact-form-intro text-sm leading-relaxed mb-8">
                   Fill in the details below and we&apos;ll get back to you promptly.
                 </p>
                 <ContactForm />
@@ -140,6 +140,6 @@ export default function ContactPage() {
           </div>
         </div>
       </section>
-    </>
+    </div>
   );
 }

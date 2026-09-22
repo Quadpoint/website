@@ -86,7 +86,7 @@ export default function RootLayout({
     <html lang="en" className={inter.variable}>
       <body className="min-h-dvh flex flex-col antialiased">
         <Navbar />
-        <main className="flex-1">{children}</main>
+        <main className="site-theme flex-1">{children}</main>
         <Footer />
       </body>
     </html>

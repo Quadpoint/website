@@ -190,17 +190,17 @@ export function Navbar() {
               animate={{ x: 0 }}
               exit={{ x: "100%" }}
               transition={{ type: "spring", damping: 30, stiffness: 300 }}
-              className="fixed top-0 right-0 bottom-0 z-50 w-72 bg-white shadow-2xl lg:hidden flex flex-col"
+              className="site-mobile-menu fixed top-0 right-0 bottom-0 z-50 w-72 bg-[#080f1e] shadow-2xl lg:hidden flex flex-col"
               role="dialog"
               aria-modal="true"
               aria-label="Navigation menu"
             >
               {/* Drawer header */}
-              <div className="flex items-center justify-between px-5 h-18 border-b border-[#e5e7eb]">
-                <Logo variant="default" />
+              <div className="flex items-center justify-between px-5 h-18 border-b border-white/10">
+                <Logo variant="white" />
                 <button
                   onClick={() => setMobileOpen(false)}
-                  className="p-2 rounded-md text-[#6b7280] hover:text-[#1c1c2e] hover:bg-[#f3f4f6] transition-colors"
+                  className="p-2 rounded-md text-white/60 hover:text-white hover:bg-white/10 transition-colors"
                   aria-label="Close menu"
                 >
                   <X size={20} />
@@ -224,8 +224,8 @@ export function Navbar() {
                       className={cn(
                         "flex items-center px-3 py-2.5 rounded-lg text-sm font-medium transition-colors",
                         isActive(link.href)
-                          ? "bg-[#dbeafe]/60 text-[#1a4fba]"
-                          : "text-[#374151] hover:text-[#1a4fba] hover:bg-[#f3f4f6]"
+                          ? "bg-[#1a4fba]/35 text-white"
+                          : "text-white/70 hover:text-white hover:bg-white/10"
                       )}
                     >
                       {link.label}
@@ -235,7 +235,7 @@ export function Navbar() {
               </nav>
 
               {/* Drawer footer CTA */}
-              <div className="p-5 border-t border-[#e5e7eb]">
+              <div className="p-5 border-t border-white/10">
                 <Link
                   href="/contact"
                   className="flex items-center justify-center w-full px-5 py-2.5 text-sm font-semibold rounded-lg bg-[#f59e0b] text-[#0f1e3d] hover:bg-[#fbb52b] transition-colors shadow-sm"

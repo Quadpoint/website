@@ -173,6 +173,356 @@ body {
   padding-right: 1.5rem;
 }
 
+/* Site-wide QuadPoint palette. Exact class-token selectors preserve intentional
+   translucent treatments such as bg-white/10 in hero and dark panels. */
+.site-theme {
+  background: #0b2443;
+  color: #f7fbff;
+}
+
+.site-theme section:not(.cta-panel) {
+  background-color: #0b2443 !important;
+  background-image:
+    linear-gradient(rgb(255 255 255 / 0.032) 1px, transparent 1px),
+    linear-gradient(90deg, rgb(255 255 255 / 0.032) 1px, transparent 1px),
+    linear-gradient(180deg, #0b2443 0%, #103863 42%, #103863 58%, #0b2443 100%) !important;
+  background-position: center !important;
+  background-size: 60px 60px, 60px 60px, cover !important;
+  background-repeat: repeat, repeat, no-repeat !important;
+}
+
+.site-theme [class~="bg-white"],
+.site-theme [class~="bg-[#f9fafb]"],
+.site-theme [class~="bg-[#f3f4f6]"] {
+  background-color: #0b2e5b !important;
+}
+
+.site-theme [class~="bg-[#dbeafe]/50"],
+.site-theme [class~="bg-[#dbeafe]/60"] {
+  background-color: rgb(26 79 186 / 0.32) !important;
+}
+
+.site-theme [class~="text-[#1c1c2e]"],
+.site-theme [class~="text-[#374151]"] {
+  color: #f7fbff !important;
+}
+
+.site-theme [class~="text-[#6b7280]"],
+.site-theme [class~="text-[#9ca3af]"] {
+  color: #b8cce3 !important;
+}
+
+.site-theme [class~="text-[#1a4fba]"] {
+  color: #8ed0ff !important;
+}
+
+.site-theme :where(div, span):has(> svg[class~="text-[#1a4fba]"]),
+.site-theme :where(div, span):has(> svg[class~="text-[#1a4fba]/50"]) {
+  color: #f59d13 !important;
+  background-color: #f59d13 !important;
+}
+
+.site-theme svg[class~="text-[#1a4fba]"],
+.site-theme svg[class~="text-[#1a4fba]/50"] {
+  color: #ffffff !important;
+}
+
+.site-theme [class~="border-[#e5e7eb]"] {
+  border-color: rgb(109 183 255 / 0.24) !important;
+}
+
+.site-theme a[class~="bg-[#1a4fba]"],
+.site-theme button[class~="bg-[#1a4fba]"] {
+  background-color: #f59d13 !important;
+  color: #0f1e3d !important;
+}
+
+.site-theme a[class~="bg-[#1a4fba]"]:hover,
+.site-theme button[class~="bg-[#1a4fba]"]:hover {
+  background-color: #fbb52b !important;
+}
+
+.site-theme input:not([type="checkbox"]),
+.site-theme select,
+.site-theme textarea {
+  background-color: #07172f !important;
+  border-color: rgb(109 183 255 / 0.32) !important;
+  color: #ffffff !important;
+}
+
+.site-theme input::placeholder,
+.site-theme textarea::placeholder {
+  color: #9fb5ce !important;
+}
+
+.site-theme select option {
+  background: #07172f;
+  color: #ffffff;
+}
+
+/* The contact route uses a paper-like form surface so long-form input remains
+   easy to scan against the site's dark brand canvas. */
+.site-theme .contact-page .contact-content {
+  background-color: #eef3f8 !important;
+  background-image: none !important;
+}
+
+.contact-page .contact-card,
+.contact-page .contact-form-panel {
+  background-color: #ffffff !important;
+  border-color: #d9e1ea !important;
+  color: #1c1c2e !important;
+  box-shadow: 0 18px 45px -34px rgb(8 15 30 / 0.42);
+}
+
+.contact-page .contact-card-heading,
+.contact-page .contact-form-heading,
+.contact-page .contact-form-label {
+  color: #172033 !important;
+}
+
+.contact-page .contact-form-intro,
+.contact-page .contact-card-copy,
+.contact-page .contact-form-consent {
+  color: #46536a !important;
+}
+
+.contact-page .contact-meta,
+.contact-page .contact-form-optional,
+.contact-page .contact-form-note {
+  color: #667085 !important;
+}
+
+.contact-page .contact-icon {
+  background-color: #fff0d5 !important;
+}
+
+.contact-page .contact-icon svg {
+  color: #172033 !important;
+}
+
+.contact-page .contact-card-link,
+.contact-page .contact-form-link {
+  color: #174aa9 !important;
+}
+
+.contact-page .contact-card-link:hover,
+.contact-page .contact-form-link:hover {
+  color: #0f357e !important;
+}
+
+.contact-page .contact-form-legend {
+  border-color: #e4e9f0 !important;
+  color: #1a4fba !important;
+}
+
+.site-theme .contact-page .contact-form-control {
+  background-color: #ffffff !important;
+  border-color: #cbd5e1 !important;
+  color: #1c1c2e !important;
+}
+
+.site-theme .contact-page .contact-form-control:hover {
+  border-color: #94a3b8 !important;
+}
+
+.site-theme .contact-page .contact-form-control:focus {
+  border-color: #1a4fba !important;
+  box-shadow: 0 0 0 3px rgb(26 79 186 / 0.14) !important;
+}
+
+.site-theme .contact-page .contact-form-control::placeholder {
+  color: #8b96a8 !important;
+}
+
+.site-theme .contact-page select.contact-form-control option {
+  background: #ffffff;
+  color: #1c1c2e;
+}
+
+.contact-page .contact-consent {
+  background-color: #f7f9fc !important;
+  border-color: #dfe6ef !important;
+}
+
+.site-theme .contact-page .contact-submit {
+  background-color: #f59d13 !important;
+  color: #172033 !important;
+  box-shadow: 0 8px 18px -12px rgb(95 55 0 / 0.75);
+}
+
+.site-theme .contact-page .contact-submit:hover {
+  background-color: #e88d08 !important;
+  box-shadow: 0 12px 22px -13px rgb(95 55 0 / 0.8);
+}
+
+/* The Solutions page uses one defined panel and an open editorial reading
+   column so the blue canvas stays present without turning every item into a card. */
+.solutions-page {
+  --solutions-panel: #123f70;
+  --solutions-copy: #dbe9f7;
+  --solutions-muted: #a8c7e3;
+  --solutions-line: rgb(143 195 241 / 0.28);
+  --solutions-orange: #f59d13;
+}
+
+.solutions-page .solution-nav-chip {
+  min-height: 44px;
+  border-color: rgb(183 218 248 / 0.34) !important;
+  background-color: rgb(7 36 72 / 0.62) !important;
+  color: #eaf5ff !important;
+}
+
+.solutions-page .solution-nav-chip:hover {
+  border-color: rgb(245 157 19 / 0.72) !important;
+  background-color: rgb(18 63 112 / 0.9) !important;
+  color: #ffffff !important;
+}
+
+.solutions-page .solution-nav-chip:focus-visible {
+  outline: 3px solid var(--solutions-orange);
+  outline-offset: 3px;
+}
+
+.solutions-page .solution-narrative {
+  max-width: 42rem;
+}
+
+.solutions-page .solution-narrative-divider {
+  height: 1px;
+  background-color: var(--solutions-line);
+}
+
+.solutions-page .solution-copy-label {
+  color: var(--solutions-muted) !important;
+}
+
+.solutions-page .solution-copy,
+.solutions-page .solution-use-case-copy {
+  color: var(--solutions-copy) !important;
+}
+
+.solutions-page .solution-use-case-icon {
+  color: var(--solutions-orange) !important;
+}
+
+.solutions-page .solution-capabilities-panel {
+  background-color: var(--solutions-panel) !important;
+  border-color: rgb(143 195 241 / 0.38) !important;
+  box-shadow:
+    inset 0 1px 0 rgb(255 255 255 / 0.09),
+    0 20px 44px -32px rgb(2 12 28 / 0.88);
+}
+
+.solutions-page .solution-capabilities-heading {
+  color: #ffffff !important;
+}
+
+.solutions-page .solution-capability-list > * + * {
+  border-top: 1px solid var(--solutions-line);
+}
+
+.solutions-page .solution-capability-row {
+  color: #eef6ff;
+}
+
+.solutions-page .solution-capability-label {
+  color: #eef6ff !important;
+}
+
+.solutions-page .solution-icon-tile {
+  background-color: var(--solutions-orange) !important;
+  color: #ffffff !important;
+}
+
+.solutions-page .solution-icon-tile svg {
+  color: #ffffff !important;
+}
+
+.logo-colorway-switcher {
+  border-color: rgb(255 255 255 / 0.18);
+  background: #1a4fba;
+  cursor: pointer;
+  transition:
+    border-color 160ms ease,
+    box-shadow 160ms ease,
+    transform 120ms cubic-bezier(0.23, 1, 0.32, 1);
+}
+
+.logo-colorway-panel {
+  position: absolute;
+  inset: 0;
+  display: grid;
+  place-items: center;
+}
+
+.logo-colorway-base {
+  background: #1a4fba;
+}
+
+.logo-colorway-reveal {
+  background: #ffffff;
+  clip-path: inset(0 100% 0 0);
+  transition: clip-path 260ms cubic-bezier(0.77, 0, 0.175, 1);
+  will-change: clip-path;
+}
+
+.logo-colorway-switcher[data-colorway="blue"] .logo-colorway-reveal {
+  clip-path: inset(0);
+}
+
+.logo-colorway-hint {
+  position: absolute;
+  z-index: 2;
+  right: 1rem;
+  bottom: 1rem;
+  left: 1rem;
+  width: fit-content;
+  margin-inline: auto;
+  border: 1px solid rgb(255 255 255 / 0.16);
+  border-radius: 999px;
+  background: rgb(8 15 30 / 0.74);
+  padding: 0.4rem 0.75rem;
+  color: rgb(255 255 255 / 0.82);
+  font-size: 0.6875rem;
+  font-weight: 600;
+  letter-spacing: 0.02em;
+  line-height: 1.2;
+}
+
+.logo-colorway-switcher:active {
+  transform: scale(0.99);
+}
+
+.logo-colorway-switcher:focus-visible {
+  outline: 3px solid #f59d13;
+  outline-offset: 4px;
+}
+
+@media (hover: hover) and (pointer: fine) {
+  .logo-colorway-switcher:hover {
+    border-color: #f59d13;
+    box-shadow: 0 18px 40px -24px rgb(245 157 19 / 0.72);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .logo-colorway-switcher {
+    transform: none !important;
+  }
+
+  .logo-colorway-reveal {
+    clip-path: none !important;
+    opacity: 0;
+    transition: opacity 160ms cubic-bezier(0.23, 1, 0.32, 1) !important;
+    will-change: opacity;
+  }
+
+  .logo-colorway-switcher[data-colorway="blue"] .logo-colorway-reveal {
+    opacity: 1;
+  }
+}
+
 /* Matching navy endpoints let each section carry its own depth without visible
    joins between the hero and the sections that follow. */
 .home-reference {
