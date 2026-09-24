@@ -17,10 +17,14 @@ export function getNavbarShadowClassName(): string {
   return "shadow-none";
 }
 
-export function getNavbarSurfaceClassName(isScrolled: boolean): string {
-  return isScrolled
-    ? "bg-[#0f1e3d]/64 backdrop-blur-xl backdrop-saturate-150"
-    : "bg-transparent";
+export function getNavbarSurfaceClassName(
+  isScrolled: boolean,
+  isHomepage: boolean,
+  hasMeasuredScroll: boolean
+): string {
+  return isHomepage && hasMeasuredScroll && !isScrolled
+    ? "bg-transparent"
+    : "bg-[#0f1e3d]/64 backdrop-blur-xl backdrop-saturate-150";
 }
 
 export function getNavbarVisibilityClassName(isVisible: boolean): string {
