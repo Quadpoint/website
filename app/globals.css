@@ -596,6 +596,12 @@ body {
     drop-shadow(0 4px 8px rgba(0, 90, 180, 0.18));
 }
 
+.process-route-glow {
+  filter:
+    drop-shadow(0 0 2px rgb(39 183 255 / 0.95))
+    drop-shadow(0 0 8px rgb(0 119 255 / 0.72));
+}
+
 .process-timeline-dot[data-complete="true"] {
   border-color: #ffffff;
   background-color: #a8e4ff;

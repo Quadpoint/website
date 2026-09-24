@@ -85,23 +85,23 @@ const stairStages = [
 ];
 
 const troughPoints = [
-  { x: 260, y: 384 },
-  { x: 350, y: 338 },
-  { x: 440, y: 280 },
-  { x: 532, y: 214 },
+  { x: 197, y: 313 },
+  { x: 304, y: 250 },
+  { x: 422, y: 185 },
+  { x: 529, y: 120 },
 ];
 
 const processPath = `
-  M 100 430
-  C 190 390, 200 350, 220 348
-  C 238 346, 242 384, 260 384
-  C 278 384, 290 310, 310 305
-  C 328 300, 333 338, 350 338
-  C 368 338, 380 255, 400 250
-  C 418 245, 423 280, 440 280
-  C 458 280, 470 190, 490 185
-  C 508 180, 515 214, 532 214
-  C 555 214, 600 80, 680 35
+  M 20 427
+  C 90 410, 130 303, 165 303
+  C 180 303, 185 313, 197 313
+  C 220 313, 250 244, 280 244
+  C 292 244, 298 250, 304 250
+  C 330 250, 356 171, 388 171
+  C 400 171, 410 185, 422 185
+  C 447 185, 478 114, 506 114
+  C 516 114, 520 120, 529 120
+  C 560 90, 610 42, 654 23
 `;
 
 function getClosestPathDistance(
@@ -109,7 +109,7 @@ function getClosestPathDistance(
   totalLength: number,
   target: { x: number; y: number }
 ) {
-  const samples = 500;
+  const samples = 96;
   let closestDistance = 0;
   let smallestError = Number.POSITIVE_INFINITY;
 
@@ -127,9 +127,8 @@ function getClosestPathDistance(
   return closestDistance;
 }
 
-function setArrowPosition(
+function getArrowTransform(
   path: SVGPathElement,
-  arrow: SVGGElement,
   distance: number,
   totalLength: number
 ) {
@@ -142,10 +141,7 @@ function setArrowPosition(
   const angle =
     (Math.atan2(after.y - before.y, after.x - before.x) * 180) / Math.PI;
 
-  arrow.setAttribute(
-    "transform",
-    `translate(${current.x} ${current.y}) rotate(${angle})`
-  );
+  return `translate(${current.x}px, ${current.y}px) rotate(${angle}deg)`;
 }
 
 type StairStage = (typeof stairStages)[number];
@@ -170,6 +166,7 @@ function StairImageLayers({
         src={stage.lighted}
         alt=""
         fill
+        data-process-lighted
         sizes="(max-width: 1023px) 35vw, 18vw"
         className={`object-contain transition-opacity duration-700 ease-[cubic-bezier(0.22,1,0.36,1)] ${
           isLighted ? "opacity-100" : "opacity-0"
@@ -210,6 +207,7 @@ export function HowWeWorkSection() {
   const sectionRef = useRef<HTMLElement>(null);
   const pathRef = useRef<SVGPathElement>(null);
   const arrowRef = useRef<SVGGElement>(null);
+  const routeRef = useRef<SVGGElement>(null);
   const pointRefs = useRef<Array<SVGCircleElement | null>>([]);
   const timelineRef = useRef<HTMLDivElement>(null);
   const timelineTrackRef = useRef<HTMLDivElement>(null);
@@ -218,7 +216,7 @@ export function HowWeWorkSection() {
   const timelineStepRefs = useRef<Array<HTMLLIElement | null>>([]);
   const timelineHighestTargetRef = useRef(-1);
   const timelineProgressRef = useRef(0);
-  const [isVisible, setIsVisible] = useState(false);
+  const [isProcessVisible, setIsProcessVisible] = useState(false);
   const [reducedMotion, setReducedMotion] = useState(false);
   const [activeStage, setActiveStage] = useState(-1);
 
@@ -377,106 +375,180 @@ export function HowWeWorkSection() {
     const section = sectionRef.current;
     if (!section) return;
 
+    let sectionInView = false;
+    const updateVisibility = () => {
+      setIsProcessVisible(
+        sectionInView && document.visibilityState === "visible"
+      );
+    };
+
     const observer = new IntersectionObserver(
-      ([entry]) => setIsVisible(entry.isIntersecting),
-      { threshold: 0.2 }
+      ([entry]) => {
+        sectionInView = entry.intersectionRatio >= 0.25;
+        updateVisibility();
+      },
+      { threshold: 0.25 }
     );
     observer.observe(section);
+    document.addEventListener("visibilitychange", updateVisibility);
 
-    return () => observer.disconnect();
+    return () => {
+      observer.disconnect();
+      document.removeEventListener("visibilitychange", updateVisibility);
+    };
   }, []);
 
-  // useEffect(() => {
-  //   const path = pathRef.current;
-  //   const arrow = arrowRef.current;
-  //   if (!path || !arrow) return;
+  useEffect(() => {
+    const section = sectionRef.current;
+    const path = pathRef.current;
+    const arrow = arrowRef.current;
+    const route = routeRef.current;
+    if (!section || !path || !arrow || !route) return;
 
-  //   const totalLength = path.getTotalLength();
-  //   const milestoneDistances = troughPoints.map((point) =>
-  //     getClosestPathDistance(path, totalLength, point)
-  //   );
-  //   path.style.strokeDasharray = `${totalLength}`;
-  //   path.style.strokeDashoffset = `${totalLength}`;
-  //   pointRefs.current.forEach((point) => {
-  //     if (point) point.style.opacity = "0";
-  //   });
-  //   setArrowPosition(path, arrow, 0, totalLength);
-  //   let lastStage = -1;
+    const totalLength = path.getTotalLength();
+    const milestoneDistances = troughPoints.map((point) =>
+      getClosestPathDistance(path, totalLength, point)
+    );
+    const completedArrowTransform = getArrowTransform(
+      path,
+      totalLength,
+      totalLength
+    );
 
-  //   const showCompletedState = () => {
-  //     path.style.strokeDashoffset = "0";
-  //     setArrowPosition(path, arrow, totalLength, totalLength);
-  //     pointRefs.current.forEach((point) => {
-  //       if (point) point.style.opacity = "1";
-  //     });
-  //     if (lastStage !== 3) {
-  //       lastStage = 3;
-  //       setActiveStage(3);
-  //     }
-  //   };
+    const drawDuration = 3600;
+    const milestoneLeadTime = 75;
+    const holdDuration = 2000;
+    const fadeDuration = 250;
+    const resetDuration = 150;
+    const arrowSamples = 48;
+    const arrowStartTransform = getArrowTransform(path, 0, totalLength);
+    const lightedLayers = Array.from(
+      section.querySelectorAll<HTMLElement>("[data-process-lighted]")
+    );
+    let activeAnimations: Animation[] = [];
+    let milestoneTimers: number[] = [];
+    let cycleTimer: number | null = null;
+    let cancelled = false;
 
-  //   if (reducedMotion) {
-  //     showCompletedState();
-  //     return;
-  //   }
+    const cancelAnimations = () => {
+      activeAnimations.forEach((animation) => animation.cancel());
+      activeAnimations = [];
+    };
 
-  //   if (!isVisible) return;
+    const clearMilestoneTimers = () => {
+      milestoneTimers.forEach(window.clearTimeout);
+      milestoneTimers = [];
+    };
 
-  //   const drawDuration = 3600;
-  //   const holdDuration = 1500;
-  //   let frameId = 0;
-  //   let startTime = performance.now();
+    const resetVisuals = () => {
+      path.style.strokeDasharray = `${totalLength}`;
+      path.style.strokeDashoffset = `${totalLength}`;
+      arrow.style.opacity = "0";
+      arrow.style.transform = arrowStartTransform;
+      route.style.opacity = "1";
+      pointRefs.current.forEach((point) => {
+        if (point) point.style.opacity = "0";
+      });
+      setActiveStage(-1);
+    };
 
-  //   const reset = () => {
-  //     path.style.strokeDashoffset = `${totalLength}`;
-  //     pointRefs.current.forEach((point) => {
-  //       if (point) point.style.opacity = "0";
-  //     });
-  //     setArrowPosition(path, arrow, 0, totalLength);
-  //     lastStage = -1;
-  //     setActiveStage(-1);
-  //   };
+    const showCompletedState = () => {
+      path.style.strokeDashoffset = "0";
+      arrow.style.opacity = "1";
+      arrow.style.transform = completedArrowTransform;
+      pointRefs.current.forEach((point) => {
+        if (point) point.style.opacity = "1";
+      });
+      setActiveStage(stairStages.length - 1);
+    };
 
-  //   const animate = (now: number) => {
-  //     const elapsed = now - startTime;
+    if (reducedMotion) {
+      showCompletedState();
+      return;
+    }
 
-  //     if (elapsed <= drawDuration) {
-  //       const progress = elapsed / drawDuration;
-  //       const distance = totalLength * progress;
-  //       path.style.strokeDashoffset = `${totalLength - distance}`;
-  //       setArrowPosition(path, arrow, distance, totalLength);
+    resetVisuals();
+    if (!isProcessVisible) return;
 
-  //       const nextStage = milestoneDistances.reduce(
-  //         (latest, milestoneDistance, index) =>
-  //           distance >= milestoneDistance ? index : latest,
-  //         -1
-  //       );
-  //       if (nextStage !== lastStage) {
-  //         lastStage = nextStage;
-  //         setActiveStage(nextStage);
-  //       }
+    const arrowKeyframes = Array.from(
+      { length: arrowSamples + 1 },
+      (_, index) => ({
+        opacity: index === 0 ? 0 : 1,
+        transform: getArrowTransform(
+          path,
+          (totalLength * index) / arrowSamples,
+          totalLength
+        ),
+      })
+    );
+    const timing: KeyframeAnimationOptions = {
+      duration: drawDuration,
+      easing: "linear",
+      fill: "forwards",
+    };
 
-  //       pointRefs.current.forEach((point, index) => {
-  //         if (point) {
-  //           point.style.opacity =
-  //             distance >= milestoneDistances[index] ? "1" : "0";
-  //         }
-  //       });
-  //     } else if (elapsed < drawDuration + holdDuration) {
-  //       showCompletedState();
-  //     } else {
-  //       reset();
-  //       startTime = now;
-  //     }
+    const runCycle = () => {
+      if (cancelled) return;
+      cancelAnimations();
+      clearMilestoneTimers();
+      resetVisuals();
 
-  //     frameId = requestAnimationFrame(animate);
-  //   };
+      const pathAnimation = path.animate(
+        [
+          { strokeDashoffset: totalLength },
+          { strokeDashoffset: 0 },
+        ],
+        timing
+      );
+      const arrowAnimation = arrow.animate(arrowKeyframes, timing);
+      activeAnimations = [pathAnimation, arrowAnimation];
+      milestoneTimers = milestoneDistances.map((distance, index) =>
+        window.setTimeout(() => {
+          const point = pointRefs.current[index];
+          if (point) point.style.opacity = "1";
+          setActiveStage(index);
+        }, Math.max((distance / totalLength) * drawDuration - milestoneLeadTime, 0))
+      );
 
-  //   reset();
-  //   frameId = requestAnimationFrame(animate);
+      Promise.all([pathAnimation.finished, arrowAnimation.finished])
+        .then(() => {
+          if (cancelled) return;
+          cycleTimer = window.setTimeout(() => {
+            if (cancelled) return;
+            const fadeTiming: KeyframeAnimationOptions = {
+              duration: fadeDuration,
+              easing: "cubic-bezier(0.23, 1, 0.32, 1)",
+              fill: "forwards",
+            };
+            const fadeAnimations = [
+              route.animate([{ opacity: 1 }, { opacity: 0 }], fadeTiming),
+              ...lightedLayers.map((layer) =>
+                layer.animate([{ opacity: 1 }, { opacity: 0 }], fadeTiming)
+              ),
+            ];
+            activeAnimations = [...activeAnimations, ...fadeAnimations];
 
-  //   return () => cancelAnimationFrame(frameId);
-  // }, [isVisible, reducedMotion]);
+            Promise.all(fadeAnimations.map((animation) => animation.finished))
+              .then(() => {
+                if (cancelled) return;
+                resetVisuals();
+                cycleTimer = window.setTimeout(runCycle, resetDuration);
+              })
+              .catch(() => {});
+          }, holdDuration);
+        })
+        .catch(() => {});
+    };
+
+    runCycle();
+
+    return () => {
+      cancelled = true;
+      cancelAnimations();
+      clearMilestoneTimers();
+      if (cycleTimer !== null) window.clearTimeout(cycleTimer);
+    };
+  }, [isProcessVisible, reducedMotion]);
 
   return (
     <section
@@ -511,7 +583,7 @@ export function HowWeWorkSection() {
           </p>
         </FadeIn>
 
-        <div className="grid items-center gap-14 lg:grid-cols-[minmax(0,0.78fr)_minmax(0,1.22fr)] lg:gap-10 xl:gap-16">
+        <div className="grid items-center gap-14 lg:grid-cols-[minmax(0,0.72fr)_minmax(0,1.28fr)] lg:gap-8 xl:gap-10">
           <div ref={timelineRef} className="relative">
             <div
               ref={timelineTrackRef}
@@ -582,57 +654,36 @@ export function HowWeWorkSection() {
           </div>
 
           <div
-            className={`relative mx-auto aspect-[7/5] w-full max-w-[760px] ${
+            data-process-visual
+            className={`relative mx-auto aspect-[7/5] w-full max-w-[760px] lg:w-[112%] lg:max-w-[840px] xl:w-[118%] xl:max-w-[900px] ${
               reducedMotion ? "process-stage-complete" : ""
             }`}
             role="img"
             aria-label="Ideas progressing through solution and product into business impact"
           >
-            {stairStages.map((stage, index) => {
-  const isLighted = index <= activeStage;
-  return (
-    <ProcessStairAsset
-      key={stage.asset}
-      stage={stage}
-      isLighted={isLighted}
-    />
-  );
-})}
-{/*
+            {stairStages.map((stage, index) => (
+              <ProcessStairAsset
+                key={stage.asset}
+                stage={stage}
+                isLighted={index <= activeStage}
+              />
+            ))}
             <svg
               viewBox="0 0 700 500"
               preserveAspectRatio="xMidYMid meet"
-              className="pointer-events-none absolute inset-0 z-20 size-full overflow-visible"
+              className="process-route-glow pointer-events-none absolute inset-0 z-20 size-full overflow-visible"
               aria-hidden="true"
-            > */}
-              <defs>
-                <filter id="process-line-glow" x="-100%" y="-100%" width="300%" height="300%">
-                  <feGaussianBlur stdDeviation="3" result="blur" />
-                  <feMerge>
-                    <feMergeNode in="blur" />
-                    <feMergeNode in="SourceGraphic" />
-                  </feMerge>
-                </filter>
-                <filter id="process-point-glow" x="-200%" y="-200%" width="500%" height="500%">
-                  <feGaussianBlur stdDeviation="5" result="blur" />
-                  <feMerge>
-                    <feMergeNode in="blur" />
-                    <feMergeNode in="SourceGraphic" />
-                  </feMerge>
-                </filter>
-              </defs>
-
-              <g>
+            >
+              <g ref={routeRef} data-process-route>
                 <path
                   ref={pathRef}
                   data-process-path
                   d={processPath}
                   fill="none"
-                  stroke="#67c8ff"
-                  strokeWidth="2.5"
+                  stroke="#dff6ff"
+                  strokeWidth="2"
                   strokeLinecap="round"
                   strokeLinejoin="round"
-                  filter="url(#process-line-glow)"
                   style={{ strokeDasharray: 2000, strokeDashoffset: 2000 }}
                 />
                 {troughPoints.map((point, index) => (
@@ -643,27 +694,25 @@ export function HowWeWorkSection() {
                     }}
                     cx={point.x}
                     cy={point.y}
-                    r="7"
+                    r="8"
                     fill="white"
                     stroke="#67c8ff"
-                    strokeWidth="3"
-                    filter="url(#process-point-glow)"
-                    className="opacity-0 transition-opacity duration-300"
+                    strokeWidth="3.5"
+                    className="opacity-0 transition-opacity duration-150"
                   />
                 ))}
-                <g ref={arrowRef}>
+                <g ref={arrowRef} opacity="0">
                   <path
-                    d="M 8 0 L -8 -7 M 8 0 L -8 7"
+                    d="M 11 0 L -10 -7 M 11 0 L -10 7"
                     fill="none"
-                    stroke="#67c8ff"
-                    strokeWidth="2.5"
+                    stroke="#dff6ff"
+                    strokeWidth="2"
                     strokeLinecap="round"
                     strokeLinejoin="round"
-                    filter="url(#process-line-glow)"
                   />
                 </g>
               </g>
-            {/* </svg> */}
+            </svg>
           </div>
         </div>
       </div>
