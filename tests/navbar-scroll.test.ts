@@ -84,10 +84,27 @@ test("removes the scrolled navbar shadow while the header is hidden", () => {
   assert.equal(getNavbarShadowClassName(), "shadow-none");
 });
 
-test("uses a translucent navy material only after leaving the hero top", () => {
-  assert.equal(getNavbarSurfaceClassName(false), "bg-transparent");
+test("keeps the navbar transparent at the top of the homepage hero", () => {
+  assert.equal(getNavbarSurfaceClassName(false, true, true), "bg-transparent");
+});
+
+test("uses a translucent navy material after leaving the homepage hero top", () => {
   assert.equal(
-    getNavbarSurfaceClassName(true),
+    getNavbarSurfaceClassName(true, true, true),
+    "bg-[#0f1e3d]/64 backdrop-blur-xl backdrop-saturate-150"
+  );
+});
+
+test("uses a translucent navy material immediately on non-homepage routes", () => {
+  assert.equal(
+    getNavbarSurfaceClassName(false, false, false),
+    "bg-[#0f1e3d]/64 backdrop-blur-xl backdrop-saturate-150"
+  );
+});
+
+test("uses a translucent navy material until homepage scroll position is known", () => {
+  assert.equal(
+    getNavbarSurfaceClassName(false, true, false),
     "bg-[#0f1e3d]/64 backdrop-blur-xl backdrop-saturate-150"
   );
 });

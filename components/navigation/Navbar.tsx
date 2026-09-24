@@ -1,6 +1,6 @@
 "use client";
 
-import { useState, useEffect, useRef } from "react";
+import { useState, useEffect, useLayoutEffect, useRef } from "react";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { Menu, X } from "lucide-react";
@@ -28,6 +28,7 @@ const navLinks = [
 
 export function Navbar() {
   const [isScrolled, setIsScrolled] = useState(false);
+  const [hasMeasuredScroll, setHasMeasuredScroll] = useState(false);
   const [isVisible, setIsVisible] = useState(true);
   const [mobileOpen, setMobileOpen] = useState(false);
   const pathname = usePathname();
@@ -36,7 +37,7 @@ export function Navbar() {
   const isVisibleRef = useRef(true);
 
   // Track scroll direction and switch between the existing navbar styles.
-  useEffect(() => {
+  useLayoutEffect(() => {
     const handleScroll = () => {
       const currentY = window.scrollY;
       const nextState = getNavbarScrollState({
@@ -47,6 +48,7 @@ export function Navbar() {
       });
 
       setIsScrolled(nextState.isScrolled);
+      setHasMeasuredScroll(true);
       if (nextState.isVisible !== isVisibleRef.current) {
         isVisibleRef.current = nextState.isVisible;
         setIsVisible(nextState.isVisible);
@@ -101,7 +103,11 @@ export function Navbar() {
           "fixed top-0 left-0 right-0 z-50 duration-[380ms] ease-[cubic-bezier(0.77,0,0.175,1)] motion-reduce:transition-[background-color,box-shadow,backdrop-filter] motion-reduce:duration-150",
           getNavbarTransitionClassName(),
           getNavbarVisibilityClassName(isVisible),
-          getNavbarSurfaceClassName(isScrolled),
+          getNavbarSurfaceClassName(
+            isScrolled,
+            pathname === "/",
+            hasMeasuredScroll
+          ),
           getNavbarShadowClassName()
         )}
         role="banner"
