@@ -2,6 +2,7 @@ import assert from "node:assert/strict";
 import test from "node:test";
 
 import {
+  getNavbarCanvasClassName,
   getNavbarDesktopLinkClassName,
   getNavbarShadowClassName,
   getNavbarSurfaceClassName,
@@ -10,6 +11,10 @@ import {
   getNavbarScrollReference,
   getNavbarScrollState,
 } from "../lib/navbar-scroll.ts";
+
+test("returns the shared homepage canvas alignment for the navbar", () => {
+  assert.equal(getNavbarCanvasClassName(), "home-navbar-canvas");
+});
 
 test("keeps the transparent navbar visible at the top of the page", () => {
   assert.deepEqual(

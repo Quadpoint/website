@@ -14,7 +14,7 @@ test("uses a capped 1440px canvas for the homepage and its navbar from xl", () =
   assert.match(styles, /\.home-reference \.max-w-7xl[\s\S]*max-width: 90rem/);
   assert.match(styles, /\.home-navbar-canvas[\s\S]*max-width: 90rem/);
   assert.doesNotMatch(styles, /max-width: 100rem/);
-  assert.match(navbar, /pathname === "\/" && "home-navbar-canvas"/);
+  assert.match(navbar, /getNavbarCanvasClassName\(\)/);
 });
 
 test("scales the hero composition modestly at the xl breakpoint", () => {

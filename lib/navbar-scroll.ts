@@ -13,6 +13,10 @@ interface NavbarScrollState {
   isVisible: boolean;
 }
 
+export function getNavbarCanvasClassName(): string {
+  return "home-navbar-canvas";
+}
+
 export function getNavbarShadowClassName(): string {
   return "shadow-none";
 }

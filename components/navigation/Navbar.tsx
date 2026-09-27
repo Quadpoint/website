@@ -8,6 +8,7 @@ import { motion, AnimatePresence } from "framer-motion";
 import { Logo } from "@/components/ui/Logo";
 import { cn } from "@/lib/utils";
 import {
+  getNavbarCanvasClassName,
   getNavbarDesktopLinkClassName,
   getNavbarShadowClassName,
   getNavbarSurfaceClassName,
@@ -115,7 +116,7 @@ export function Navbar() {
         <div
           className={cn(
             "max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 xl:px-12",
-            pathname === "/" && "home-navbar-canvas"
+            getNavbarCanvasClassName()
           )}
         >
           <div className="flex items-center justify-between h-18 lg:h-20">
