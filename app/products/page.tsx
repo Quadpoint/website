@@ -20,7 +20,7 @@ import { FadeIn, StaggerContainer, StaggerItem } from "@/components/animations/F
 export const metadata: Metadata = {
   title: "Products",
   description:
-    "QuadPoint POS — a complete point-of-sale and business management system. Explore our current and upcoming software products.",
+    "QuadPoint POS is a point-of-sale and business management system. Explore our current and upcoming software products.",
   alternates: { canonical: "https://quadpointtechnology.com/products" },
 };
 
@@ -75,7 +75,7 @@ const comingSoon = [
     icon: Bot,
     title: "QuadPoint AI Suite",
     description:
-      "A platform for deploying and managing AI agents across business operations — receptionists, sales agents, and support agents.",
+      "A platform for deploying and managing reception, sales, and support AI agents across business operations.",
     category: "AI & Automation",
   },
   {
@@ -129,10 +129,10 @@ export default function ProductsPage() {
           <FadeIn>
             <SectionLabel variant="white" className="mb-5">Products</SectionLabel>
             <h1 className="text-4xl sm:text-5xl font-bold text-white tracking-tight mb-5">
-              What We&apos;re Building
+              What we&apos;re building
             </h1>
             <p className="text-lg text-white/60 leading-relaxed max-w-2xl mx-auto">
-              Software products designed around how real businesses operate.
+              Software products built around day-to-day business operations.
             </p>
           </FadeIn>
         </div>
@@ -148,7 +148,7 @@ export default function ProductsPage() {
           {/* Section header */}
           <FadeIn className="mb-14">
             <div className="flex items-center gap-3 mb-4">
-              <SectionLabel>Featured Product</SectionLabel>
+              <SectionLabel>Featured product</SectionLabel>
             </div>
             <h2
               id="pos-product-heading"
@@ -188,14 +188,14 @@ export default function ProductsPage() {
           <div className="grid lg:grid-cols-2 gap-12 items-start">
             <FadeIn>
               <h3 className="text-xl font-bold text-[#1c1c2e] mb-5">
-                Built to Solve Real Problems
+              What QuadPoint POS helps you manage
               </h3>
               <POSBenefits />
             </FadeIn>
 
             <FadeIn delay={0.15}>
               <div className="bg-[#0f1e3d] rounded-2xl p-8 text-white">
-                <h3 className="text-xl font-bold mb-3">Ready to See It in Action?</h3>
+                <h3 className="text-xl font-bold mb-3">See QuadPoint POS in action</h3>
                 <p className="text-white/60 text-sm leading-relaxed mb-6">
                   Reach out and we&apos;ll walk you through how QuadPoint POS can work
                   for your business.
@@ -204,7 +204,7 @@ export default function ProductsPage() {
                   href="/contact"
                   className="inline-flex items-center gap-2 px-6 py-3 bg-[#1a4fba] text-white text-sm font-semibold rounded-lg hover:bg-[#2d63d4] transition-colors"
                 >
-                  Get in Touch
+                  Get in touch
                   <ArrowRight size={14} />
                 </Link>
               </div>
@@ -220,16 +220,16 @@ export default function ProductsPage() {
       >
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <FadeIn className="text-center mb-12">
-            <SectionLabel variant="gray" className="mb-4">Coming Soon</SectionLabel>
+            <SectionLabel variant="gray" className="mb-4">Coming soon</SectionLabel>
             <h2
               id="coming-soon-heading"
               className="text-3xl font-bold text-[#1c1c2e] tracking-tight mb-4"
             >
-              More Products in Development
+              More products in development
             </h2>
             <p className="text-[#6b7280] max-w-xl mx-auto">
-              QuadPoint&apos;s long-term direction is to develop software products
-              alongside our client solutions. Here&apos;s what&apos;s on the horizon.
+              QuadPoint plans to develop its own software products alongside
+              the solutions we build for clients.
             </p>
           </FadeIn>
 
@@ -242,7 +242,7 @@ export default function ProductsPage() {
                     {/* Coming soon badge */}
                     <span className="absolute top-4 right-4 flex items-center gap-1.5 px-2.5 py-1 rounded-full bg-[#f3f4f6] border border-[#e5e7eb] text-[10px] font-semibold text-[#6b7280] uppercase tracking-wide">
                       <Clock size={10} />
-                      Coming Soon
+                      Coming soon
                     </span>
 
                     <div className="w-10 h-10 rounded-xl bg-[#f3f4f6] flex items-center justify-center mb-4">
@@ -266,8 +266,8 @@ export default function ProductsPage() {
       </section>
 
       <CTASection
-        heading="Have a Business Problem? Let's Build the Solution."
-        subheading="Tell us what you're trying to improve, automate, or build."
+        heading="Have a business problem that software could solve?"
+        subheading="Tell us where the work slows down or what you need to build."
       />
     </>
   );

@@ -59,8 +59,8 @@ export function Footer() {
           <div className="lg:col-span-2">
             <Logo variant="white" className="mb-5" />
             <p className="text-sm text-white/45 leading-relaxed max-w-xs mb-6">
-              Business Software &amp; Automation Solutions. We build practical
-              technology that solves real business problems.
+              Business software and automation built around the way your team
+              works.
             </p>
 
             {/* Social */}

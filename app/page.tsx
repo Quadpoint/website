@@ -10,7 +10,7 @@ import { CTASection } from "@/components/sections/CTASection";
 export const metadata: Metadata = {
   title: "QuadPoint Technology | Business Software & Automation Solutions",
   description:
-    "QuadPoint Technology builds business software, AI agents, and automation solutions that help businesses operate smarter and grow faster.",
+    "QuadPoint Technology builds business software, AI agents, and automated workflows to make daily operations more efficient and help businesses grow faster.",
   alternates: { canonical: "https://quadpointtechnology.com" },
 };
 

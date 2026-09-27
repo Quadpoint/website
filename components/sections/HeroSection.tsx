@@ -161,29 +161,28 @@ export function HeroSection() {
           <div>
             <div className="hero-enter">
               <span className="inline-flex px-3 py-1 rounded-full text-xs font-semibold bg-white/10 text-white/80 border border-white/15 mb-6">
-                Build. Automate. Grow.
+                Software, automation, and AI
               </span>
             </div>
 
             <h1 className="hero-enter hero-enter-delay-1 text-4xl sm:text-5xl lg:text-[3.5rem] xl:text-[4rem] font-bold text-white leading-[1.1] tracking-tight mb-6">
-              Technology That{" "}
-              <span className="text-[#2d63d4]">Moves Your Business</span>{" "}
-              Forward.
+              Software built for{" "}
+              <span className="text-[#2d63d4]">how your business works</span>
             </h1>
 
             <p className="hero-enter hero-enter-delay-2 text-lg text-white/65 leading-relaxed mb-10 max-w-[520px] xl:max-w-[640px]">
-              QuadPoint delivers intelligent software, AI agents, and
-              automation solutions built to help businesses operate smarter and
-              grow faster.
+              QuadPoint builds business software, AI agents, and automated
+              workflows that make daily operations more efficient and help
+              businesses grow faster.
             </p>
 
             <div className="hero-enter hero-enter-delay-3 flex flex-col sm:flex-row gap-4">
               <Button href="/solutions" variant="primary" size="lg">
-                Explore Our Solutions
+                Explore our solutions
                 <ArrowRight size={16} className="ml-2" />
               </Button>
               <Button href="/contact" variant="inverse" size="lg">
-                Talk to Us
+                Talk to us
                 <ChevronRight size={16} className="ml-1" />
               </Button>
             </div>

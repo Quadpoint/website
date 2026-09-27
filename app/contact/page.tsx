@@ -31,7 +31,7 @@ export default function ContactPage() {
           <FadeIn>
             <SectionLabel variant="white" className="mb-5">Contact</SectionLabel>
             <h1 className="text-4xl sm:text-5xl font-bold text-white tracking-tight mb-5">
-              Let&apos;s Build the Solution.
+              Tell us what you need to solve
             </h1>
             <p className="text-lg text-white/60 leading-relaxed max-w-2xl mx-auto">
               Tell us about your business, your challenge, or the technology you
@@ -50,7 +50,7 @@ export default function ContactPage() {
               <FadeIn direction="left">
                 <div className="contact-card rounded-2xl border p-6">
                   <h2 className="contact-card-heading text-lg font-bold mb-5">
-                    Get in Touch
+                    Contact details
                   </h2>
                   <div className="space-y-4">
                     <div className="flex items-start gap-3">
@@ -104,7 +104,7 @@ export default function ContactPage() {
               {/* What to expect */}
               <FadeIn direction="left" delay={0.1}>
                 <div className="bg-[#0f1e3d] rounded-2xl p-6 text-white">
-                  <h3 className="text-base font-bold mb-4">What Happens Next</h3>
+                    <h3 className="text-base font-bold mb-4">What happens next</h3>
                   <ol className="space-y-3">
                     {[
                       "We review your message and understand your needs",
@@ -129,10 +129,10 @@ export default function ContactPage() {
             <FadeIn className="lg:col-span-2">
               <div className="contact-form-panel rounded-2xl border p-6 sm:p-9 lg:p-10">
                 <h2 className="contact-form-heading text-2xl font-bold mb-2">
-                  Send an Inquiry
+                  Send an inquiry
                 </h2>
                 <p className="contact-form-intro text-sm leading-relaxed mb-8">
-                  Fill in the details below and we&apos;ll get back to you promptly.
+                  Share the details below. We&apos;ll respond within one business day.
                 </p>
                 <ContactForm />
               </div>

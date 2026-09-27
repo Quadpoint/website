@@ -154,7 +154,7 @@ export function Navbar() {
                   "bg-[#f59e0b] text-[#0f1e3d] hover:bg-[#fbb52b] shadow-sm hover:shadow-[0_4px_12px_-2px_rgba(245,158,11,0.45)]"
                 )}
               >
-                Get Started
+                Start a conversation
               </Link>
             </div>
 
@@ -247,7 +247,7 @@ export function Navbar() {
                   href="/contact"
                   className="flex items-center justify-center w-full px-5 py-2.5 text-sm font-semibold rounded-lg bg-[#f59e0b] text-[#0f1e3d] hover:bg-[#fbb52b] transition-colors shadow-sm"
                 >
-                  Get Started
+                  Start a conversation
                 </Link>
               </div>
             </motion.div>

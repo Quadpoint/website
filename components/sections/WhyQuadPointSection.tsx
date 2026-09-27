@@ -7,27 +7,27 @@ import { SectionLabel } from "@/components/ui/SectionLabel";
 const values = [
   {
     icon: Target,
-    title: "Business-Focused",
+    title: "Built for the business",
     description:
-      "We build around real business problems rather than technology for technology's sake.",
+      "We start with the business problem and choose technology that fits the work.",
   },
   {
     icon: Cpu,
-    title: "Intelligent",
+    title: "AI with a defined role",
     description:
-      "We use AI and automation where they create meaningful value, not just as buzzwords.",
+      "We use AI and automation when they can improve a specific part of the operation.",
   },
   {
     icon: Layers,
-    title: "Scalable",
+    title: "Ready to grow",
     description:
       "Solutions are designed to evolve as your business grows and needs change.",
   },
   {
     icon: Users,
-    title: "Human-Centered",
+    title: "Designed for people",
     description:
-      "Technology should empower people, not simply replace them.",
+      "We design technology to help people do their work, not simply replace them.",
   },
 ];
 
@@ -45,10 +45,10 @@ export function WhyQuadPointSection() {
             id="why-heading"
             className="text-3xl sm:text-4xl font-bold text-[#1c1c2e] tracking-tight mb-4"
           >
-            Technology With a Purpose.
+            How we approach the work
           </h2>
           <p className="text-lg text-[#6b7280] max-w-xl mx-auto">
-            Principles that guide how we think about and build technology.
+            The principles we use when deciding what to build and how to build it.
           </p>
         </FadeIn>
 

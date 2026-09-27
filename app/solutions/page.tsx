@@ -34,11 +34,11 @@ const allSolutions = [
     id: "business-software",
     icon: Monitor,
     label: "Business Software",
-    headline: "Systems That Make Operations Simple.",
+    headline: "Systems that simplify daily operations",
     problem:
-      "Many businesses still rely on manual processes, disconnected tools, or outdated systems — creating inefficiencies, errors, and poor visibility.",
+      "Many businesses still rely on manual processes, disconnected tools, or outdated systems. This creates extra work, errors, and gaps in visibility.",
     solution:
-      "QuadPoint builds purpose-built business software that integrates with your operations and gives you clear control over the data that matters.",
+      "QuadPoint builds business software that fits your operations, connects your data, and gives your team clear control over it.",
     capabilities: [
       { icon: Store,           label: "Point of Sale (POS)" },
       { icon: UserCheck,       label: "CRM" },
@@ -51,18 +51,18 @@ const allSolutions = [
       "A service company tracking client interactions through a purpose-built CRM",
       "A business gaining clear visibility into daily operations through a unified dashboard",
     ],
-    cta: "Explore Our Products",
+    cta: "Explore our products",
     href: "/products",
   },
   {
     id: "ai-automation",
     icon: Bot,
     label: "AI & Automation",
-    headline: "Intelligence Where It Creates Real Value.",
+    headline: "AI and automation for routine work",
     problem:
       "Repetitive tasks, slow response times, and manual workflows limit what a team can actually accomplish.",
     solution:
-      "QuadPoint builds AI agents and automated systems that handle routine workflows — freeing your team to focus on higher-value work.",
+      "QuadPoint builds AI agents and automated systems that handle routine workflows so your team can focus on higher-value work that needs human judgment.",
     capabilities: [
       { icon: PhoneCall,       label: "AI Receptionists" },
       { icon: TrendingUp,      label: "AI Sales Agents" },
@@ -76,18 +76,18 @@ const allSolutions = [
       "A sales team using AI agents to qualify and follow up on leads automatically",
       "A service company automating appointment booking and confirmation workflows",
     ],
-    cta: "Explore AI & Automation",
+    cta: "Explore AI and automation",
     href: "/ai-automation",
   },
   {
     id: "custom-development",
     icon: Code2,
     label: "Custom Development",
-    headline: "Built Specifically for How Your Business Operates.",
+    headline: "Custom software for your operations",
     problem:
       "Off-the-shelf software rarely fits perfectly. Gaps in functionality mean manual workarounds, separate tools, and data that never connects.",
     solution:
-      "QuadPoint designs and builds custom digital solutions around your exact requirements — from web apps to full system integrations.",
+      "QuadPoint designs and builds custom digital solutions for your requirements, including web apps and system integrations.",
     capabilities: [
       { icon: Globe,           label: "Web Applications" },
       { icon: Smartphone,      label: "Mobile Applications" },
@@ -100,7 +100,7 @@ const allSolutions = [
       "A company integrating multiple existing systems into one connected workflow",
       "A brand building a mobile app to extend their service offering",
     ],
-    cta: "Discuss Your Project",
+    cta: "Discuss your project",
     href: "/contact",
   },
 ];
@@ -126,11 +126,11 @@ export default function SolutionsPage() {
           <FadeIn>
             <SectionLabel variant="white" className="mb-5">Solutions</SectionLabel>
             <h1 className="text-4xl sm:text-5xl font-bold text-white tracking-tight mb-5">
-              Technology Built Around Your Business
+              Software built around your operations
             </h1>
             <p className="text-lg text-white/60 leading-relaxed max-w-2xl mx-auto">
-              Three areas where QuadPoint delivers practical, maintainable technology
-              that solves real business problems.
+              QuadPoint builds business systems, automated workflows, and custom
+              applications for the way your team works.
             </p>
           </FadeIn>
 
@@ -183,14 +183,14 @@ export default function SolutionsPage() {
                   <FadeIn delay={0.1} className="solution-narrative mb-6">
                     <div className="solution-narrative-section pb-5">
                       <h3 className="solution-copy-label text-xs font-semibold uppercase tracking-widest mb-2">
-                        The Challenge
+                        The challenge
                       </h3>
                       <p className="solution-copy leading-7 2xl:text-lg 2xl:leading-8">{solution.problem}</p>
                     </div>
                     <div className="solution-narrative-divider" aria-hidden="true" />
                     <div className="solution-narrative-section pt-5">
                       <h3 className="solution-copy-label text-xs font-semibold uppercase tracking-widest mb-2">
-                        Our Approach
+                        Our approach
                       </h3>
                       <p className="solution-copy leading-7 2xl:text-lg 2xl:leading-8">{solution.solution}</p>
                     </div>
@@ -198,7 +198,7 @@ export default function SolutionsPage() {
 
                   <FadeIn delay={0.15} className="mb-6">
                     <h3 className="solution-copy-label text-xs font-semibold uppercase tracking-widest mb-3">
-                      Example Use Cases
+                      Example use cases
                     </h3>
                     <ul className="space-y-2.5">
                       {solution.useCases.map((uc) => (
@@ -261,8 +261,8 @@ export default function SolutionsPage() {
       })}
 
       <CTASection
-        heading="Not Sure Which Solution Fits?"
-        subheading="Tell us about your business and we'll help figure out the right approach."
+        heading="Not sure which solution fits?"
+        subheading="Tell us how your business works and where the process breaks down."
         buttonLabel="Talk to QuadPoint"
       />
     </div>

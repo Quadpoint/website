@@ -29,7 +29,7 @@ export function Logo({
     <Link
       href="/"
       className={cn("flex items-center gap-1.5", className)}
-      aria-label="QuadPoint Technology — Home"
+      aria-label="QuadPoint Technology, home"
     >
       <Image
         src={logoSources[variant]}

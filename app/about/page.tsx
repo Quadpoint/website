@@ -17,7 +17,7 @@ import { LogoColorwaySwitcher } from "@/components/about/LogoColorwaySwitcher";
 export const metadata: Metadata = {
   title: "About",
   description:
-    "QuadPoint Technology was founded by four individuals with a shared goal: building technology that solves real-world business problems.",
+    "QuadPoint Technology was founded by four people who wanted to build software for day-to-day business problems.",
   alternates: { canonical: "https://quadpointtechnology.com/about" },
 };
 
@@ -32,24 +32,24 @@ const capabilities = [
 
 const principles = [
   {
-    title: "We build around problems, not possibilities.",
+    title: "We start with the problem.",
     description:
-      "Technology should exist because it solves something real. We start with the business challenge before we consider the technical solution.",
+      "We understand the business challenge before choosing a technical solution.",
   },
   {
-    title: "Simple is harder than complex.",
+    title: "Simple software takes careful work.",
     description:
-      "The best systems feel simple to use. Getting there takes disciplined design — we prefer clarity over feature count.",
+      "The best systems feel simple to use. We choose clarity over adding more features.",
   },
   {
-    title: "Scalability is planned, not patched.",
+    title: "We plan for growth from the start.",
     description:
       "Systems should be designed to grow from the start. Retrofitting scalability is expensive and fragile.",
   },
   {
-    title: "AI where it adds value. Automation where it saves time.",
+    title: "AI and automation need a clear purpose.",
     description:
-      "We don't apply AI because it's trendy. We apply it when it meaningfully improves how a business operates.",
+      "We use AI when it can improve a specific workflow or reduce manual work.",
   },
 ];
 
@@ -73,11 +73,11 @@ export default function AboutPage() {
           <FadeIn>
             <SectionLabel variant="white" className="mb-5">About</SectionLabel>
             <h1 className="text-4xl sm:text-5xl font-bold text-white tracking-tight mb-5">
-              Four Perspectives. One Direction.
+              Four founders, one direction
             </h1>
             <p className="text-lg text-white/60 leading-relaxed max-w-2xl mx-auto">
-              QuadPoint Technology was founded by four individuals with a shared
-              goal: building technology that solves real-world business problems.
+              QuadPoint Technology was founded by four people who wanted to
+              build software for day-to-day business problems.
             </p>
           </FadeIn>
         </div>
@@ -88,28 +88,27 @@ export default function AboutPage() {
         <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid lg:grid-cols-2 gap-14 items-center">
             <FadeIn direction="left">
-              <SectionLabel className="mb-4">Our Story</SectionLabel>
+              <SectionLabel className="mb-4">Our story</SectionLabel>
               <h2
                 id="story-heading"
                 className="text-3xl font-bold text-[#1c1c2e] tracking-tight mb-5"
               >
-                Built by People Who Care About the Work
+                Why we started QuadPoint
               </h2>
               <p className="text-[#6b7280] leading-relaxed mb-4">
-                QuadPoint Technology started with a simple conviction: most
-                business software is either too generic to be useful or too
-                complex to be practical. There is a better approach — build
-                technology that actually fits the way a business operates.
+                QuadPoint Technology started because business software often
+                feels too generic or too complex. We wanted to build systems
+                that fit the way each business operates.
               </p>
               <p className="text-[#6b7280] leading-relaxed mb-4">
-                The four of us bring different perspectives to the table, but
-                we share the same commitment to building things that work — not
-                just things that look impressive in a demo.
+                The four founders bring different perspectives to the work. We
+                share a commitment to building systems that work in day-to-day
+                operations, beyond the product demo.
               </p>
               <p className="text-[#6b7280] leading-relaxed">
                 Our long-term direction is to evolve from a technology services
-                company into a technology product company — building our own
-                software alongside the solutions we deliver to clients.
+                company into a technology product company. We are building our
+                own software alongside the solutions we deliver to clients.
               </p>
             </FadeIn>
 
@@ -134,12 +133,11 @@ export default function AboutPage() {
                   id="mission-heading"
                   className="text-xl font-bold text-[#1c1c2e] mb-3"
                 >
-                  Our Mission
+                  Our mission
                 </h2>
                 <p className="text-[#6b7280] leading-relaxed">
-                  To build practical technology that solves real business
-                  problems — software that is useful, maintainable, and designed
-                  around the way businesses actually work.
+                  To build useful, maintainable software around the way each
+                  business works and the problems it needs to solve.
                 </p>
               </div>
             </FadeIn>
@@ -150,12 +148,13 @@ export default function AboutPage() {
                   <Eye size={20} className="text-white" />
                 </div>
                 <h2 className="text-xl font-bold text-white mb-3">
-                  Our Vision
+                  Our vision
                 </h2>
                 <p className="text-white/60 leading-relaxed">
                   To become a technology company that develops its own software
                   products while continuing to deliver technology solutions to
-                  businesses — building long-term value through great software.
+                  businesses. Our goal is to build long-term value through
+                  software.
                 </p>
               </div>
             </FadeIn>
@@ -170,15 +169,15 @@ export default function AboutPage() {
       >
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <FadeIn className="text-center mb-12">
-            <SectionLabel className="mb-4">How We Think</SectionLabel>
+            <SectionLabel className="mb-4">How we think</SectionLabel>
             <h2
               id="philosophy-heading"
               className="text-3xl font-bold text-[#1c1c2e] tracking-tight mb-4"
             >
-              Technology Philosophy
+              How we make technology decisions
             </h2>
             <p className="text-[#6b7280] max-w-xl mx-auto">
-              Principles that shape the way we approach every project.
+              The principles we apply to every project.
             </p>
           </FadeIn>
 
@@ -203,12 +202,12 @@ export default function AboutPage() {
       <section className="py-20 bg-[#f9fafb]" aria-labelledby="capabilities-heading">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <FadeIn className="text-center mb-12">
-            <SectionLabel className="mb-4">What We Build</SectionLabel>
+            <SectionLabel className="mb-4">What we build</SectionLabel>
             <h2
               id="capabilities-heading"
               className="text-3xl font-bold text-[#1c1c2e] tracking-tight"
             >
-              Our Capabilities
+              What we build
             </h2>
           </FadeIn>
 
@@ -239,16 +238,16 @@ export default function AboutPage() {
       >
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <FadeIn className="text-center mb-12">
-            <SectionLabel className="mb-4">The Team</SectionLabel>
+            <SectionLabel className="mb-4">The team</SectionLabel>
             <h2
               id="team-heading"
               className="text-3xl font-bold text-[#1c1c2e] tracking-tight mb-4"
             >
-              Four Perspectives. One Direction.
+              Meet the four founders
             </h2>
             <p className="text-[#6b7280] max-w-xl mx-auto">
-              QuadPoint Technology was founded by four individuals with a shared
-              goal: building technology that solves real-world business problems.
+              QuadPoint Technology was founded by four people who wanted to
+              build software for day-to-day business problems.
             </p>
           </FadeIn>
 
@@ -274,9 +273,9 @@ export default function AboutPage() {
       </section>
 
       <CTASection
-        heading="Want to Work With Us?"
-        subheading="Tell us about what you're trying to build or improve."
-        buttonLabel="Get in Touch"
+        heading="Want to work with us?"
+        subheading="Tell us what you need to build or improve."
+        buttonLabel="Get in touch"
       />
     </>
   );
