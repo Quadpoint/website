@@ -164,6 +164,7 @@ export default function AboutPage() {
 
       {/* Technology Philosophy */}
       <section
+        id="philosophy"
         className="py-20 lg:py-24 bg-white"
         aria-labelledby="philosophy-heading"
       >
