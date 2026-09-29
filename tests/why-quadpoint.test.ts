@@ -77,3 +77,14 @@ test("crossfades the process grid over the office image at the section boundary"
   assert.match(styles, /-webkit-mask-image: linear-gradient\(to bottom, black 0%, black 12%, transparent 100%\)/);
   assert.match(styles, /padding-top: clamp\(9rem, 12vw, 12rem\) !important/);
 });
+
+test("caps the office artwork at its native wide-screen canvas", () => {
+  assert.match(styles, /\.home-reference > section\.why-quadpoint::after/);
+  assert.match(styles, /width: min\(100%, 115\.625rem\)/);
+  assert.match(styles, /margin-inline: auto/);
+  assert.match(styles, /var\(--why-background\)/);
+  assert.match(
+    styles,
+    /\.home-reference > section\.why-quadpoint\s*\{[\s\S]*background-image:\s*linear-gradient\(180deg, var\(--why-section-edge\) 0%, #041f41 15rem\) !important/
+  );
+});
