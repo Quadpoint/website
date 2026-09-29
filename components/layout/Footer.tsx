@@ -1,19 +1,12 @@
 import Link from "next/link";
+import { Mail } from "lucide-react";
 import { Logo } from "@/components/ui/Logo";
+import { footerEmailHref, footerFacebookHref } from "@/lib/footer-contact";
 
 function FacebookIcon({ size = 16 }: { size?: number }) {
   return (
     <svg width={size} height={size} viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
       <path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z" />
-    </svg>
-  );
-}
-
-function LinkedinIcon({ size = 16 }: { size?: number }) {
-  return (
-    <svg width={size} height={size} viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
-      <path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6zM2 9h4v12H2z" />
-      <circle cx="4" cy="4" r="2" />
     </svg>
   );
 }
@@ -66,7 +59,7 @@ export function Footer() {
             {/* Social */}
             <div className="flex items-center gap-2.5 mb-8">
               <a
-                href="https://facebook.com"
+                href={footerFacebookHref}
                 target="_blank"
                 rel="noopener noreferrer"
                 aria-label="QuadPoint Technology on Facebook"
@@ -75,13 +68,11 @@ export function Footer() {
                 <FacebookIcon size={14} />
               </a>
               <a
-                href="https://linkedin.com"
-                target="_blank"
-                rel="noopener noreferrer"
-                aria-label="QuadPoint Technology on LinkedIn"
+                href={footerEmailHref}
+                aria-label="Email QuadPoint Technology"
                 className="w-8 h-8 rounded-lg bg-white/8 text-white/50 hover:bg-white/15 hover:text-white flex items-center justify-center transition-colors"
               >
-                <LinkedinIcon size={14} />
+                <Mail size={14} aria-hidden="true" />
               </a>
             </div>
 
