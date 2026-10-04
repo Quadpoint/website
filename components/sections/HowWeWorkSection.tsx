@@ -598,13 +598,13 @@ export function HowWeWorkSection() {
     />
   );
 })}
-{/*
+            {/* Path overlay disabled along with its animation; remove `hidden` to re-enable. */}
             <svg
               viewBox="0 0 700 500"
               preserveAspectRatio="xMidYMid meet"
-              className="pointer-events-none absolute inset-0 z-20 size-full overflow-visible"
+              className="pointer-events-none absolute inset-0 z-20 hidden size-full overflow-visible"
               aria-hidden="true"
-            > */}
+            >
               <defs>
                 <filter id="process-line-glow" x="-100%" y="-100%" width="300%" height="300%">
                   <feGaussianBlur stdDeviation="3" result="blur" />
@@ -663,7 +663,7 @@ export function HowWeWorkSection() {
                   />
                 </g>
               </g>
-            {/* </svg> */}
+            </svg>
           </div>
         </div>
       </div>

@@ -1,7 +1,14 @@
 import Link from "next/link";
 import { cn } from "@/lib/utils";
 
-type ButtonVariant = "primary" | "secondary" | "outline" | "ghost" | "white" | "inverse" | "blue";
+type ButtonVariant =
+  | "primary"
+  | "secondary"
+  | "outline"
+  | "ghost"
+  | "white"
+  | "inverse"
+  | "blue";
 type ButtonSize = "sm" | "md" | "lg";
 
 interface ButtonBaseProps {
@@ -39,8 +46,7 @@ const variantStyles: Record<ButtonVariant, string> = {
     "bg-white text-[#1a4fba] hover:bg-[#f3f4f6] shadow-sm active:scale-[0.98]",
   inverse:
     "border border-white/45 bg-transparent text-white hover:bg-white/10 hover:border-white/70 active:scale-[0.98]",
-  blue:
-    "bg-[#1478eb] text-white hover:bg-[#2b8df6] shadow-sm hover:shadow-[0_4px_16px_-4px_rgba(20,120,235,0.5)] active:scale-[0.98]",
+  blue: "bg-[#1478eb] text-white hover:bg-[#2b8df6] shadow-sm hover:shadow-[0_4px_16px_-4px_rgba(20,120,235,0.5)] active:scale-[0.98]",
 };
 
 const sizeStyles: Record<ButtonSize, string> = {
@@ -63,7 +69,7 @@ export function Button({
     baseStyles,
     variantStyles[variant],
     sizeStyles[size],
-    className
+    className,
   );
 
   if ("href" in props && props.href) {

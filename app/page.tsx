@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { HeroSection } from "@/components/sections/HeroSection";
 import { SolutionsSection } from "@/components/sections/SolutionsSection";
+import { CaseStudiesSection } from "@/components/sections/CaseStudiesSection";
 import { AISection } from "@/components/sections/AISection";
 import { HowWeWorkSection } from "@/components/sections/HowWeWorkSection";
 import { PortfolioSection } from "@/components/sections/PortfolioSection";
@@ -19,6 +20,7 @@ export default function HomePage() {
     <div className="home-reference">
       <HeroSection />
       <SolutionsSection />
+      <CaseStudiesSection />
       <PortfolioSection />
       <AISection />
       <HowWeWorkSection />
