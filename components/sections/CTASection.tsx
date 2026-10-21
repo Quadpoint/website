@@ -12,8 +12,8 @@ interface CTASectionProps {
 }
 
 export function CTASection({
-  heading = "Want to ease your operations? Let's Build the Solution",
-  subheading = "Tell us what you're trying to improve, automate, or build.",
+  heading = "Want to make your operations easier? Let's build the right solution.",
+  subheading = "Tell us where the work slows down or what you need to build.",
   buttonLabel = "Talk to QuadPoint",
   buttonHref = "/contact",
 }: CTASectionProps) {

@@ -20,13 +20,13 @@ export function PortfolioSection() {
     >
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 xl:px-12">
         <FadeIn className="mb-12">
-          <SectionLabel className="mb-4">Our Products</SectionLabel>
+          <SectionLabel className="mb-4">Our products</SectionLabel>
           <div className="flex flex-col sm:flex-row sm:items-end sm:justify-between gap-4">
             <h2
               id="portfolio-heading"
               className="text-3xl sm:text-4xl font-bold text-[#1c1c2e] tracking-tight"
             >
-              Products &amp; Projects
+              Products and projects
             </h2>
             <Link
               href="/products"
@@ -66,12 +66,12 @@ export function PortfolioSection() {
                       {project.earlyAccess ? (
                         <span className="flex items-center gap-1.5 px-2.5 py-1 rounded-full bg-amber-50 border border-amber-200 text-[10px] font-semibold text-amber-700">
                           <Sparkles size={9} />
-                          Early Access
+                          Early access
                         </span>
                       ) : (
                         <span className="flex items-center gap-1.5 px-2.5 py-1 rounded-full bg-emerald-50 border border-emerald-200 text-[10px] font-semibold text-emerald-700">
                           <span className="w-1.5 h-1.5 rounded-full bg-emerald-500" />
-                          Live Product
+                          Live product
                         </span>
                       )}
                       <span className="text-[10px] font-medium text-[#9ca3af]">
@@ -101,7 +101,7 @@ export function PortfolioSection() {
                   <div className="flex items-center gap-2 mb-4">
                     <span className="flex items-center gap-1.5 px-2.5 py-1 rounded-full bg-[#f3f4f6] border border-[#e5e7eb] text-[10px] font-semibold text-[#9ca3af] uppercase tracking-wide">
                       <Clock size={9} />
-                      Coming Soon
+                      Coming soon
                     </span>
                     <span className="text-[10px] font-medium text-[#9ca3af]">
                       {project.category}

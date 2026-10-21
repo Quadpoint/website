@@ -126,11 +126,11 @@ export function AISection() {
             id="ai-heading"
             className="text-3xl sm:text-4xl font-bold text-white tracking-tight mb-4"
           >
-            AI Agents That Work Together.
+            Specialized AI agents for connected workflows
           </h2>
           <p className="text-lg text-white/60 max-w-2xl mx-auto">
-            Go beyond chatbots. Deploy specialized AI agents that communicate,
-            coordinate, and automate real business workflows.
+            Use specialized AI agents to share context, hand off tasks, and
+            complete routine business workflows.
           </p>
         </FadeIn>
 
@@ -163,9 +163,8 @@ export function AISection() {
           <div>
             <FadeIn className="mb-6">
               <p className="text-white/70 leading-relaxed">
-                Instead of relying on one general-purpose chatbot, businesses can
-                deploy specialized AI agents designed for specific tasks and
-                workflows — each one focused on what it does best.
+                Businesses can assign specific tasks to specialized AI agents.
+                Each agent handles its part of the workflow and passes the work on.
               </p>
             </FadeIn>
 
@@ -197,7 +196,7 @@ export function AISection() {
                 href="/contact"
                 className="inline-flex items-center gap-2 px-6 py-3 bg-[#f59e0b] text-[#0f1e3d] text-sm font-semibold rounded-lg hover:bg-[#fbb52b] transition-colors"
               >
-                Build an AI Solution
+                Build an AI solution
                 <ArrowRight size={14} />
               </Link>
             </FadeIn>

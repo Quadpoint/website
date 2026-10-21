@@ -161,7 +161,7 @@ export function HeroSection() {
           <div>
             <div className="hero-enter">
               <span className="inline-flex px-3 py-1 rounded-full text-xs font-semibold bg-white/10 text-white/80 border border-white/15 mb-6">
-                Build. Automate. Grow.
+                Software, automation, and AI
               </span>
             </div>
 
@@ -179,11 +179,11 @@ export function HeroSection() {
 
             <div className="hero-enter hero-enter-delay-3 flex flex-col sm:flex-row gap-4">
               <Button href="/solutions" variant="primary" size="lg">
-                Explore Our Solutions
+                Explore our solutions
                 <ArrowRight size={16} className="ml-2" />
               </Button>
               <Button href="/contact" variant="inverse" size="lg">
-                Talk to Us
+                Talk to us
                 <ChevronRight size={16} className="ml-1" />
               </Button>
             </div>

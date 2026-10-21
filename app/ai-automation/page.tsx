@@ -20,7 +20,7 @@ import { FadeIn, StaggerContainer, StaggerItem } from "@/components/animations/F
 export const metadata: Metadata = {
   title: "AI & Automation",
   description:
-    "AI agents, multi-agent systems, and workflow automation from QuadPoint Technology. Deploy intelligent agents that work together to automate real business workflows.",
+    "AI agents, multi-agent systems, and workflow automation from QuadPoint Technology for routine business processes.",
   alternates: { canonical: "https://quadpointtechnology.com/ai-automation" },
 };
 
@@ -29,7 +29,7 @@ const agents = [
     icon: PhoneCall,
     title: "AI Receptionist",
     description:
-      "Handles incoming customer inquiries, provides information, and routes requests to the right team or agent — 24 hours a day.",
+      "Handles incoming customer inquiries 24 hours a day, provides information, and routes requests to the right team or agent.",
     capability: "Customer-Facing",
   },
   {
@@ -79,7 +79,7 @@ const automationCapabilities = [
     icon: Network,
     title: "Multi-Agent Systems",
     description:
-      "Coordinate multiple specialized agents that hand work off to each other — creating automated pipelines across business functions.",
+      "Coordinate specialized agents that pass work between business functions through an automated pipeline.",
   },
   {
     icon: GitMerge,
@@ -158,11 +158,11 @@ export default function AIAutomationPage() {
               AI & Automation
             </SectionLabel>
             <h1 className="text-4xl sm:text-5xl font-bold text-white tracking-tight mb-5">
-              AI Agents That Work Together.
+              Specialized AI agents for connected workflows
             </h1>
             <p className="text-lg text-white/60 leading-relaxed max-w-2xl mx-auto">
-              Go beyond chatbots. Deploy specialized AI agents that communicate,
-              coordinate, and automate real business workflows.
+              Use specialized AI agents to share context, hand off tasks, and
+              complete routine business workflows.
             </p>
           </FadeIn>
           <FadeIn delay={0.15} className="flex flex-wrap justify-center gap-4 mt-10">
@@ -170,13 +170,13 @@ export default function AIAutomationPage() {
               href="/contact"
               className="px-6 py-3 bg-[#1a4fba] text-white text-sm font-semibold rounded-lg hover:bg-[#2d63d4] transition-colors"
             >
-              Build an AI Solution
+              Build an AI solution
             </Link>
             <a
               href="#workflow"
               className="px-6 py-3 bg-white/8 text-white text-sm font-semibold rounded-lg border border-white/15 hover:bg-white/15 transition-colors"
             >
-              See How It Works
+              See how it works
             </a>
           </FadeIn>
         </div>
@@ -194,11 +194,11 @@ export default function AIAutomationPage() {
               id="agents-heading"
               className="text-3xl sm:text-4xl font-bold text-[#1c1c2e] tracking-tight mb-4"
             >
-              Specialized Agents for Specific Roles
+              Specialized agents for specific roles
             </h2>
             <p className="text-lg text-[#6b7280] max-w-2xl mx-auto">
-              Rather than one general chatbot, QuadPoint builds agents designed
-              for specific business functions — each one doing its job well.
+              QuadPoint builds agents for specific business functions. Each
+              agent has a defined task within the workflow.
             </p>
           </FadeIn>
 
@@ -243,18 +243,16 @@ export default function AIAutomationPage() {
                 id="multiagent-heading"
                 className="text-3xl font-bold text-[#1c1c2e] tracking-tight mb-5"
               >
-                Agents That Coordinate, Not Just Chat.
+                Agents that pass work between systems
               </h2>
               <p className="text-[#6b7280] leading-relaxed mb-5">
-                Multi-agent systems go beyond single assistants. Multiple
-                specialized AI agents are connected so they can hand work off to
-                each other, share context, and complete multi-step business
-                processes end-to-end.
+                A multi-agent system connects specialized AI agents so they can
+                share context and pass work through a multi-step process.
               </p>
               <p className="text-[#6b7280] leading-relaxed">
-                This means a customer can move from first contact to booked
-                appointment to CRM record — all without manual intervention,
-                across multiple AI agents working together.
+                For example, the system can move a customer inquiry through
+                qualification and appointment booking, then update the CRM
+                without manual intervention at each step.
               </p>
             </FadeIn>
 
@@ -303,11 +301,11 @@ export default function AIAutomationPage() {
               id="workflow-heading"
               className="text-3xl sm:text-4xl font-bold text-white tracking-tight mb-4"
             >
-              From First Contact to Booked Appointment
+              How an inquiry becomes a booked appointment
             </h2>
             <p className="text-white/60 max-w-xl mx-auto">
-              Here&apos;s how a multi-agent system might handle an incoming customer
-              inquiry — without human involvement at each step.
+              This example shows how a multi-agent system can handle an incoming
+              inquiry without human involvement at every step.
             </p>
           </FadeIn>
 
@@ -348,18 +346,17 @@ export default function AIAutomationPage() {
               id="integrations-heading"
               className="text-3xl font-bold text-[#1c1c2e] tracking-tight mb-5"
             >
-              AI That Works With Your Existing Systems
+              AI that connects to your existing systems
             </h2>
             <p className="text-[#6b7280] leading-relaxed max-w-2xl mx-auto mb-10">
-              QuadPoint builds AI solutions that connect to the tools and
-              platforms your business already uses — rather than forcing you to
-              replace everything.
+              QuadPoint connects AI solutions to the tools and platforms your
+              business already uses, so you do not have to replace every system.
             </p>
             <Link
               href="/contact"
               className="inline-flex items-center gap-2 px-6 py-3 bg-[#1a4fba] text-white text-sm font-semibold rounded-lg hover:bg-[#1240a0] transition-colors"
             >
-              Discuss Your Integration
+              Discuss your integration
               <ArrowRight size={14} />
             </Link>
           </FadeIn>
@@ -367,9 +364,9 @@ export default function AIAutomationPage() {
       </section>
 
       <CTASection
-        heading="Ready to Build an AI Solution?"
+        heading="Ready to build an AI solution?"
         subheading="Tell us about your workflow and we'll design an AI system around it."
-        buttonLabel="Build an AI Solution"
+        buttonLabel="Build an AI solution"
       />
     </>
   );

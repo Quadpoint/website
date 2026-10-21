@@ -10,7 +10,7 @@ const solutions = [
     icon: Monitor,
     title: "Business Software",
     description:
-      "Business systems designed to simplify operations, improve visibility, and help teams make better decisions.",
+      "Business systems that simplify daily operations and give teams a clearer view of their work.",
     capabilities: [
       "Point of Sale (POS)",
       "CRM",
@@ -18,7 +18,7 @@ const solutions = [
       "Business Management Systems",
       "Industry-Specific Software",
     ],
-    cta: "Explore Business Software",
+    cta: "Explore business software",
     href: "/solutions#business-software",
     accent: "#1a4fba",
   },
@@ -26,7 +26,7 @@ const solutions = [
     icon: Bot,
     title: "AI & Automation",
     description:
-      "Intelligent AI agents and automated workflows that reduce repetitive work and help businesses operate more efficiently.",
+      "AI agents and automated workflows that reduce repetitive work across business operations.",
     capabilities: [
       "AI Agents",
       "Multi-Agent AI",
@@ -35,7 +35,7 @@ const solutions = [
       "Workflow Automation",
       "AI Integrations",
     ],
-    cta: "Explore AI & Automation",
+    cta: "Explore AI and automation",
     href: "/ai-automation",
     accent: "#1a4fba",
   },
@@ -43,7 +43,7 @@ const solutions = [
     icon: Code2,
     title: "Custom Development",
     description:
-      "Custom digital solutions designed around your unique business requirements.",
+      "Custom digital solutions built for your business requirements.",
     capabilities: [
       "Web Applications",
       "Mobile Applications",
@@ -51,7 +51,7 @@ const solutions = [
       "APIs",
       "System Integrations",
     ],
-    cta: "Discuss Your Project",
+    cta: "Discuss your project",
     href: "/contact",
     accent: "#1a4fba",
   },
@@ -83,11 +83,11 @@ export function SolutionsSection() {
             id="solutions-heading"
             className="text-3xl sm:text-4xl font-bold text-[#1c1c2e] tracking-tight mb-4"
           >
-            Technology Built Around Your Business
+            Software that fits your operations
           </h2>
           <p className="text-base sm:text-lg text-[#6b7280] leading-relaxed max-w-3xl mx-auto">
-            From business management systems to intelligent automation, we
-            design technology around the way businesses actually work.
+            We build management systems, custom apps, and automated workflows
+            around the tools and processes your team already uses.
           </p>
           <div className="mt-8 flex flex-wrap justify-center gap-2.5">
             {capabilities.map((capability) => (

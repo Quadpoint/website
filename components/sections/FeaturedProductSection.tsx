@@ -128,8 +128,8 @@ function POSMockup() {
             Restock Alerts
           </p>
           {[
-            { item: "Coffee Beans — Dark Roast", qty: "12 units" },
-            { item: "Paper Cups — Large", qty: "8 units" },
+            { item: "Coffee Beans, Dark Roast", qty: "12 units" },
+            { item: "Paper Cups, Large", qty: "8 units" },
           ].map((alert) => (
             <div
               key={alert.item}
@@ -164,7 +164,7 @@ export function FeaturedProductSection() {
           {/* Right — content */}
           <div>
             <FadeIn>
-              <SectionLabel className="mb-4">Featured Product</SectionLabel>
+              <SectionLabel className="mb-4">Featured product</SectionLabel>
               <h2
                 id="pos-heading"
                 className="text-3xl sm:text-4xl font-bold text-[#1c1c2e] tracking-tight mb-4"

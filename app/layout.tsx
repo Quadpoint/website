@@ -17,7 +17,7 @@ export const metadata: Metadata = {
     template: "%s | QuadPoint Technology",
   },
   description:
-    "QuadPoint Technology builds business software, AI agents, and automation solutions that help businesses operate smarter and grow faster.",
+    "QuadPoint Technology builds business software, AI agents, and automated workflows to make daily operations more efficient and help businesses grow faster.",
   keywords: [
     "QuadPoint Technology",
     "business software",
@@ -41,7 +41,7 @@ export const metadata: Metadata = {
     siteName: "QuadPoint Technology",
     title: "QuadPoint Technology | Business Software & Automation Solutions",
     description:
-      "Business software, AI agents, and automation solutions built to help businesses operate smarter and grow faster.",
+      "Business software, AI agents, and automated workflows that make daily operations more efficient and help businesses grow faster.",
     images: [
       {
         url: "/og-image.png",
@@ -55,7 +55,7 @@ export const metadata: Metadata = {
     card: "summary_large_image",
     title: "QuadPoint Technology | Business Software & Automation Solutions",
     description:
-      "Business software, AI agents, and automation solutions built to help businesses operate smarter and grow faster.",
+      "Business software, AI agents, and automated workflows that make daily operations more efficient and help businesses grow faster.",
     images: ["/og-image.png"],
   },
   icons: {

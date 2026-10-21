@@ -19,28 +19,28 @@ const steps = [
     number: "01",
     title: "Discover",
     description:
-      "Understand the business, its challenges, and opportunities. We ask the right questions before writing a single line of code.",
+      "We learn how the business operates and where the current process causes problems before writing code.",
     icon: Search,
   },
   {
     number: "02",
     title: "Design",
     description:
-      "Design a technology solution around the actual workflow. Architecture, UX, and system design come before development.",
+      "We design the solution around the actual workflow. Architecture and user experience come before development.",
     icon: Pencil,
   },
   {
     number: "03",
     title: "Build",
     description:
-      "Develop, integrate, test, and deploy the solution. Clean, maintainable code built to production standards.",
+      "We develop, integrate, test, and deploy the solution using maintainable code and production standards.",
     icon: Settings,
   },
   {
     number: "04",
     title: "Grow",
     description:
-      "Improve and expand the system as the business evolves. Technology should scale with your ambitions.",
+      "We improve and expand the system as the business changes so the technology can grow with it.",
     icon: BarChart3,
   },
 ];
@@ -569,17 +569,17 @@ export function HowWeWorkSection() {
       <div className="relative mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 xl:px-12">
         <FadeIn className="mb-12 text-center lg:mb-16">
           <SectionLabel variant="white" className="mb-4">
-            Our Process
+            Our process
           </SectionLabel>
           <h2
             id="process-heading"
             className="mb-4 text-3xl font-bold tracking-tight text-white sm:text-4xl"
           >
-            From Ideas to Impact
+            From business problem to working software
           </h2>
           <p className="mx-auto max-w-xl text-base leading-relaxed text-white/65 sm:text-lg">
-            A deliberate process that turns business problems into working
-            technology.
+            We learn how the work happens, design the right approach, and build
+            a system your team can use.
           </p>
         </FadeIn>
 
