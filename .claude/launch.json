@@ -1,0 +1,35 @@
+{
+  "version": "0.0.1",
+  "configurations": [
+    {
+      "name": "web",
+      "runtimeExecutable": "npm",
+      "runtimeArgs": ["run", "dev"],
+      "port": 3000
+    },
+    {
+      "name": "pos",
+      "runtimeExecutable": "npm",
+      "runtimeArgs": ["--prefix", "C:/dev/pos", "run", "dev", "--", "-p", "3001"],
+      "port": 3001
+    },
+    {
+      "name": "gym",
+      "runtimeExecutable": "npm",
+      "runtimeArgs": ["--prefix", "D:/dev/gym", "run", "dev", "--", "-p", "3005"],
+      "port": 3005
+    },
+    {
+      "name": "barber",
+      "runtimeExecutable": "npm",
+      "runtimeArgs": ["--prefix", "D:/dev/barber", "run", "dev", "--", "-p", "3007"],
+      "port": 3007
+    },
+    {
+      "name": "clinic",
+      "runtimeExecutable": "npm",
+      "runtimeArgs": ["--prefix", "C:/dev/medrep", "run", "dev", "--", "-p", "3009"],
+      "port": 3009
+    }
+  ]
+}

@@ -4,6 +4,9 @@ const inquiryEmail = "quadpointtechnology@gmail.com";
 const serviceLabels: Record<ContactFormValues["service"], string> = {
   "business-software": "Business Software",
   pos: "POS",
+  gym: "Gym Management",
+  barbershop: "Barbershop Booking",
+  clinic: "Clinic Queue & Appointments",
   crm: "CRM",
   "ai-agents": "AI Agents",
   "multi-agent-ai": "Multi-Agent AI",

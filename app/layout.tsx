@@ -36,7 +36,7 @@ export const metadata: Metadata = {
   publisher: "QuadPoint Technology",
   openGraph: {
     type: "website",
-    locale: "en_US",
+    locale: "en_PH",
     url: "https://quadpointtechnology.com",
     siteName: "QuadPoint Technology",
     title: "QuadPoint Technology | Business Software & Automation Solutions",

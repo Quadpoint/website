@@ -22,11 +22,28 @@ import { SectionLabel } from "@/components/ui/SectionLabel";
 import { CTASection } from "@/components/sections/CTASection";
 import { FadeIn, StaggerContainer, StaggerItem } from "@/components/animations/FadeIn";
 
+const pageDescription =
+  "Business software, POS, booking systems, and AI automation for small and growing businesses in the Philippines, from QuadPoint Technology.";
+
 export const metadata: Metadata = {
   title: "Solutions",
-  description:
-    "Business software, AI agents, and custom development solutions from QuadPoint Technology. Designed around how businesses actually work.",
+  description: pageDescription,
   alternates: { canonical: "https://quadpointtechnology.com/solutions" },
+  openGraph: {
+    type: "website",
+    locale: "en_PH",
+    url: "https://quadpointtechnology.com/solutions",
+    siteName: "QuadPoint Technology",
+    title: "Solutions | QuadPoint Technology",
+    description: pageDescription,
+    images: [{ url: "/og-image.png", width: 1200, height: 630, alt: "QuadPoint Technology" }],
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Solutions | QuadPoint Technology",
+    description: pageDescription,
+    images: ["/og-image.png"],
+  },
 };
 
 const allSolutions = [

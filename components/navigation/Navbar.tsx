@@ -3,7 +3,8 @@
 import { useState, useEffect, useLayoutEffect, useRef } from "react";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
-import { Menu, X } from "lucide-react";
+import { ChevronDown, Menu, X } from "lucide-react";
+import * as DropdownMenu from "@radix-ui/react-dropdown-menu";
 import { motion, AnimatePresence } from "framer-motion";
 import { Logo } from "@/components/ui/Logo";
 import { cn } from "@/lib/utils";
@@ -18,10 +19,26 @@ import {
   getNavbarScrollState,
 } from "@/lib/navbar-scroll";
 
-const navLinks = [
+interface NavLink {
+  href: string;
+  label: string;
+  children?: { href: string; label: string }[];
+}
+
+const navLinks: NavLink[] = [
   { href: "/", label: "Home" },
   { href: "/solutions", label: "Solutions" },
-  { href: "/products", label: "Products" },
+  {
+    href: "/products",
+    label: "Products",
+    children: [
+      { href: "/products", label: "All Products" },
+      { href: "/products/pos", label: "QuadPoint POS" },
+      { href: "/products/gym", label: "QuadPoint Gym" },
+      { href: "/products/barbers", label: "QuadPoint Barbers" },
+      { href: "/products/clinic", label: "QuadPoint Clinic" },
+    ],
+  },
   { href: "/ai-automation", label: "AI & Automation" },
   { href: "/about", label: "About" },
   { href: "/contact", label: "Contact" },
@@ -131,18 +148,59 @@ export function Navbar() {
               className="hidden lg:flex items-center gap-1"
               aria-label="Main navigation"
             >
-              {navLinks.map((link) => (
-                <Link
-                  key={link.href}
-                  href={link.href}
-                  className={cn(
-                    "px-3.5 py-2 text-sm font-medium transition-colors duration-150",
-                    getNavbarDesktopLinkClassName(isActive(link.href))
-                  )}
-                >
-                  {link.label}
-                </Link>
-              ))}
+              {navLinks.map((link) =>
+                link.children ? (
+                  <DropdownMenu.Root key={link.href} modal={false}>
+                    <DropdownMenu.Trigger
+                      className={cn(
+                        "group inline-flex items-center gap-1 px-3.5 py-2 text-sm font-medium transition-colors duration-150 outline-none",
+                        getNavbarDesktopLinkClassName(isActive(link.href))
+                      )}
+                    >
+                      {link.label}
+                      <ChevronDown
+                        size={14}
+                        className="transition-transform duration-150 group-data-[state=open]:rotate-180"
+                        aria-hidden="true"
+                      />
+                    </DropdownMenu.Trigger>
+                    <DropdownMenu.Portal>
+                      <DropdownMenu.Content
+                        align="start"
+                        sideOffset={8}
+                        className="z-[60] min-w-48 rounded-xl border border-white/15 bg-[#0b2443] p-1.5 shadow-[0_16px_40px_-12px_rgba(0,0,0,0.6)]"
+                      >
+                        {link.children.map((child) => (
+                          <DropdownMenu.Item key={child.href} asChild>
+                            <Link
+                              href={child.href}
+                              className={cn(
+                                "flex rounded-lg px-3 py-2 text-sm font-medium outline-none transition-colors",
+                                pathname === child.href
+                                  ? "bg-[#1a4fba]/35 text-white"
+                                  : "text-white/75 data-[highlighted]:bg-white/10 data-[highlighted]:text-white"
+                              )}
+                            >
+                              {child.label}
+                            </Link>
+                          </DropdownMenu.Item>
+                        ))}
+                      </DropdownMenu.Content>
+                    </DropdownMenu.Portal>
+                  </DropdownMenu.Root>
+                ) : (
+                  <Link
+                    key={link.href}
+                    href={link.href}
+                    className={cn(
+                      "px-3.5 py-2 text-sm font-medium transition-colors duration-150",
+                      getNavbarDesktopLinkClassName(isActive(link.href))
+                    )}
+                  >
+                    {link.label}
+                  </Link>
+                )
+              )}
             </nav>
 
             {/* Desktop CTA */}
@@ -237,6 +295,24 @@ export function Navbar() {
                     >
                       {link.label}
                     </Link>
+                    {link.children && (
+                      <div className="mt-1 space-y-1 pl-3">
+                        {link.children.map((child) => (
+                          <Link
+                            key={child.href}
+                            href={child.href}
+                            className={cn(
+                              "flex items-center px-3 py-2 rounded-lg text-sm transition-colors",
+                              pathname === child.href
+                                ? "text-white"
+                                : "text-white/55 hover:text-white hover:bg-white/10"
+                            )}
+                          >
+                            {child.label}
+                          </Link>
+                        ))}
+                      </div>
+                    )}
                   </motion.div>
                 ))}
               </nav>

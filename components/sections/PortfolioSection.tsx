@@ -1,96 +1,16 @@
 "use client";
 
+import Image from "next/image";
 import Link from "next/link";
-import { ArrowRight, Clock, ShoppingCart } from "lucide-react";
+import { ArrowRight, Clock, Sparkles } from "lucide-react";
 import { FadeIn, StaggerContainer, StaggerItem } from "@/components/animations/FadeIn";
 import { SectionLabel } from "@/components/ui/SectionLabel";
+import { products } from "@/lib/products";
 
-/**
- * Inline POS product card — minimal dark mockup thumbnail.
- */
-function POSCardVisual() {
-  return (
-    <div className="w-full bg-[#0f1e3d] rounded-xl overflow-hidden border border-white/10">
-      {/* Window chrome */}
-      <div className="flex items-center gap-1.5 px-3 py-2 bg-white/5 border-b border-white/8">
-        <span className="w-2 h-2 rounded-full bg-white/15" />
-        <span className="w-2 h-2 rounded-full bg-white/15" />
-        <span className="w-2 h-2 rounded-full bg-white/15" />
-        <span className="flex-1 text-center text-[9px] text-white/30 font-medium">
-          Illustrative product preview
-        </span>
-      </div>
-
-      <div className="p-3 space-y-2">
-        {/* Stat row */}
-        <div className="grid grid-cols-2 gap-2">
-          {[
-            { label: "Revenue", val: "Sample" },
-            { label: "Transactions", val: "Sample" },
-          ].map((s) => (
-            <div key={s.label} className="bg-white/6 rounded-lg p-2 border border-white/8">
-              <p className="text-[8px] text-white/40 mb-0.5">{s.label}</p>
-              <p className="text-sm font-bold text-white">{s.val}</p>
-            </div>
-          ))}
-        </div>
-
-        {/* Mini chart */}
-        <div className="bg-white/4 rounded-lg p-2.5 border border-white/8">
-          <div className="flex items-end gap-1 h-8">
-            {[40, 60, 35, 75, 50, 90, 65].map((pct, i) => (
-              <div
-                key={i}
-                className="flex-1 rounded-sm"
-                style={{
-                  height: `${pct}%`,
-                  background: i === 5 ? "#1a4fba" : "rgba(255,255,255,0.12)",
-                  borderRadius: "2px 2px 0 0",
-                }}
-              />
-            ))}
-          </div>
-        </div>
-      </div>
-    </div>
-  );
+/** "Explore POS", "Explore Gym", ... from the product title */
+function exploreLabel(title: string) {
+  return `Explore ${title.replace(/^QuadPoint\s+/, "")}`;
 }
-
-const projects = [
-  {
-    id: "quadpoint-pos",
-    status: "live" as const,
-    category: "Business Software",
-    title: "QuadPoint POS",
-    description:
-      "A complete point-of-sale and business management system. Sales, inventory, analytics, and restock insights in one system.",
-    href: "/products",
-    cta: "Explore POS",
-    visual: <POSCardVisual />,
-  },
-  {
-    id: "crm",
-    status: "soon" as const,
-    category: "Business Software",
-    title: "QuadPoint CRM",
-    description:
-      "A customer relationship management system built for businesses that need clear client visibility and follow-up workflows.",
-    href: null,
-    cta: null,
-    visual: null,
-  },
-  {
-    id: "ai-suite",
-    status: "soon" as const,
-    category: "AI & Automation",
-    title: "AI Agent Suite",
-    description:
-      "A platform for deploying and managing specialized AI agents across business operations.",
-    href: null,
-    cta: null,
-    visual: null,
-  },
-];
 
 export function PortfolioSection() {
   return (
@@ -100,7 +20,7 @@ export function PortfolioSection() {
     >
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 xl:px-12">
         <FadeIn className="mb-12">
-          <SectionLabel className="mb-4">What We&apos;re Building</SectionLabel>
+          <SectionLabel className="mb-4">Our Products</SectionLabel>
           <div className="flex flex-col sm:flex-row sm:items-end sm:justify-between gap-4">
             <h2
               id="portfolio-heading"
@@ -119,23 +39,41 @@ export function PortfolioSection() {
         </FadeIn>
 
         <StaggerContainer className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6 xl:gap-8">
-          {projects.map((project) => (
-            <StaggerItem key={project.id}>
-              {project.status === "live" ? (
+          {products.map((project) => (
+            <StaggerItem key={project.slug}>
+              {project.href ? (
                 /* Live product card */
                 <div className="interactive-card gloss-card group rounded-2xl border border-[#e5e7eb] overflow-hidden transition-all duration-300 h-full flex flex-col">
-                  {/* Visual thumbnail */}
+                  {/* Product screenshot */}
                   <div className="p-5 pb-0 xl:p-7 xl:pb-0">
-                    {project.visual}
+                    {project.image && (
+                      <div className="aspect-[16/10] overflow-hidden rounded-xl border border-white/10">
+                        <Image
+                          src={project.image}
+                          alt={`${project.title} screenshot`}
+                          width={2400}
+                          height={1500}
+                          sizes="(min-width: 1024px) 380px, (min-width: 640px) 50vw, 100vw"
+                          className="h-full w-full object-cover object-left-top"
+                        />
+                      </div>
+                    )}
                   </div>
 
                   <div className="p-5 xl:p-7 flex flex-col flex-1">
                     {/* Status + category */}
                     <div className="flex items-center gap-2 mb-3">
-                      <span className="flex items-center gap-1.5 px-2.5 py-1 rounded-full bg-emerald-50 border border-emerald-200 text-[10px] font-semibold text-emerald-700">
-                        <span className="w-1.5 h-1.5 rounded-full bg-emerald-500" />
-                        Live Product
-                      </span>
+                      {project.earlyAccess ? (
+                        <span className="flex items-center gap-1.5 px-2.5 py-1 rounded-full bg-amber-50 border border-amber-200 text-[10px] font-semibold text-amber-700">
+                          <Sparkles size={9} />
+                          Early Access
+                        </span>
+                      ) : (
+                        <span className="flex items-center gap-1.5 px-2.5 py-1 rounded-full bg-emerald-50 border border-emerald-200 text-[10px] font-semibold text-emerald-700">
+                          <span className="w-1.5 h-1.5 rounded-full bg-emerald-500" />
+                          Live Product
+                        </span>
+                      )}
                       <span className="text-[10px] font-medium text-[#9ca3af]">
                         {project.category}
                       </span>
@@ -148,16 +86,13 @@ export function PortfolioSection() {
                       {project.description}
                     </p>
 
-                    {project.href && project.cta && (
-                      <Link
-                        href={project.href}
-                        className="interactive-card-link inline-flex min-h-11 items-center gap-2 text-sm font-semibold text-[#8ed0ff] transition-colors duration-300"
-                      >
-                        <ShoppingCart size={13} />
-                        {project.cta}
-                        <ArrowRight size={13} />
-                      </Link>
-                    )}
+                    <Link
+                      href={project.href}
+                      className="interactive-card-link inline-flex min-h-11 items-center gap-2 text-sm font-semibold text-[#8ed0ff] transition-colors duration-300"
+                    >
+                      {exploreLabel(project.title)}
+                      <ArrowRight size={13} />
+                    </Link>
                   </div>
                 </div>
               ) : (

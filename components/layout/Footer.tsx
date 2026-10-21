@@ -30,8 +30,11 @@ const footerNav = [
   {
     label: "Products",
     links: [
-      { href: "/products",      label: "QuadPoint POS" },
-      { href: "/products#coming-soon", label: "Coming Soon" },
+      { href: "/products",      label: "All Products" },
+      { href: "/products/pos",  label: "QuadPoint POS" },
+      { href: "/products/gym",  label: "QuadPoint Gym" },
+      { href: "/products/barbers", label: "QuadPoint Barbers" },
+      { href: "/products/clinic", label: "QuadPoint Clinic" },
     ],
   },
   {

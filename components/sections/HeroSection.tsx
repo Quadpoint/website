@@ -166,15 +166,15 @@ export function HeroSection() {
             </div>
 
             <h1 className="hero-enter hero-enter-delay-1 text-4xl sm:text-5xl lg:text-[3.5rem] xl:text-[4rem] font-bold text-white leading-[1.1] tracking-tight mb-6">
-              Technology That{" "}
-              <span className="text-[#2d63d4]">Moves Your Business</span>{" "}
-              Forward.
+              Software for{" "}
+              <span className="text-[#2d63d4]">Cafés, Gyms, Barbershops,</span>{" "}
+              and Clinics.
             </h1>
 
             <p className="hero-enter hero-enter-delay-2 text-lg text-white/65 leading-relaxed mb-10 max-w-[520px] xl:max-w-[640px]">
-              QuadPoint delivers intelligent software, AI agents, and
-              automation solutions built to help businesses operate smarter and
-              grow faster.
+              POS, online bookings, memberships, and patient queues for
+              Philippine businesses, plus AI and custom software when you need
+              more.
             </p>
 
             <div className="hero-enter hero-enter-delay-3 flex flex-col sm:flex-row gap-4">
@@ -189,11 +189,12 @@ export function HeroSection() {
             </div>
 
             {/* Trust bar */}
-            <div className="hero-enter hero-enter-delay-4 flex items-center gap-6 mt-8">
+            <div className="hero-enter hero-enter-delay-4 flex flex-wrap items-center gap-x-6 gap-y-2 mt-8">
               {[
-                "Business Software",
-                "AI Agents",
-                "Automation",
+                "POS",
+                "Gym",
+                "Barbers",
+                "Clinic",
               ].map((item) => (
                 <div key={item} className="flex items-center gap-2">
                   <span className="w-1.5 h-1.5 rounded-full bg-[#1a4fba]" />

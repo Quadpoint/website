@@ -191,6 +191,54 @@ body {
   background-repeat: repeat, repeat, no-repeat !important;
 }
 
+/* Product pages use deep navy sections with soft glows, a dotted
+   corner and a light arc instead of the site-wide grid canvas. */
+.site-theme .product-page section:not(.cta-panel) {
+  position: relative;
+  overflow: hidden;
+  border-top: 1px solid rgb(109 183 255 / 0.16);
+  background-color: #061a3d !important;
+  background-image:
+    radial-gradient(55% 65% at 78% 38%, rgb(20 120 235 / 0.24), transparent 70%),
+    linear-gradient(180deg, #05173a 0%, #0a2654 100%) !important;
+  background-size: cover !important;
+  background-repeat: no-repeat !important;
+}
+
+.site-theme .product-page section:first-of-type {
+  border-top: 0;
+}
+
+.product-page section::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 240px;
+  height: 340px;
+  background-image: radial-gradient(circle, rgb(142 208 255 / 0.28) 1px, transparent 1.5px);
+  background-size: 12px 12px;
+  mask-image: radial-gradient(circle at 0 0, #000 0%, transparent 72%);
+  pointer-events: none;
+}
+
+.product-page section::after {
+  content: "";
+  position: absolute;
+  top: 8%;
+  right: -18%;
+  width: 75%;
+  height: 160%;
+  border-radius: 50%;
+  border-top: 1.5px solid rgb(59 155 255 / 0.22);
+  pointer-events: none;
+}
+
+.product-page section > * {
+  position: relative;
+  z-index: 1;
+}
+
 .site-theme [class~="bg-white"],
 .site-theme [class~="bg-[#f9fafb]"],
 .site-theme [class~="bg-[#f3f4f6]"] {

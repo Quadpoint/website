@@ -4,11 +4,28 @@ import { SectionLabel } from "@/components/ui/SectionLabel";
 import { ContactForm } from "@/components/forms/ContactForm";
 import { FadeIn } from "@/components/animations/FadeIn";
 
+const pageDescription =
+  "Talk to QuadPoint, a Philippine software team. Request a demo of our POS, gym, or barbershop systems, or join early access for clinics.";
+
 export const metadata: Metadata = {
   title: "Contact",
-  description:
-    "Get in touch with QuadPoint Technology. Tell us about your business challenge and we'll help you find the right technology solution.",
+  description: pageDescription,
   alternates: { canonical: "https://quadpointtechnology.com/contact" },
+  openGraph: {
+    type: "website",
+    locale: "en_PH",
+    url: "https://quadpointtechnology.com/contact",
+    siteName: "QuadPoint Technology",
+    title: "Contact | QuadPoint Technology",
+    description: pageDescription,
+    images: [{ url: "/og-image.png", width: 1200, height: 630, alt: "QuadPoint Technology" }],
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Contact | QuadPoint Technology",
+    description: pageDescription,
+    images: ["/og-image.png"],
+  },
 };
 
 export default function ContactPage() {

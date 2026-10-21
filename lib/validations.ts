@@ -21,6 +21,9 @@ export const contactFormSchema = z.object({
     [
       "business-software",
       "pos",
+      "gym",
+      "barbershop",
+      "clinic",
       "crm",
       "ai-agents",
       "multi-agent-ai",
@@ -46,6 +49,9 @@ export type ContactFormValues = z.infer<typeof contactFormSchema>;
 export const serviceOptions = [
   { value: "business-software", label: "Business Software" },
   { value: "pos", label: "POS" },
+  { value: "gym", label: "Gym Management" },
+  { value: "barbershop", label: "Barbershop Booking" },
+  { value: "clinic", label: "Clinic Queue & Appointments" },
   { value: "crm", label: "CRM" },
   { value: "ai-agents", label: "AI Agents" },
   { value: "multi-agent-ai", label: "Multi-Agent AI" },

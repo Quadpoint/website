@@ -202,7 +202,7 @@ export function FeaturedProductSection() {
 
             <FadeIn delay={0.3}>
               <Link
-                href="/products"
+                href="/products/pos"
                 className="inline-flex items-center gap-2 px-6 py-3 bg-[#1a4fba] text-white text-sm font-semibold rounded-lg hover:bg-[#1240a0] transition-colors shadow-sm hover:shadow-[0_4px_16px_-4px_rgba(26,79,186,0.5)]"
               >
                 Explore QuadPoint POS
